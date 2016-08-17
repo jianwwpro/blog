@@ -100,7 +100,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/blog/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/blog/tags/react/" style="font-size: 10px;">react</a> <a href="/blog/tags/前端/" style="font-size: 10px;">前端</a> <a href="/blog/tags/学习笔记/" style="font-size: 10px;">学习笔记</a>
+						<a href="/blog/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/blog/tags/ionic/" style="font-size: 10px;">ionic</a> <a href="/blog/tags/ionic2/" style="font-size: 10px;">ionic2</a> <a href="/blog/tags/react/" style="font-size: 10px;">react</a> <a href="/blog/tags/前端/" style="font-size: 10px;">前端</a> <a href="/blog/tags/学习笔记/" style="font-size: 20px;">学习笔记</a>
 					</div>
 				</section>
 				
@@ -161,6 +161,90 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-Ionic2学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2016/08/17/Ionic2学习笔记/" class="article-date">
+  	<time datetime="2016-08-17T12:37:48.000Z" itemprop="datePublished">2016-08-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2016/08/17/Ionic2学习笔记/">Ionic2学习笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-Action-Sheets"><a href="#1-Action-Sheets" class="headerlink" title="1. Action Sheets"></a>1. Action Sheets</h2><p>role: descructive、cancel<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.actionSheetController.create(&#123;</div><div class="line">    title:<span class="string">'xxx'</span>,</div><div class="line">    buttons:[</div><div class="line">        &#123;</div><div class="line">            text:<span class="string">''</span>,</div><div class="line">            role:<span class="string">'descructive'</span></div><div class="line">        &#125;</div><div class="line">        ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h2 id="2-Alerts"><a href="#2-Alerts" class="headerlink" title="2. Alerts"></a>2. Alerts</h2><h3 id="Basic-Alert"><a href="#Basic-Alert" class="headerlink" title="Basic Alert"></a>Basic Alert</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.alertController.create(&#123;</div><div class="line">    title:<span class="string">'xxx'</span>,</div><div class="line">    subTitle:<span class="string">'xxx'</span>,</div><div class="line">    buttons:[<span class="string">'OK'</span>]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="Prompt-Alert"><a href="#Prompt-Alert" class="headerlink" title="Prompt Alert"></a>Prompt Alert</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> propmt = <span class="keyword">this</span>.alertController.create(&#123;</div><div class="line">    title: <span class="string">'Login'</span>,</div><div class="line">    message:<span class="string">''</span>,</div><div class="line">    inputs:[</div><div class="line">        &#123;</div><div class="line">            name:<span class="string">'title'</span>,</div><div class="line">            placehodler:<span class="string">'enter title'</span></div><div class="line">        &#125;,</div><div class="line">    ],</div><div class="line">    buttons:[</div><div class="line">        &#123;</div><div class="line">            text:<span class="string">'OK'</span>,</div><div class="line">            handler:data=&gt;&#123;</div><div class="line">                <span class="built_in">console</span>.log(data);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;);</div><div class="line">propmt.present();</div></pre></td></tr></table></figure>
+<h3 id="Confirmation-Alerts"><a href="#Confirmation-Alerts" class="headerlink" title="Confirmation Alerts"></a>Confirmation Alerts</h3><p>类似上面</p>
+<h3 id="Radio"><a href="#Radio" class="headerlink" title="Radio"></a>Radio</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> radioAlert = <span class="keyword">this</span>.alertController.create();</div><div class="line">radioAlert.setTitle(<span class="string">"title"</span>);</div><div class="line">radioAlert.addInput(&#123;</div><div class="line">    type:<span class="string">'radio'</span>,</div><div class="line">    label:<span class="string">'label'</span>,</div><div class="line">    value:<span class="string">'value'</span>,</div><div class="line">    checked:<span class="literal">true</span></div><div class="line">&#125;);</div><div class="line">radioAlert.addButton(<span class="string">'cancel'</span>);</div><div class="line">radioAlert.addButton(&#123;</div><div class="line">    text:<span class="string">'OK'</span>,</div><div class="line">    handler:data=&gt;&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">radioAlert.present();</div></pre></td></tr></table></figure>
+<h3 id="Checkbox"><a href="#Checkbox" class="headerlink" title="Checkbox"></a>Checkbox</h3><p>与radio alert类似，type为checkbox</p>
+<h2 id="4-Badges"><a href="#4-Badges" class="headerlink" title="4.Badges"></a>4.Badges</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ion-item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-icon</span> <span class="attr">name</span>=<span class="string">"logo=twitter"</span> <span class="attr">item-left</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-icon</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-badge</span> <span class="attr">item-right</span>&gt;</span>260k<span class="tag">&lt;/<span class="name">ion-badge</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ion-item</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">ion-badge</span> <span class="attr">secondary</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-badge</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="5-buttons"><a href="#5-buttons" class="headerlink" title="5. buttons"></a>5. buttons</h2><ul>
+<li>default</li>
+<li>outline</li>
+<li>clear</li>
+<li>round</li>
+<li>block</li>
+<li>full</li>
+<li>button size : small large</li>
+<li><p>icon buttons</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-icon</span> <span class="attr">name</span>=<span class="string">'home'</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-icon</span>&gt;</span></div><div class="line">    Left Icon</div><div class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>floating button</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;button fab&gt;FAB&lt;/button&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>buttons in components</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ion-header&gt;ion-buttons[start]&gt;button&gt;icon-icon[name=&apos;contact&apos;]</div><div class="line">            ion-buttons[end]&gt;button&gt;icon-icon[name=&apos;search&apos;]</div><div class="line">ion-list&gt;ion-item&gt;button[outline][item-right]&gt;ion-icon[name=&quot;star&quot;]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="6-Cards"><a href="#6-Cards" class="headerlink" title="6. Cards"></a>6. Cards</h2><h3 id="Basic-Cards"><a href="#Basic-Cards" class="headerlink" title="Basic Cards"></a>Basic Cards</h3><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ion-card&gt;ion-card-header</div><div class="line">        &gt;ion-card-content</div></pre></td></tr></table></figure>
+</code></pre><h3 id="Card-Headers"><a href="#Card-Headers" class="headerlink" title="Card Headers"></a>Card Headers</h3><h3 id="List-In-Cards"><a href="#List-In-Cards" class="headerlink" title="List In Cards"></a>List In Cards</h3><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ion-card&gt;ion-card-header</div><div class="line">        &gt;ion-list&gt;button[ion-item]&gt;ion-icon[name='cart'][item-left]shopping</div></pre></td></tr></table></figure>
+</code></pre><h3 id="Images-In-Cards"><a href="#Images-In-Cards" class="headerlink" title="Images In Cards"></a>Images In Cards</h3><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ion-card&gt;img</div><div class="line">        &gt;ion-card-content&gt;ion-card-title</div><div class="line">                         &gt;p</div></pre></td></tr></table></figure>
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/ionic/">ionic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/ionic2/">ionic2</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/学习笔记/">学习笔记</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-React0-14发布拆分react和React-dom" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -275,7 +359,7 @@
         <h3 id="单一数据源"><a href="#单一数据源" class="headerlink" title="单一数据源"></a>单一数据源</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 这是一个 reducer，形式为 (state, action) =&gt; state 的纯函数。</div><div class="line"> * 描述了 action 如何把 state 转变成下一个 state。</div><div class="line"> *</div><div class="line"> * state 的形式取决于你，可以是基本类型、数组、对象、</div><div class="line"> * 甚至是 Immutable.js 生成的数据结构。惟一的要点是</div><div class="line"> * 当 state 变化时需要返回全新的对象，而不是修改传入的参数。</div><div class="line"> *</div><div class="line"> * 下面例子使用 `switch` 语句和字符串来做判断，但你可以写帮助类(helper)</div><div class="line"> * 根据不同的约定（如方法映射）来判断，只要适用你的项目即可。</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">counter</span>(<span class="params">state = 0, action</span>) </span>&#123;</div><div class="line">  <span class="keyword">switch</span> (action.type) &#123;</div><div class="line">  <span class="keyword">case</span> <span class="string">'INCREMENT'</span>:</div><div class="line">    <span class="keyword">return</span> state + <span class="number">1</span>;</div><div class="line">  <span class="keyword">case</span> <span class="string">'DECREMENT'</span>:</div><div class="line">    <span class="keyword">return</span> state - <span class="number">1</span>;</div><div class="line">  <span class="keyword">default</span>:</div><div class="line">    <span class="keyword">return</span> state;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 创建 Redux store 来存放应用的状态。</span></div><div class="line"><span class="comment">// API 是 &#123; subscribe, dispatch, getState &#125;。</span></div><div class="line"><span class="keyword">let</span> store = createStore(counter);</div><div class="line"></div><div class="line"><span class="comment">// 可以手动订阅更新，也可以事件绑定到视图层。</span></div><div class="line">store.subscribe(() =&gt;</div><div class="line">  <span class="built_in">console</span>.log(store.getState())</div><div class="line">);</div><div class="line"></div><div class="line"><span class="comment">// 改变内部 state 惟一方法是 dispatch 一个 action。</span></div><div class="line"><span class="comment">// action 可以被序列化，用日记记录和储存下来，后期还可以以回放的方式执行</span></div><div class="line">store.dispatch(&#123; type: <span class="string">'INCREMENT'</span> &#125;);</div><div class="line"><span class="comment">// 1</span></div><div class="line">store.dispatch(&#123; type: <span class="string">'INCREMENT'</span> &#125;);</div><div class="line"><span class="comment">// 2</span></div><div class="line">store.dispatch(&#123; type: <span class="string">'DECREMENT'</span> &#125;);</div><div class="line"><span class="comment">// 1</span></div></pre></td></tr></table></figure>
 <h3 id="入口"><a href="#入口" class="headerlink" title="入口"></a>入口</h3><h4 id="1-产出store"><a href="#1-产出store" class="headerlink" title="1. 产出store"></a>1. 产出store</h4><p>redux.createStore  进行创建store，参数是reducers</p>
 <h4 id="2-产出-reduce"><a href="#2-产出-reduce" class="headerlink" title="2. 产出 reduce"></a>2. 产出 reduce</h4><p>reducers 输出 redux.combineReducers({各种switch case方法,…})<br>每一次状态改变都会影响reducers的输出</p>
-<h4 id="3-将store-输入到react-redux"><a href="#3-将store-输入到react-redux" class="headerlink" title="3. 将store 输入到react-redux"></a>3. 将store 输入到react-redux</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Provivder &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span></div><div class="line">&lt;Provider sotre=&#123;store&#125;&gt;</div><div class="line">  &lt;App/&gt;</div><div class="line">&lt;<span class="regexp">/Provider&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="3-将store-输入到react-redux"><a href="#3-将store-输入到react-redux" class="headerlink" title="3. 将store 输入到react-redux"></a>3. 将store 输入到react-redux</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Provivder &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span></div><div class="line">&lt;Provider sotre=&#123;store&#125;&gt;</div><div class="line">  <span class="xml"><span class="tag">&lt;<span class="name">App</span>/&gt;</span></span></div><div class="line">&lt;<span class="regexp">/Provider&gt;</span></div></pre></td></tr></table></figure>
 <h4 id="4-在app中调用action"><a href="#4-在app中调用action" class="headerlink" title="4. 在app中调用action"></a>4. 在app中调用action</h4><h5 id="1-使用connect，注入props"><a href="#1-使用connect，注入props" class="headerlink" title="1. 使用connect，注入props"></a>1. 使用connect，注入props</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">render()&#123;</div><div class="line">  <span class="keyword">const</span> &#123;dispatch,visibleTodos,visiblibityFilter&#125; = <span class="keyword">this</span>.props<span class="comment">//通过react-redux.connect注入</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">select</span>(<span class="params">state</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123;<span class="comment">//对象里面的数据将注入props里，可直接使用this.props调用</span></div><div class="line">      visibleTodos: selectTodos(state.todos,state.visibilityFilter),<span class="comment">//传入所有列表，筛选出想要的</span></div><div class="line">        visibilityFilter: state.visibilityFIlter</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(select)(App)</div></pre></td></tr></table></figure>
 <h5 id="2-调用dispatch或则使用props"><a href="#2-调用dispatch或则使用props" class="headerlink" title="2. 调用dispatch或则使用props"></a>2. 调用dispatch或则使用props</h5><p>  方式1：注入后的dispatch到action去，aciton返回的状态就回被reduce监控执行<br>    方式2：可从this.props中获取注入的对象</p>
 
