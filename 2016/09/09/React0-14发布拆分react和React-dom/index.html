@@ -1,177 +1,216 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<!-- Head tag -->
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="null">
-    <meta name="keyword" content="undefined">
-    <meta name="theme-color" content="#600090">
-    <meta name="msapplication-navbutton-color" content="#600090">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
-    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
-    <link rel="alternate" type="application/atom+xml" title="Jianwu" href="/atom.xml">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
-    <title>
-        
-        React0.14发布拆分react和React-dom｜undefined
-        
-    </title>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>React0.14发布拆分react和React-dom | Jianwu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="React 从0.14 开始有一些重要的改进，主要是简化代码编写，提供更好的支持环境，比如 React Native。原本的 API 在 v0.14 版中仍然可以使用，只不过会有 警告，在 v0.15 版的时候完全移除。
 
-    <link rel="canonical" href="http://jianwwpro.github.io/2016/09/09/React0-14发布拆分react和React-dom/">
+Reactjs 0.14 获取：
+ReactDev build with warnings: https://fb.me/react-0.14.0.jsMinified bui">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React0.14发布拆分react和React-dom">
+<meta property="og:url" content="http://jianwwpro.github.io/2016/09/09/React0-14发布拆分react和React-dom/index.html">
+<meta property="og:site_name" content="Jianwu">
+<meta property="og:description" content="React 从0.14 开始有一些重要的改进，主要是简化代码编写，提供更好的支持环境，比如 React Native。原本的 API 在 v0.14 版中仍然可以使用，只不过会有 警告，在 v0.15 版的时候完全移除。
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+Reactjs 0.14 获取：
+ReactDev build with warnings: https://fb.me/react-0.14.0.jsMinified bui">
+<meta property="og:updated_time" content="2016-09-09T06:21:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React0.14发布拆分react和React-dom">
+<meta name="twitter:description" content="React 从0.14 开始有一些重要的改进，主要是简化代码编写，提供更好的支持环境，比如 React Native。原本的 API 在 v0.14 版中仍然可以使用，只不过会有 警告，在 v0.15 版的时候完全移除。
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/blog-style.css">
-
-    <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/css/syntax.css">
+Reactjs 0.14 获取：
+ReactDev build with warnings: https://fb.me/react-0.14.0.jsMinified bui">
+  
+    <link rel="alternative" href="/atom.xml" title="Jianwu" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<style>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/blog/null" class="js-avatar">
+			
+		</a>
 
-    header.intro-header {
-        background-image: url('undefined')
-    }
-</style>
-<!-- hack iOS CSS :active style -->
-<body ontouchstart="" class="animated fadeIn">
-<!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
-" data-ishome = "false" >
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand animated pulse" href="/">
-                <span class="brand-logo">
-                    Jianwu
-                </span>
-                's Blog
-            </a>
-        </div>
+		<hgroup>
+		  <h1 class="header-author"><a href="/">剑舞</a></h1>
+		</hgroup>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- Known Issue, found by Hux:
-            <nav>'s height woule be hold on by its content.
-            so, when navbar scale out, the <nav> will cover tags.
-            also mask any touch event of tags, unfortunately.
-        -->
-        <!-- /.navbar-collapse -->
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
+		
+		<p class="header-subtitle">剑舞的博客</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
 					
-                    
-					
-					
-                </ul>
-            </div>
-        </div>
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/archives">主页</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/jianwwpro" title="github">github</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CMYK/" style="font-size: 10px;">CMYK</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/ionic/" style="font-size: 10px;">ionic</a> <a href="/tags/ionic2/" style="font-size: 10px;">ionic2</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/学习笔记/" style="font-size: 20px;">学习笔记</a> <a href="/tags/环境/" style="font-size: 10px;">环境</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">全栈开发</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
     </div>
-    <!-- /.container -->
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">剑舞</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="/blog/null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">剑舞</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">剑舞的博客</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/archives">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/jianwwpro" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
 </nav>
-<script>
-    // Drop Bootstarp low-performance Navbar
-    // Use customize navbar with high-quality material design animation
-    // in high-perf jank-free CSS3 implementation
-//    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
 
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        // CLOSE
-            $navbar.className = " ";
-            // wait until animation end.
-            setTimeout(function(){
-                // prevent frequently toggle
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        // OPEN
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
-    }
-</script>
-
-<!-- Main Content -->
-
-<!--only post-->
-
-
-<img class="wechat-title-img"
-     src="">
-
-
-<style>
-    
-    header.intro-header {
-        background-image: url('')
-    }
-
-    
-</style>
-
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
-                <div class="post-heading">
-                    <h1>React0.14发布拆分react和React-dom</h1>
-                    
-                    <span class="meta">
-                         作者 剑舞
-                        <span>
-                          日期 2016-09-09
-                         </span>
-                    </span>
-                    <div class="tags text-center">
-                        
-                        <a class="tag" href="/tags/#react"
-                           title="react">react</a>
-                        
-                        <a class="tag" href="/tags/#前端"
-                           title="前端">前端</a>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
+      <div class="body-wrap"><article id="post-React0-14发布拆分react和React-dom" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/09/React0-14发布拆分react和React-dom/" class="article-date">
+  	<time datetime="2016-09-09T06:21:55.000Z" itemprop="datePublished">2016-09-09</time>
+</a>
     </div>
-    <div class="post-title-haojen">
-        <span>
-            React0.14发布拆分react和React-dom
-        </span>
-    </div>
-</header>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React0.14发布拆分react和React-dom
+    </h1>
+  
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <!-- Post Container -->
-            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <p>React 从0.14 开始有一些重要的改进，主要是简化代码编写，提供更好的支持环境，比如 React Native。<br>原本的 API 在 v0.14 版中仍然可以使用，只不过会有 警告，在 v0.15 版的时候完全移除。</p>
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>React 从0.14 开始有一些重要的改进，主要是简化代码编写，提供更好的支持环境，比如 React Native。<br>原本的 API 在 v0.14 版中仍然可以使用，只不过会有 警告，在 v0.15 版的时候完全移除。</p>
 <hr>
 <h3 id="Reactjs-0-14-获取："><a href="#Reactjs-0-14-获取：" class="headerlink" title="Reactjs 0.14 获取："></a>Reactjs 0.14 获取：</h3><ul>
 <li>React<br>Dev build with warnings: <a href="https://fb.me/react-0.14.0.js" target="_blank" rel="external">https://fb.me/react-0.14.0.js</a><br>Minified build for production: <a href="https://fb.me/react-0.14.0.min.js" target="_blank" rel="external">https://fb.me/react-0.14.0.min.js</a></li>
@@ -200,159 +239,139 @@
 <p>在 v0.15 版中，下列内容将会发生改变：</p>
 <p>this.getDOMNode() 方法将会废弃，推荐使用 React.findDOMNode()<br>setProps 及 replaceProps 将会废弃<br>React.addons.cloneWithProps 已废弃，推荐使用 React.cloneElements，新方法不会自动 merge className 及 style<br>React.addons.CSSTransitionGroup 将不再监听 transition 事件，因此使用者需要显式指定动画的 timeout，如：transitionEnterTimeout={500}。<br>ES6 组件类必须 extends React.Component（如果使用 React.createClass 语法则不受影响）<br>在多次 render 中重用并改变 style 对象已经被弃用（这一点不是太明白，中心思想貌似是不要 mutate object？）</p>
 
-                <hr>
-                
-
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/2016/09/09/Ionic2学习笔记/" data-toggle="tooltip" data-placement="top"
-                           title="Ionic2学习笔记">&larr; Previous Post</a>
-                    </li>
-                    
-                    
-                    <li class="next">
-                        <a href="/2016/09/09/Redux学习笔记/" data-toggle="tooltip" data-placement="top"
-                           title="Redux学习笔记">Next Post &rarr;</a>
-                    </li>
-                    
-                </ul>
-
-                
-
-                
-
-            </div>
-
-            <div class="hidden-xs col-sm-3 toc-col">
-                <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reactjs-0-14-获取："><span class="toc-text">Reactjs 0.14 获取：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#React-分成两个包"><span class="toc-text">React  分成两个包</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组件写法"><span class="toc-text">组件写法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React-addons-下工具也变成独立包"><span class="toc-text">React.addons 下工具也变成独立包</span></a></li></ol>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- Sidebar Container -->
-
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Featured Tags -->
-                
-
-                <!-- Friends Blog -->
-                
-            </div>
-        </div>
-
+      
     </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/09/09/Ionic2学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Ionic2学习笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/09/Redux学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Redux学习笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
 
 
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
 
 
-<!-- Footer -->
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
-                <br>
-                <ul class="list-inline text-center">
-                
-                
-                
 
-                
 
-                
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="React0-14发布拆分react和React-dom" data-title="React0.14发布拆分react和React-dom" data-url="http://jianwwpro.github.io/2016/09/09/React0-14发布拆分react和React-dom/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-                
 
-                
 
-                </ul>
-                <p class="copyright text-muted">
-                    Copyright &copy; Jianwu 2017
-                    <br>
-                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
-                    <br>
-                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
-                </p>
 
-            </div>
-        </div>
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 剑舞
+    	</div>
+      
     </div>
+  </div>
 </footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
-<!-- jQuery -->
-<script src="/js/jquery.min.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="/js/blog.js"></script>
-
-<!-- async load function -->
 <script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
     }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
 </script>
 
-<!-- jquery.tagcloud.js -->
-<script>
-    // only load tagcloud.js in tag.html
-    if($('#tag_cloud').length !== 0){
-        async("http://jianwwpro.github.io/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                //size: {start: 1, end: 1, unit: 'em'},
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-<!--fastClick.js -->
-<script>
-    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
 
-<!-- Google Analytics -->
-
-
-
-<!-- Baidu Tongji -->
-
-
-<!-- swiftype -->
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install','undefined','2.0.0');
-</script>
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-<!--wechat title img-->
-<img class="wechat-title-img" src="undefined">
+  </div>
 </body>
-
 </html>
