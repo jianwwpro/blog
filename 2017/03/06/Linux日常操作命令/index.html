@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://jianwwpro.github.io">
   <title>Linux日常操作命令 | Jianwu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="挂载共享12mount -t smbfs //wangjianwu:artron@192.168.82.13/anbo/ /Users/jsb/Documents/WorkSpace/data/mount -t smbfs //wangjianwu:jianwu@192.168.82.100/artbase/artbase/artbase-jiami /Users/jsb/Documents/W">
+  <meta name="description" content="挂载共享12mount -t smbfs //wangjianwu:artron@192.168.82.13/anbo/ /Users/jsb/Documents/WorkSpace/data/mount -t smbfs //wangjianwu:jianwu@192.168.82.100/artbase/artbase/artbase-jiami /Users/jsb/Documents/Wo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux日常操作命令">
 <meta property="og:url" content="http://jianwwpro.github.io/2017/03/06/Linux日常操作命令/index.html">
 <meta property="og:site_name" content="Jianwu">
-<meta property="og:description" content="挂载共享12mount -t smbfs //wangjianwu:artron@192.168.82.13/anbo/ /Users/jsb/Documents/WorkSpace/data/mount -t smbfs //wangjianwu:jianwu@192.168.82.100/artbase/artbase/artbase-jiami /Users/jsb/Documents/W">
-<meta property="og:updated_time" content="2017-03-06T08:53:44.000Z">
+<meta property="og:description" content="挂载共享12mount -t smbfs //wangjianwu:artron@192.168.82.13/anbo/ /Users/jsb/Documents/WorkSpace/data/mount -t smbfs //wangjianwu:jianwu@192.168.82.100/artbase/artbase/artbase-jiami /Users/jsb/Documents/Wo">
+<meta property="og:updated_time" content="2017-03-06T08:55:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux日常操作命令">
-<meta name="twitter:description" content="挂载共享12mount -t smbfs //wangjianwu:artron@192.168.82.13/anbo/ /Users/jsb/Documents/WorkSpace/data/mount -t smbfs //wangjianwu:jianwu@192.168.82.100/artbase/artbase/artbase-jiami /Users/jsb/Documents/W">
+<meta name="twitter:description" content="挂载共享12mount -t smbfs //wangjianwu:artron@192.168.82.13/anbo/ /Users/jsb/Documents/WorkSpace/data/mount -t smbfs //wangjianwu:jianwu@192.168.82.100/artbase/artbase/artbase-jiami /Users/jsb/Documents/Wo">
   
     <link rel="alternative" href="/atom.xml" title="Jianwu" type="application/atom+xml">
   
@@ -169,11 +169,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>挂载共享<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mount -t smbfs //wangjianwu:artron@192.168.82.13/anbo/ /Users/jsb/Documents/WorkSpace/data/</div><div class="line">mount -t smbfs //wangjianwu:jianwu@192.168.82.100/artbase/artbase/artbase-jiami /Users/jsb/Documents/WorkSpace/projects/artbase/</div></pre></td></tr></table></figure></p>
-<p>rsync在ssh模式下的断点续传</p>
-</blockquote>
+        <h2 id="挂载共享"><a href="#挂载共享" class="headerlink" title="挂载共享"></a>挂载共享</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mount -t smbfs //wangjianwu:artron@192.168.82.13/anbo/ /Users/jsb/Documents/WorkSpace/data/</div><div class="line">mount -t smbfs //wangjianwu:jianwu@192.168.82.100/artbase/artbase/artbase-jiami /Users/jsb/Documents/WorkSpace/projects/artbase/</div></pre></td></tr></table></figure>
+<h2 id="rsync在ssh模式下的断点续传"><a href="#rsync在ssh模式下的断点续传" class="headerlink" title="rsync在ssh模式下的断点续传"></a>rsync在ssh模式下的断点续传</h2><blockquote>
 <p>由于要从服务器拉去mongodb的数据到本地处理，但是mongodb备份文件过大，使用ssh进行传输时，出现stalled后断开。故使用rsync继续断点续传</p>
+</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rsync -P -e &apos;ssh -p 1056&apos; -r root@cy:/data/backup/marc_book/marc_book .</div></pre></td></tr></table></figure>
 <p>-P 显示进度<br>-r 递归同步文件夹下的文件<br>ssh -p 指定ssh端口 </p>
 
@@ -391,6 +390,10 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -400,14 +403,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">图片</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -423,7 +418,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -431,11 +430,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
