@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://jianwwpro.github.io">
-  <title>Redux学习笔记 | Jianwu</title>
+  <title>Linux日常操作命令 | Jianwu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="单一数据源1234567891011121314151617181920212223242526272829303132333435363738394041import &amp;#123; createStore &amp;#125; from &apos;redux&apos;;/** * 这是一个 reducer，形式为 (state, action) =&amp;gt; state 的纯函数。 * 描述了 action 如何把 st">
+  <meta name="description" content="挂载共享12mount -t smbfs //wangjianwu:artron@192.168.82.13/anbo/ /Users/jsb/Documents/WorkSpace/data/mount -t smbfs //wangjianwu:jianwu@192.168.82.100/artbase/artbase/artbase-jiami /Users/jsb/Documents/W">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redux学习笔记">
-<meta property="og:url" content="http://jianwwpro.github.io/2016/09/09/Redux学习笔记/index.html">
+<meta property="og:title" content="Linux日常操作命令">
+<meta property="og:url" content="http://jianwwpro.github.io/2017/03/06/Linux日常操作命令/index.html">
 <meta property="og:site_name" content="Jianwu">
-<meta property="og:description" content="单一数据源1234567891011121314151617181920212223242526272829303132333435363738394041import &amp;#123; createStore &amp;#125; from &apos;redux&apos;;/** * 这是一个 reducer，形式为 (state, action) =&amp;gt; state 的纯函数。 * 描述了 action 如何把 st">
-<meta property="og:updated_time" content="2016-09-09T06:21:55.000Z">
+<meta property="og:description" content="挂载共享12mount -t smbfs //wangjianwu:artron@192.168.82.13/anbo/ /Users/jsb/Documents/WorkSpace/data/mount -t smbfs //wangjianwu:jianwu@192.168.82.100/artbase/artbase/artbase-jiami /Users/jsb/Documents/W">
+<meta property="og:updated_time" content="2017-03-06T08:53:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redux学习笔记">
-<meta name="twitter:description" content="单一数据源1234567891011121314151617181920212223242526272829303132333435363738394041import &amp;#123; createStore &amp;#125; from &apos;redux&apos;;/** * 这是一个 reducer，形式为 (state, action) =&amp;gt; state 的纯函数。 * 描述了 action 如何把 st">
+<meta name="twitter:title" content="Linux日常操作命令">
+<meta name="twitter:description" content="挂载共享12mount -t smbfs //wangjianwu:artron@192.168.82.13/anbo/ /Users/jsb/Documents/WorkSpace/data/mount -t smbfs //wangjianwu:jianwu@192.168.82.100/artbase/artbase/artbase-jiami /Users/jsb/Documents/W">
   
     <link rel="alternative" href="/atom.xml" title="Jianwu" type="application/atom+xml">
   
@@ -149,32 +149,33 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Redux学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Linux日常操作命令" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Redux学习笔记
+      Linux日常操作命令
     </h1>
   
 
         
-        <a href="/2016/09/09/Redux学习笔记/" class="archive-article-date">
-  	<time datetime="2016-09-09T06:21:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-09</time>
+        <a href="/2017/03/06/Linux日常操作命令/" class="archive-article-date">
+  	<time datetime="2017-03-06T08:49:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="单一数据源"><a href="#单一数据源" class="headerlink" title="单一数据源"></a>单一数据源</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 这是一个 reducer，形式为 (state, action) =&gt; state 的纯函数。</div><div class="line"> * 描述了 action 如何把 state 转变成下一个 state。</div><div class="line"> *</div><div class="line"> * state 的形式取决于你，可以是基本类型、数组、对象、</div><div class="line"> * 甚至是 Immutable.js 生成的数据结构。惟一的要点是</div><div class="line"> * 当 state 变化时需要返回全新的对象，而不是修改传入的参数。</div><div class="line"> *</div><div class="line"> * 下面例子使用 `switch` 语句和字符串来做判断，但你可以写帮助类(helper)</div><div class="line"> * 根据不同的约定（如方法映射）来判断，只要适用你的项目即可。</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">counter</span>(<span class="params">state = 0, action</span>) </span>&#123;</div><div class="line">  <span class="keyword">switch</span> (action.type) &#123;</div><div class="line">  <span class="keyword">case</span> <span class="string">'INCREMENT'</span>:</div><div class="line">    <span class="keyword">return</span> state + <span class="number">1</span>;</div><div class="line">  <span class="keyword">case</span> <span class="string">'DECREMENT'</span>:</div><div class="line">    <span class="keyword">return</span> state - <span class="number">1</span>;</div><div class="line">  <span class="keyword">default</span>:</div><div class="line">    <span class="keyword">return</span> state;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 创建 Redux store 来存放应用的状态。</span></div><div class="line"><span class="comment">// API 是 &#123; subscribe, dispatch, getState &#125;。</span></div><div class="line"><span class="keyword">let</span> store = createStore(counter);</div><div class="line"></div><div class="line"><span class="comment">// 可以手动订阅更新，也可以事件绑定到视图层。</span></div><div class="line">store.subscribe(() =&gt;</div><div class="line">  <span class="built_in">console</span>.log(store.getState())</div><div class="line">);</div><div class="line"></div><div class="line"><span class="comment">// 改变内部 state 惟一方法是 dispatch 一个 action。</span></div><div class="line"><span class="comment">// action 可以被序列化，用日记记录和储存下来，后期还可以以回放的方式执行</span></div><div class="line">store.dispatch(&#123; type: <span class="string">'INCREMENT'</span> &#125;);</div><div class="line"><span class="comment">// 1</span></div><div class="line">store.dispatch(&#123; type: <span class="string">'INCREMENT'</span> &#125;);</div><div class="line"><span class="comment">// 2</span></div><div class="line">store.dispatch(&#123; type: <span class="string">'DECREMENT'</span> &#125;);</div><div class="line"><span class="comment">// 1</span></div></pre></td></tr></table></figure>
-<h3 id="入口"><a href="#入口" class="headerlink" title="入口"></a>入口</h3><h4 id="1-产出store"><a href="#1-产出store" class="headerlink" title="1. 产出store"></a>1. 产出store</h4><p>redux.createStore  进行创建store，参数是reducers</p>
-<h4 id="2-产出-reduce"><a href="#2-产出-reduce" class="headerlink" title="2. 产出 reduce"></a>2. 产出 reduce</h4><p>reducers 输出 redux.combineReducers({各种switch case方法,…})<br>每一次状态改变都会影响reducers的输出</p>
-<h4 id="3-将store-输入到react-redux"><a href="#3-将store-输入到react-redux" class="headerlink" title="3. 将store 输入到react-redux"></a>3. 将store 输入到react-redux</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Provivder &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span></div><div class="line">&lt;Provider sotre=&#123;store&#125;&gt;</div><div class="line">  <span class="xml"><span class="tag">&lt;<span class="name">App</span>/&gt;</span></span></div><div class="line">&lt;<span class="regexp">/Provider&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="4-在app中调用action"><a href="#4-在app中调用action" class="headerlink" title="4. 在app中调用action"></a>4. 在app中调用action</h4><h5 id="1-使用connect，注入props"><a href="#1-使用connect，注入props" class="headerlink" title="1. 使用connect，注入props"></a>1. 使用connect，注入props</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">render()&#123;</div><div class="line">  <span class="keyword">const</span> &#123;dispatch,visibleTodos,visiblibityFilter&#125; = <span class="keyword">this</span>.props<span class="comment">//通过react-redux.connect注入</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">select</span>(<span class="params">state</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123;<span class="comment">//对象里面的数据将注入props里，可直接使用this.props调用</span></div><div class="line">      visibleTodos: selectTodos(state.todos,state.visibilityFilter),<span class="comment">//传入所有列表，筛选出想要的</span></div><div class="line">        visibilityFilter: state.visibilityFIlter</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(select)(App)</div></pre></td></tr></table></figure>
-<h5 id="2-调用dispatch或则使用props"><a href="#2-调用dispatch或则使用props" class="headerlink" title="2. 调用dispatch或则使用props"></a>2. 调用dispatch或则使用props</h5><p>  方式1：注入后的dispatch到action去，aciton返回的状态就回被reduce监控执行<br>    方式2：可从this.props中获取注入的对象</p>
+        <blockquote>
+<p>挂载共享<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mount -t smbfs //wangjianwu:artron@192.168.82.13/anbo/ /Users/jsb/Documents/WorkSpace/data/</div><div class="line">mount -t smbfs //wangjianwu:jianwu@192.168.82.100/artbase/artbase/artbase-jiami /Users/jsb/Documents/WorkSpace/projects/artbase/</div></pre></td></tr></table></figure></p>
+<p>rsync在ssh模式下的断点续传</p>
+</blockquote>
+<p>由于要从服务器拉去mongodb的数据到本地处理，但是mongodb备份文件过大，使用ssh进行传输时，出现stalled后断开。故使用rsync继续断点续传</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rsync -P -e &apos;ssh -p 1056&apos; -r root@cy:/data/backup/marc_book/marc_book .</div></pre></td></tr></table></figure>
+<p>-P 显示进度<br>-r 递归同步文件夹下的文件<br>ssh -p 指定ssh端口 </p>
 
       
 
@@ -214,11 +215,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -274,7 +271,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://jianwwpro.github.io/2016/09/09/Redux学习笔记/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://jianwwpro.github.io/2017/03/06/Linux日常操作命令/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -288,18 +285,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/09/09/Ionic2学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Ionic2学习笔记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/09/08/灾难悼念整站灰色/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">灾难悼念整站灰色</div>
+    <a href="/2017/03/03/maven遇到的坑/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">maven遇到的坑</div>
       <i class="icon-circle-right"></i>
     </a>
   
