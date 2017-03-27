@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://jianwwpro.github.io/2017/03/06/Linux日常操作命令/index.html">
 <meta property="og:site_name" content="Jianwu">
 <meta property="og:description" content="挂载共享12mount -t smbfs //wangjianwu:artron@192.168.82.13/anbo/ /Users/jsb/Documents/WorkSpace/data/mount -t smbfs //wangjianwu:jianwu@192.168.82.100/artbase/artbase/artbase-jiami /Users/jsb/Documents/Wo">
-<meta property="og:updated_time" content="2017-03-06T08:55:45.000Z">
+<meta property="og:updated_time" content="2017-03-06T09:41:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux日常操作命令">
 <meta name="twitter:description" content="挂载共享12mount -t smbfs //wangjianwu:artron@192.168.82.13/anbo/ /Users/jsb/Documents/WorkSpace/data/mount -t smbfs //wangjianwu:jianwu@192.168.82.100/artbase/artbase/artbase-jiami /Users/jsb/Documents/Wo">
@@ -175,7 +175,8 @@
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rsync -P -e &apos;ssh -p 1056&apos; -r root@cy:/data/backup/marc_book/marc_book .</div></pre></td></tr></table></figure>
 <p>-P 显示进度<br>-r 递归同步文件夹下的文件<br>ssh -p 指定ssh端口 </p>
-
+<h2 id="备份mongodb数据库"><a href="#备份mongodb数据库" class="headerlink" title="备份mongodb数据库"></a>备份mongodb数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/mongodb/bin/mongodump -d marc_book -o .</div></pre></td></tr></table></figure>
+<h2 id="恢复mongodb数据库"><a href="#恢复mongodb数据库" class="headerlink" title="恢复mongodb数据库"></a>恢复mongodb数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongorestore -d marc_book marc_book/</div></pre></td></tr></table></figure>
       
 
       
@@ -283,6 +284,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/03/27/solr中ik分词自定义词库和停止词/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          solr中ik分词自定义词库和停止词
+        
+      </div>
+    </a>
   
   
     <a href="/2017/03/03/maven遇到的坑/" id="article-nav-older" class="article-nav-link-wrap">
@@ -412,6 +422,22 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">CMYK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">图片</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ionic</a>
               </li>
              
@@ -424,15 +450,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CMYK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">图片</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Solr</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -441,14 +463,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
