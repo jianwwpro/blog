@@ -6,18 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://jianwwpro.github.io">
-  <title>solr中ik分词自定义词库和停止词 | Jianwu</title>
+  <title>Tag: 服务器 | Jianwu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、在solr的web中：solr-webapp/webapp/WEB-INF目录下新增一个文件夹：classes2、新增一个文件：IKAnalyzer.cfg.xml。xml内如如下1234567891011&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;  &amp;lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.c">
-<meta property="og:type" content="article">
-<meta property="og:title" content="solr中ik分词自定义词库和停止词">
-<meta property="og:url" content="http://jianwwpro.github.io/2017/03/27/solr中ik分词自定义词库和停止词/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Jianwu">
+<meta property="og:url" content="http://jianwwpro.github.io/tags/服务器/index.html">
 <meta property="og:site_name" content="Jianwu">
-<meta property="og:description" content="1、在solr的web中：solr-webapp/webapp/WEB-INF目录下新增一个文件夹：classes2、新增一个文件：IKAnalyzer.cfg.xml。xml内如如下1234567891011&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;  &amp;lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.c">
-<meta property="og:updated_time" content="2017-03-27T10:07:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="solr中ik分词自定义词库和停止词">
-<meta name="twitter:description" content="1、在solr的web中：solr-webapp/webapp/WEB-INF目录下新增一个文件夹：classes2、新增一个文件：IKAnalyzer.cfg.xml。xml内如如下1234567891011&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;  &amp;lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.c">
+<meta name="twitter:title" content="Jianwu">
   
     <link rel="alternative" href="/atom.xml" title="Jianwu" type="application/atom+xml">
   
@@ -149,181 +145,72 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-solr中ik分词自定义词库和停止词" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      solr中ik分词自定义词库和停止词
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/04/01/Nginx、Tomcat、会话存储Redis配置要点/" class="archive-article-date">
+  	<time datetime="2017-04-01T08:37:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-01</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/04/01/Nginx、Tomcat、会话存储Redis配置要点/">Nginx、Tomcat、会话存储Redis配置要点</a>
     </h1>
   
 
-        
-        <a href="/2017/03/27/solr中ik分词自定义词库和停止词/" class="archive-article-date">
-  	<time datetime="2017-03-27T10:04:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1、在solr的web中：solr-webapp-webapp-WEB-INF目录下新增一个文件夹：classes"><a href="#1、在solr的web中：solr-webapp-webapp-WEB-INF目录下新增一个文件夹：classes" class="headerlink" title="1、在solr的web中：solr-webapp/webapp/WEB-INF目录下新增一个文件夹：classes"></a>1、在solr的web中：solr-webapp/webapp/WEB-INF目录下新增一个文件夹：classes</h3><h3 id="2、新增一个文件：IKAnalyzer-cfg-xml。xml内如如下"><a href="#2、新增一个文件：IKAnalyzer-cfg-xml。xml内如如下" class="headerlink" title="2、新增一个文件：IKAnalyzer.cfg.xml。xml内如如下"></a>2、新增一个文件：IKAnalyzer.cfg.xml。xml内如如下</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;  </div><div class="line"><span class="meta">&lt;!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"&gt;</span>    </div><div class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span>    </div><div class="line">    <span class="tag">&lt;<span class="name">comment</span>&gt;</span>IK Analyzer 扩展配置<span class="tag">&lt;/<span class="name">comment</span>&gt;</span>  </div><div class="line">    <span class="comment">&lt;!--用户可以在这里配置自己的扩展字典 my.dic即为扩展分词库，分词库可以为多个，以分号隔开即可。停止词库一样--&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"ext_dict"</span>&gt;</span>my.dic;<span class="tag">&lt;/<span class="name">entry</span>&gt;</span>   </div><div class="line">      </div><div class="line">    <span class="comment">&lt;!--用户可以在这里配置自己的扩展停止词字典--&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"ext_stopwords"</span>&gt;</span>stopword.dic;<span class="tag">&lt;/<span class="name">entry</span>&gt;</span>   </div><div class="line">      </div><div class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="3、classes下新增my-dic文件。文件格式必需是：无BOM的UTF-8格式-输入自己的词。"><a href="#3、classes下新增my-dic文件。文件格式必需是：无BOM的UTF-8格式-输入自己的词。" class="headerlink" title="3、classes下新增my.dic文件。文件格式必需是：无BOM的UTF-8格式,输入自己的词。"></a>3、classes下新增my.dic文件。文件格式必需是：无BOM的UTF-8格式,输入自己的词。</h3><h3 id="4、classes下新增文件stopword-dic。文件格式必需是：无BOM的UTF-8格式。"><a href="#4、classes下新增文件stopword-dic。文件格式必需是：无BOM的UTF-8格式。" class="headerlink" title="4、classes下新增文件stopword.dic。文件格式必需是：无BOM的UTF-8格式。"></a>4、classes下新增文件stopword.dic。文件格式必需是：无BOM的UTF-8格式。</h3>
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/weixin.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Solr</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tomcat</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">服务器</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://jianwwpro.github.io/2017/03/27/solr中ik分词自定义词库和停止词/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/04/01/Nginx、Tomcat、会话存储Redis配置要点/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Nginx、Tomcat、会话存储Redis配置要点
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/03/06/Linux日常操作命令/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux日常操作命令</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="solr中ik分词自定义词库和停止词" data-title="solr中ik分词自定义词库和停止词" data-url="http://jianwwpro.github.io/2017/03/27/solr中ik分词自定义词库和停止词/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"650ebeed00d6ff421dc323b5243198c2"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
+    </div></section>
   
 
-
+    
 
 
           </div>
@@ -346,9 +233,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

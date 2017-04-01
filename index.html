@@ -147,6 +147,92 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Nginx、Tomcat、会话存储Redis配置要点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/01/Nginx、Tomcat、会话存储Redis配置要点/">Nginx、Tomcat、会话存储Redis配置要点</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/01/Nginx、Tomcat、会话存储Redis配置要点/" class="archive-article-date">
+  	<time datetime="2017-04-01T08:37:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Nginx负载平衡-Tomcat-会话存储Redis配置要点"><a href="#Nginx负载平衡-Tomcat-会话存储Redis配置要点" class="headerlink" title="Nginx负载平衡 + Tomcat + 会话存储Redis配置要点"></a>Nginx负载平衡 + Tomcat + 会话存储Redis配置要点</h1><p>##使用Nginx作为Tomcat的负载平衡器，Tomcat的会话Session数据存储在Redis，能够实现0当机的7x24运营效果。因为将会话存储在Redis中，因此Nginx就不必配置成stick粘粘某个Tomcat方式，这样才能真正实现后台多个Tomcat负载平衡，用户请求能够发往任何一个tomcat主机，当我们需要部署新应用代码时，只要停止任何一台tomcat，所有当前在线用户都会导向到运行中的tomcat实例，因为会话数据被序列化到Redis，在线用户不会受到影响，一旦停掉的tomcat实例上线，另外其他重复部署过程。</p>
+<h3 id="一、Nginx"><a href="#一、Nginx" class="headerlink" title="一、Nginx"></a>一、Nginx</h3><p>首先，我们安装Nginx:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo rpm -ivh nginx-1.4.2-1.el6.ngx.x86_64.rpm</div></pre></td></tr></table></figure></p>
+<p>编辑/etc/nginx/nginx.conf，加入负载平衡配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">http &#123;</div><div class="line">upstream tomcat  &#123;</div><div class="line">        server localhost:8080;</div><div class="line">        server localhost:8081;</div><div class="line">    &#125;</div><div class="line">include       /etc/nginx/mime.types;</div><div class="line">default_type  application/octet-stream;</div></pre></td></tr></table></figure>
+<p>更新/etc/nginx/conf.d/default.conf，用下面location配置替代原来：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">location / &#123;</div><div class="line">    proxy_pass  http://tomcat;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>重新启动Nginx:<br>sudo service nginx restart</p>
+<p>二、Tomcat实例</p>
+<h2 id="下面我们开始安装两个Tomcat实例，改变第二个服务器端口，防止它们冲突，这时如果你在浏览器输入-https-localhost，我们访问到缺省的Tomcat页面，因为我们没有设置会话粘粘sticky-sessions，每个请求分发使用负载平衡round-robin算法，也就是意味着每次请求都会创建一个新的会话，通过tomcat内建案例可以方便看到这种行为，进入http-localhost-examples-servlets-servlet-SessionExample，过一会儿刷新一下这个页面，注意到每次Session-ID都会改变，让我们来解决这个问题。"><a href="#下面我们开始安装两个Tomcat实例，改变第二个服务器端口，防止它们冲突，这时如果你在浏览器输入-https-localhost，我们访问到缺省的Tomcat页面，因为我们没有设置会话粘粘sticky-sessions，每个请求分发使用负载平衡round-robin算法，也就是意味着每次请求都会创建一个新的会话，通过tomcat内建案例可以方便看到这种行为，进入http-localhost-examples-servlets-servlet-SessionExample，过一会儿刷新一下这个页面，注意到每次Session-ID都会改变，让我们来解决这个问题。" class="headerlink" title="下面我们开始安装两个Tomcat实例，改变第二个服务器端口，防止它们冲突，这时如果你在浏览器输入 https://localhost，我们访问到缺省的Tomcat页面，因为我们没有设置会话粘粘sticky sessions，每个请求分发使用负载平衡round robin算法，也就是意味着每次请求都会创建一个新的会话，通过tomcat内建案例可以方便看到这种行为，进入http://localhost/examples/servlets/servlet/SessionExample，过一会儿刷新一下这个页面，注意到每次Session ID都会改变，让我们来解决这个问题。"></a>下面我们开始安装两个Tomcat实例，改变第二个服务器端口，防止它们冲突，这时如果你在浏览器输入 <a href="https://localhost，我们访问到缺省的Tomcat页面，因为我们没有设置会话粘粘sticky" target="_blank" rel="external">https://localhost，我们访问到缺省的Tomcat页面，因为我们没有设置会话粘粘sticky</a> sessions，每个请求分发使用负载平衡round robin算法，也就是意味着每次请求都会创建一个新的会话，通过tomcat内建案例可以方便看到这种行为，进入<a href="http://localhost/examples/servlets/servlet/SessionExample，过一会儿刷新一下这个页面，注意到每次Session" target="_blank" rel="external">http://localhost/examples/servlets/servlet/SessionExample，过一会儿刷新一下这个页面，注意到每次Session</a> ID都会改变，让我们来解决这个问题。</h2><p>下载安装Redis，在<a href="http://redis.io/download" target="_blank" rel="external">http://redis.io/download</a> 有文档说明如何安装和启动，启动服务器以后，使用客户端程序检查是否正在工作。<br>最后，我们需要配置Tomcat存储会话到Redis，我们需要使用 tomcat-redis-session-manager开源库包，具体需要一些调整，下载这个项目的源码项目，重新构建，本文使用版本为commons-pool2-2.2.jar 和 jedis-2.6.1.jar.复制这些Jar到tomcat的lib目录。<br>将你的commons-pool, jedis 更新版本和tomcat版本在tomcat-redis-session-manager的build.gradle中配置一下，然后重新构建项目，将构建结果 tomcat-redis-session-manager-1.2.jar 复制到tomcat lib目录下，两个实例都要复制，在tomcat的context.xml中配置：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;Valve className="com.orangefunction.tomcat.redissessions.RedisSessionHandlerValve" /&gt;</div><div class="line">&lt;Manager className="com.orangefunction.tomcat.redissessions.RedisSessionManager"</div><div class="line">         host="localhost"</div><div class="line">         port="6379"</div><div class="line">         database="0"</div><div class="line">         maxInactiveInterval="60" /&gt;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&lt;ValveclassName="com.radiadesign.catalina.session.RedisSessionHandlerValve"/&gt;</div><div class="line">&lt;ManagerclassName="com.radiadesign.catalina.session.RedisSessionManager"</div><div class="line">         host="localhost"&lt;!-- optional: defaults to "localhost" --&gt;</div><div class="line">         port="6379" &lt;!-- optional: defaults to "6379" --&gt;</div><div class="line">         database="0" &lt;!-- optional: defaults to "0" --&gt;</div><div class="line">         maxInactiveInterval="60" &lt;!-- optional: defaults to "60" (in seconds) --&gt;/&gt;</div></pre></td></tr></table></figure>
+<p>重新启动tomcat一切完成，你现在可以看到tomcat会话存储在redis中，使用先前tomcat内置案例，试验两个tomcat开机和关机不同情况进行测试，会话数据都不会受到影响。</p>
+<p>所需要的jar包：</p>
+<p><a href="http://example.com/" title="Title" target="_blank" rel="external">commons-pool-1.3.jar</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tomcat</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">服务器</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/01/Nginx、Tomcat、会话存储Redis配置要点/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-solr中ik分词自定义词库和停止词" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -478,19 +564,19 @@
 
 
   
-    <article id="post-React0-14发布拆分react和React-dom" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Redux学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/09/React0-14发布拆分react和React-dom/">React0.14发布拆分react和React-dom</a>
+      <a class="article-title" href="/2016/09/09/Redux学习笔记/">Redux学习笔记</a>
     </h1>
   
 
         
-        <a href="/2016/09/09/React0-14发布拆分react和React-dom/" class="archive-article-date">
+        <a href="/2016/09/09/Redux学习笔记/" class="archive-article-date">
   	<time datetime="2016-09-09T06:21:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-09</time>
 </a>
         
@@ -498,34 +584,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>React 从0.14 开始有一些重要的改进，主要是简化代码编写，提供更好的支持环境，比如 React Native。<br>原本的 API 在 v0.14 版中仍然可以使用，只不过会有 警告，在 v0.15 版的时候完全移除。</p>
-<hr>
-<h3 id="Reactjs-0-14-获取："><a href="#Reactjs-0-14-获取：" class="headerlink" title="Reactjs 0.14 获取："></a>Reactjs 0.14 获取：</h3><ul>
-<li>React<br>Dev build with warnings: <a href="https://fb.me/react-0.14.0.js" target="_blank" rel="external">https://fb.me/react-0.14.0.js</a><br>Minified build for production: <a href="https://fb.me/react-0.14.0.min.js" target="_blank" rel="external">https://fb.me/react-0.14.0.min.js</a></li>
-<li>React with Add-Ons<br>Dev build with warnings: <a href="https://fb.me/react-with-addons-0.14.0.js" target="_blank" rel="external">https://fb.me/react-with-addons-0.14.0.js</a><br>Minified build for production: <a href="https://fb.me/react-with-addons-0.14.0.min.js" target="_blank" rel="external">https://fb.me/react-with-addons-0.14.0.min.js</a></li>
-<li>React DOM (include React in the page before React DOM)<br>Dev build with warnings: <a href="https://fb.me/react-dom-0.14.0.js" target="_blank" rel="external">https://fb.me/react-dom-0.14.0.js</a><br>Minified build for production: <a href="https://fb.me/react-dom-0.14.0.min.js" target="_blank" rel="external">https://fb.me/react-dom-0.14.0.min.js</a></li>
-</ul>
-<h4 id="React-分成两个包"><a href="#React-分成两个包" class="headerlink" title="React  分成两个包"></a>React  分成两个包</h4><p>原本的 <figure class="highlight plain"><figcaption><span>package``` 被拆分为 ```react``` 及 ```react-dom``` 两个 package。 </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### react包</div></pre></td></tr></table></figure></p>
-<p>createElement<br>createClass<br>Component<br>PropTypes<br>Children<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">####  react-dom包 </div><div class="line">```render</div><div class="line">unmountComponentAtNode</div><div class="line">findDOMNode</div><div class="line">server/renderToString</div><div class="line">server/renderToStaticMarkup</div></pre></td></tr></table></figure></p>
-<h3 id="组件写法"><a href="#组件写法" class="headerlink" title="组件写法"></a>组件写法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import React,&#123;Component&#125; from &apos;react&apos;</div><div class="line">import &#123;render&#125; from &apos;react-dom&apos;</div><div class="line">class HelloWorld extends Component&#123;</div><div class="line">	render()&#123;</div><div class="line">    	return (</div><div class="line">			&lt;div&gt;hello world&lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">render(</div><div class="line">	&lt;HelloWorld /&gt;</div><div class="line">)</div></pre></td></tr></table></figure>
-<h3 id="React-addons-下工具也变成独立包"><a href="#React-addons-下工具也变成独立包" class="headerlink" title="React.addons 下工具也变成独立包"></a>React.addons 下工具也变成独立包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">react-addons-clone-with-props</div><div class="line">react-addons-create-fragment</div><div class="line">react-addons-css-transition-group</div><div class="line">react-addons-linked-state-mixin</div><div class="line">react-addons-perf</div><div class="line">react-addons-pure-render-mixin</div><div class="line">react-addons-shallow-compare</div><div class="line">react-addons-test-utils</div><div class="line">react-addons-transition-group</div><div class="line">react-addons-update</div><div class="line">ReactDOM.unstable_batchedUpdates （在 react-dom 中）</div></pre></td></tr></table></figure>
-<p>refs 变成了真正的 DOM 节点</p>
-<p>当我们需要获取 React 组件上某个 DOM 节点时，React 提供了 refs 方法方便我们快速引用。为了方便我们使用，React 还「贴心」地对 refs 做了一层封装，使用 this.refs.xxx.getDOMNode() 或 React.findDOMNode(this.refs.xxx) 可以获取到真正的 DOM 节点。</p>
-<p>结果发现大家真正需要的就是 DOM 节点本身，封装了半天完全是浪费感情。</p>
-<p>于是在 v0.14 版中 refs 指向的就是 DOM 节点，同时也会保留 .getDOMNode() 方法（带 warning），最终在 v0.15 版中去除该方法。</p>
-<p>var Zoo = React.createClass({<br>  render: function() {<br>    return <div>Giraffe name: <input ref="giraffe"></div>;<br>  },<br>  showName: function() {<br>    // 之前：<br>    // var input = this.refs.giraffe.getDOMNode();<br>    //<br>    // v0.14 版：<br>    var input = this.refs.giraffe;<br>    alert(input.value);<br>  }<br>});<br>需要注意的是，如果你给自定义的 React 组件（除了 DOM 自带的标签，如 div、p 等）添加 refs，表现和行为与之前一致。</p>
-<p>无状态的函数式组件</p>
-<p>其实在实际业务系统中使用 React 时，我们会写很多只有 render 方法的 React 组件。为了减少冗余的代码量，React v0.14 中引入了 无状态的函数式组件（Stateless functional components） 的概念。先看看长啥样：</p>
-<p>// 一个 ES6 箭头函数定义的无状态函数式组件var Aquarium = (props) =&gt; {<br>  var fish = getFish(props.species);  return <tank>{fish}</tank>;<br>};// 或者更加简化的版本var Aquarium = ({species}) =&gt; (<br>  <tank><br>    {getFish(species)}<br>  </tank><br>);// 最终使用方式: <aquarium species="rainbowfish"><br>可以看到，没有 React.createClass，也没有显式的 render，写起来更加轻松了。</aquarium></p>
-<p>当然，新语法也有需要注意的地方：</p>
-<p>没有任何生命周期方法，如 componentDidMount 等<br>不能添加 refs<br>可以通过给函数添加属性定义 propTypes 和 defaultProps<br>react-tools 及 JSXTransformer.js 已弃用</p>
-<p>拥抱 Babel 吧同学们！</p>
-<p>编译器优化</p>
-<p>在 Babel 5.8.23 及更新的版本中，新增了两项专门针对 React 的优化配置，仅推荐在生产环境中开启，因为优化后会导致代码的报错更加扑朔迷离（本来报错就已经很难定位了……）。</p>
-<p>optimisation.react.inlineElements 将 JSX 元素转换为对象而非使用 React.createElement<br>optimisation.react.constantElements 针对拥有完全静态子树的组件，将其创建过程提升到顶层（Top level），从而减少对 React.createElement 方法的调用<br>其它变化</p>
-<p>React.initializeTouchEvents 已弃用<br>由于 refs 的相关变化（见上文），TestUtils.findAllInRenderedTree 及相关的方法不再接受 DOM 组件作为参数，只能传入自定义的 React 组件<br>props 一旦创建永远不可修改，因此 .setProps 及 .replaceProps 已废弃<br>children 不可以传对象类型，推荐传入数组，或使用 React.createFragment 方法（其实就是转换为了数组）<br>React.addons.classSet 已经移除，使用 classnames package 替代<br>将要发生的改变</p>
-<p>在 v0.15 版中，下列内容将会发生改变：</p>
-<p>this.getDOMNode() 方法将会废弃，推荐使用 React.findDOMNode()<br>setProps 及 replaceProps 将会废弃<br>React.addons.cloneWithProps 已废弃，推荐使用 React.cloneElements，新方法不会自动 merge className 及 style<br>React.addons.CSSTransitionGroup 将不再监听 transition 事件，因此使用者需要显式指定动画的 timeout，如：transitionEnterTimeout={500}。<br>ES6 组件类必须 extends React.Component（如果使用 React.createClass 语法则不受影响）<br>在多次 render 中重用并改变 style 对象已经被弃用（这一点不是太明白，中心思想貌似是不要 mutate object？）</p>
+        <h3 id="单一数据源"><a href="#单一数据源" class="headerlink" title="单一数据源"></a>单一数据源</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 这是一个 reducer，形式为 (state, action) =&gt; state 的纯函数。</div><div class="line"> * 描述了 action 如何把 state 转变成下一个 state。</div><div class="line"> *</div><div class="line"> * state 的形式取决于你，可以是基本类型、数组、对象、</div><div class="line"> * 甚至是 Immutable.js 生成的数据结构。惟一的要点是</div><div class="line"> * 当 state 变化时需要返回全新的对象，而不是修改传入的参数。</div><div class="line"> *</div><div class="line"> * 下面例子使用 `switch` 语句和字符串来做判断，但你可以写帮助类(helper)</div><div class="line"> * 根据不同的约定（如方法映射）来判断，只要适用你的项目即可。</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">counter</span>(<span class="params">state = 0, action</span>) </span>&#123;</div><div class="line">  <span class="keyword">switch</span> (action.type) &#123;</div><div class="line">  <span class="keyword">case</span> <span class="string">'INCREMENT'</span>:</div><div class="line">    <span class="keyword">return</span> state + <span class="number">1</span>;</div><div class="line">  <span class="keyword">case</span> <span class="string">'DECREMENT'</span>:</div><div class="line">    <span class="keyword">return</span> state - <span class="number">1</span>;</div><div class="line">  <span class="keyword">default</span>:</div><div class="line">    <span class="keyword">return</span> state;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 创建 Redux store 来存放应用的状态。</span></div><div class="line"><span class="comment">// API 是 &#123; subscribe, dispatch, getState &#125;。</span></div><div class="line"><span class="keyword">let</span> store = createStore(counter);</div><div class="line"></div><div class="line"><span class="comment">// 可以手动订阅更新，也可以事件绑定到视图层。</span></div><div class="line">store.subscribe(() =&gt;</div><div class="line">  <span class="built_in">console</span>.log(store.getState())</div><div class="line">);</div><div class="line"></div><div class="line"><span class="comment">// 改变内部 state 惟一方法是 dispatch 一个 action。</span></div><div class="line"><span class="comment">// action 可以被序列化，用日记记录和储存下来，后期还可以以回放的方式执行</span></div><div class="line">store.dispatch(&#123; type: <span class="string">'INCREMENT'</span> &#125;);</div><div class="line"><span class="comment">// 1</span></div><div class="line">store.dispatch(&#123; type: <span class="string">'INCREMENT'</span> &#125;);</div><div class="line"><span class="comment">// 2</span></div><div class="line">store.dispatch(&#123; type: <span class="string">'DECREMENT'</span> &#125;);</div><div class="line"><span class="comment">// 1</span></div></pre></td></tr></table></figure>
+<h3 id="入口"><a href="#入口" class="headerlink" title="入口"></a>入口</h3><h4 id="1-产出store"><a href="#1-产出store" class="headerlink" title="1. 产出store"></a>1. 产出store</h4><p>redux.createStore  进行创建store，参数是reducers</p>
+<h4 id="2-产出-reduce"><a href="#2-产出-reduce" class="headerlink" title="2. 产出 reduce"></a>2. 产出 reduce</h4><p>reducers 输出 redux.combineReducers({各种switch case方法,…})<br>每一次状态改变都会影响reducers的输出</p>
+<h4 id="3-将store-输入到react-redux"><a href="#3-将store-输入到react-redux" class="headerlink" title="3. 将store 输入到react-redux"></a>3. 将store 输入到react-redux</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Provivder &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span></div><div class="line">&lt;Provider sotre=&#123;store&#125;&gt;</div><div class="line">  <span class="xml"><span class="tag">&lt;<span class="name">App</span>/&gt;</span></span></div><div class="line">&lt;<span class="regexp">/Provider&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="4-在app中调用action"><a href="#4-在app中调用action" class="headerlink" title="4. 在app中调用action"></a>4. 在app中调用action</h4><h5 id="1-使用connect，注入props"><a href="#1-使用connect，注入props" class="headerlink" title="1. 使用connect，注入props"></a>1. 使用connect，注入props</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">render()&#123;</div><div class="line">  <span class="keyword">const</span> &#123;dispatch,visibleTodos,visiblibityFilter&#125; = <span class="keyword">this</span>.props<span class="comment">//通过react-redux.connect注入</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">select</span>(<span class="params">state</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123;<span class="comment">//对象里面的数据将注入props里，可直接使用this.props调用</span></div><div class="line">      visibleTodos: selectTodos(state.todos,state.visibilityFilter),<span class="comment">//传入所有列表，筛选出想要的</span></div><div class="line">        visibilityFilter: state.visibilityFIlter</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(select)(App)</div></pre></td></tr></table></figure>
+<h5 id="2-调用dispatch或则使用props"><a href="#2-调用dispatch或则使用props" class="headerlink" title="2. 调用dispatch或则使用props"></a>2. 调用dispatch或则使用props</h5><p>  方式1：注入后的dispatch到action去，aciton返回的状态就回被reduce监控执行<br>    方式2：可从this.props中获取注入的对象</p>
 
       
 
@@ -539,11 +603,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redux</a>
         		</li>
       		
 		</ul>
@@ -553,7 +617,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/09/09/React0-14发布拆分react和React-dom/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/09/09/Redux学习笔记/">展开全文 >></a>
         </p>
       
 
@@ -668,19 +732,19 @@
 
 
   
-    <article id="post-Redux学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-React0-14发布拆分react和React-dom" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/09/Redux学习笔记/">Redux学习笔记</a>
+      <a class="article-title" href="/2016/09/09/React0-14发布拆分react和React-dom/">React0.14发布拆分react和React-dom</a>
     </h1>
   
 
         
-        <a href="/2016/09/09/Redux学习笔记/" class="archive-article-date">
+        <a href="/2016/09/09/React0-14发布拆分react和React-dom/" class="archive-article-date">
   	<time datetime="2016-09-09T06:21:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-09</time>
 </a>
         
@@ -688,12 +752,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="单一数据源"><a href="#单一数据源" class="headerlink" title="单一数据源"></a>单一数据源</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 这是一个 reducer，形式为 (state, action) =&gt; state 的纯函数。</div><div class="line"> * 描述了 action 如何把 state 转变成下一个 state。</div><div class="line"> *</div><div class="line"> * state 的形式取决于你，可以是基本类型、数组、对象、</div><div class="line"> * 甚至是 Immutable.js 生成的数据结构。惟一的要点是</div><div class="line"> * 当 state 变化时需要返回全新的对象，而不是修改传入的参数。</div><div class="line"> *</div><div class="line"> * 下面例子使用 `switch` 语句和字符串来做判断，但你可以写帮助类(helper)</div><div class="line"> * 根据不同的约定（如方法映射）来判断，只要适用你的项目即可。</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">counter</span>(<span class="params">state = 0, action</span>) </span>&#123;</div><div class="line">  <span class="keyword">switch</span> (action.type) &#123;</div><div class="line">  <span class="keyword">case</span> <span class="string">'INCREMENT'</span>:</div><div class="line">    <span class="keyword">return</span> state + <span class="number">1</span>;</div><div class="line">  <span class="keyword">case</span> <span class="string">'DECREMENT'</span>:</div><div class="line">    <span class="keyword">return</span> state - <span class="number">1</span>;</div><div class="line">  <span class="keyword">default</span>:</div><div class="line">    <span class="keyword">return</span> state;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 创建 Redux store 来存放应用的状态。</span></div><div class="line"><span class="comment">// API 是 &#123; subscribe, dispatch, getState &#125;。</span></div><div class="line"><span class="keyword">let</span> store = createStore(counter);</div><div class="line"></div><div class="line"><span class="comment">// 可以手动订阅更新，也可以事件绑定到视图层。</span></div><div class="line">store.subscribe(() =&gt;</div><div class="line">  <span class="built_in">console</span>.log(store.getState())</div><div class="line">);</div><div class="line"></div><div class="line"><span class="comment">// 改变内部 state 惟一方法是 dispatch 一个 action。</span></div><div class="line"><span class="comment">// action 可以被序列化，用日记记录和储存下来，后期还可以以回放的方式执行</span></div><div class="line">store.dispatch(&#123; type: <span class="string">'INCREMENT'</span> &#125;);</div><div class="line"><span class="comment">// 1</span></div><div class="line">store.dispatch(&#123; type: <span class="string">'INCREMENT'</span> &#125;);</div><div class="line"><span class="comment">// 2</span></div><div class="line">store.dispatch(&#123; type: <span class="string">'DECREMENT'</span> &#125;);</div><div class="line"><span class="comment">// 1</span></div></pre></td></tr></table></figure>
-<h3 id="入口"><a href="#入口" class="headerlink" title="入口"></a>入口</h3><h4 id="1-产出store"><a href="#1-产出store" class="headerlink" title="1. 产出store"></a>1. 产出store</h4><p>redux.createStore  进行创建store，参数是reducers</p>
-<h4 id="2-产出-reduce"><a href="#2-产出-reduce" class="headerlink" title="2. 产出 reduce"></a>2. 产出 reduce</h4><p>reducers 输出 redux.combineReducers({各种switch case方法,…})<br>每一次状态改变都会影响reducers的输出</p>
-<h4 id="3-将store-输入到react-redux"><a href="#3-将store-输入到react-redux" class="headerlink" title="3. 将store 输入到react-redux"></a>3. 将store 输入到react-redux</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Provivder &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span></div><div class="line">&lt;Provider sotre=&#123;store&#125;&gt;</div><div class="line">  <span class="xml"><span class="tag">&lt;<span class="name">App</span>/&gt;</span></span></div><div class="line">&lt;<span class="regexp">/Provider&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="4-在app中调用action"><a href="#4-在app中调用action" class="headerlink" title="4. 在app中调用action"></a>4. 在app中调用action</h4><h5 id="1-使用connect，注入props"><a href="#1-使用connect，注入props" class="headerlink" title="1. 使用connect，注入props"></a>1. 使用connect，注入props</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">render()&#123;</div><div class="line">  <span class="keyword">const</span> &#123;dispatch,visibleTodos,visiblibityFilter&#125; = <span class="keyword">this</span>.props<span class="comment">//通过react-redux.connect注入</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">select</span>(<span class="params">state</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123;<span class="comment">//对象里面的数据将注入props里，可直接使用this.props调用</span></div><div class="line">      visibleTodos: selectTodos(state.todos,state.visibilityFilter),<span class="comment">//传入所有列表，筛选出想要的</span></div><div class="line">        visibilityFilter: state.visibilityFIlter</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(select)(App)</div></pre></td></tr></table></figure>
-<h5 id="2-调用dispatch或则使用props"><a href="#2-调用dispatch或则使用props" class="headerlink" title="2. 调用dispatch或则使用props"></a>2. 调用dispatch或则使用props</h5><p>  方式1：注入后的dispatch到action去，aciton返回的状态就回被reduce监控执行<br>    方式2：可从this.props中获取注入的对象</p>
+        <p>React 从0.14 开始有一些重要的改进，主要是简化代码编写，提供更好的支持环境，比如 React Native。<br>原本的 API 在 v0.14 版中仍然可以使用，只不过会有 警告，在 v0.15 版的时候完全移除。</p>
+<hr>
+<h3 id="Reactjs-0-14-获取："><a href="#Reactjs-0-14-获取：" class="headerlink" title="Reactjs 0.14 获取："></a>Reactjs 0.14 获取：</h3><ul>
+<li>React<br>Dev build with warnings: <a href="https://fb.me/react-0.14.0.js" target="_blank" rel="external">https://fb.me/react-0.14.0.js</a><br>Minified build for production: <a href="https://fb.me/react-0.14.0.min.js" target="_blank" rel="external">https://fb.me/react-0.14.0.min.js</a></li>
+<li>React with Add-Ons<br>Dev build with warnings: <a href="https://fb.me/react-with-addons-0.14.0.js" target="_blank" rel="external">https://fb.me/react-with-addons-0.14.0.js</a><br>Minified build for production: <a href="https://fb.me/react-with-addons-0.14.0.min.js" target="_blank" rel="external">https://fb.me/react-with-addons-0.14.0.min.js</a></li>
+<li>React DOM (include React in the page before React DOM)<br>Dev build with warnings: <a href="https://fb.me/react-dom-0.14.0.js" target="_blank" rel="external">https://fb.me/react-dom-0.14.0.js</a><br>Minified build for production: <a href="https://fb.me/react-dom-0.14.0.min.js" target="_blank" rel="external">https://fb.me/react-dom-0.14.0.min.js</a></li>
+</ul>
+<h4 id="React-分成两个包"><a href="#React-分成两个包" class="headerlink" title="React  分成两个包"></a>React  分成两个包</h4><p>原本的 <figure class="highlight plain"><figcaption><span>package``` 被拆分为 ```react``` 及 ```react-dom``` 两个 package。 </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### react包</div></pre></td></tr></table></figure></p>
+<p>createElement<br>createClass<br>Component<br>PropTypes<br>Children<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">####  react-dom包 </div><div class="line">```render</div><div class="line">unmountComponentAtNode</div><div class="line">findDOMNode</div><div class="line">server/renderToString</div><div class="line">server/renderToStaticMarkup</div></pre></td></tr></table></figure></p>
+<h3 id="组件写法"><a href="#组件写法" class="headerlink" title="组件写法"></a>组件写法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import React,&#123;Component&#125; from &apos;react&apos;</div><div class="line">import &#123;render&#125; from &apos;react-dom&apos;</div><div class="line">class HelloWorld extends Component&#123;</div><div class="line">	render()&#123;</div><div class="line">    	return (</div><div class="line">			&lt;div&gt;hello world&lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">render(</div><div class="line">	&lt;HelloWorld /&gt;</div><div class="line">)</div></pre></td></tr></table></figure>
+<h3 id="React-addons-下工具也变成独立包"><a href="#React-addons-下工具也变成独立包" class="headerlink" title="React.addons 下工具也变成独立包"></a>React.addons 下工具也变成独立包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">react-addons-clone-with-props</div><div class="line">react-addons-create-fragment</div><div class="line">react-addons-css-transition-group</div><div class="line">react-addons-linked-state-mixin</div><div class="line">react-addons-perf</div><div class="line">react-addons-pure-render-mixin</div><div class="line">react-addons-shallow-compare</div><div class="line">react-addons-test-utils</div><div class="line">react-addons-transition-group</div><div class="line">react-addons-update</div><div class="line">ReactDOM.unstable_batchedUpdates （在 react-dom 中）</div></pre></td></tr></table></figure>
+<p>refs 变成了真正的 DOM 节点</p>
+<p>当我们需要获取 React 组件上某个 DOM 节点时，React 提供了 refs 方法方便我们快速引用。为了方便我们使用，React 还「贴心」地对 refs 做了一层封装，使用 this.refs.xxx.getDOMNode() 或 React.findDOMNode(this.refs.xxx) 可以获取到真正的 DOM 节点。</p>
+<p>结果发现大家真正需要的就是 DOM 节点本身，封装了半天完全是浪费感情。</p>
+<p>于是在 v0.14 版中 refs 指向的就是 DOM 节点，同时也会保留 .getDOMNode() 方法（带 warning），最终在 v0.15 版中去除该方法。</p>
+<p>var Zoo = React.createClass({<br>  render: function() {<br>    return <div>Giraffe name: <input ref="giraffe"></div>;<br>  },<br>  showName: function() {<br>    // 之前：<br>    // var input = this.refs.giraffe.getDOMNode();<br>    //<br>    // v0.14 版：<br>    var input = this.refs.giraffe;<br>    alert(input.value);<br>  }<br>});<br>需要注意的是，如果你给自定义的 React 组件（除了 DOM 自带的标签，如 div、p 等）添加 refs，表现和行为与之前一致。</p>
+<p>无状态的函数式组件</p>
+<p>其实在实际业务系统中使用 React 时，我们会写很多只有 render 方法的 React 组件。为了减少冗余的代码量，React v0.14 中引入了 无状态的函数式组件（Stateless functional components） 的概念。先看看长啥样：</p>
+<p>// 一个 ES6 箭头函数定义的无状态函数式组件var Aquarium = (props) =&gt; {<br>  var fish = getFish(props.species);  return <tank>{fish}</tank>;<br>};// 或者更加简化的版本var Aquarium = ({species}) =&gt; (<br>  <tank><br>    {getFish(species)}<br>  </tank><br>);// 最终使用方式: <aquarium species="rainbowfish"><br>可以看到，没有 React.createClass，也没有显式的 render，写起来更加轻松了。</aquarium></p>
+<p>当然，新语法也有需要注意的地方：</p>
+<p>没有任何生命周期方法，如 componentDidMount 等<br>不能添加 refs<br>可以通过给函数添加属性定义 propTypes 和 defaultProps<br>react-tools 及 JSXTransformer.js 已弃用</p>
+<p>拥抱 Babel 吧同学们！</p>
+<p>编译器优化</p>
+<p>在 Babel 5.8.23 及更新的版本中，新增了两项专门针对 React 的优化配置，仅推荐在生产环境中开启，因为优化后会导致代码的报错更加扑朔迷离（本来报错就已经很难定位了……）。</p>
+<p>optimisation.react.inlineElements 将 JSX 元素转换为对象而非使用 React.createElement<br>optimisation.react.constantElements 针对拥有完全静态子树的组件，将其创建过程提升到顶层（Top level），从而减少对 React.createElement 方法的调用<br>其它变化</p>
+<p>React.initializeTouchEvents 已弃用<br>由于 refs 的相关变化（见上文），TestUtils.findAllInRenderedTree 及相关的方法不再接受 DOM 组件作为参数，只能传入自定义的 React 组件<br>props 一旦创建永远不可修改，因此 .setProps 及 .replaceProps 已废弃<br>children 不可以传对象类型，推荐传入数组，或使用 React.createFragment 方法（其实就是转换为了数组）<br>React.addons.classSet 已经移除，使用 classnames package 替代<br>将要发生的改变</p>
+<p>在 v0.15 版中，下列内容将会发生改变：</p>
+<p>this.getDOMNode() 方法将会废弃，推荐使用 React.findDOMNode()<br>setProps 及 replaceProps 将会废弃<br>React.addons.cloneWithProps 已废弃，推荐使用 React.cloneElements，新方法不会自动 merge className 及 style<br>React.addons.CSSTransitionGroup 将不再监听 transition 事件，因此使用者需要显式指定动画的 timeout，如：transitionEnterTimeout={500}。<br>ES6 组件类必须 extends React.Component（如果使用 React.createClass 语法则不受影响）<br>在多次 render 中重用并改变 style 对象已经被弃用（这一点不是太明白，中心思想貌似是不要 mutate object？）</p>
 
       
 
@@ -707,11 +793,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		
 		</ul>
@@ -721,7 +807,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/09/09/Redux学习笔记/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/09/09/React0-14发布拆分react和React-dom/">展开全文 >></a>
         </p>
       
 
@@ -791,78 +877,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/09/08/灾难悼念整站灰色/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-nginx用法记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/07/nginx用法记录/">nginx用法记录</a>
-    </h1>
-  
-
-        
-        <a href="/2016/09/07/nginx用法记录/" class="archive-article-date">
-  	<time datetime="2016-09-07T01:26:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="uri匹配和if判断"><a href="#uri匹配和if判断" class="headerlink" title="uri匹配和if判断"></a>uri匹配和if判断</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">server&#123;</div><div class="line">        listen 91;</div><div class="line">        location /mm&#123;</div><div class="line">                proxy_pass http://localhost:7070;</div><div class="line">                client_max_body_size 1000m;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        location ~* ^/resize &#123;</div><div class="line">                if ( $uri ~* &quot;^/resize_(\d+)x(\d+)/(.*)&quot; ) &#123;</div><div class="line">                        set $image_path $3;</div><div class="line">                        proxy_pass http://127.0.0.1:91/$image_path;</div><div class="line">                &#125;</div><div class="line">        &#125;</div><div class="line">        location /mm/userfiles &#123;</div><div class="line">                root e:/mm/jsite/data;</div><div class="line">                error_page  405 =200 @405;</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="nginx加水印和切图存储"><a href="#nginx加水印和切图存储" class="headerlink" title="nginx加水印和切图存储"></a>nginx加水印和切图存储</h2><blockquote>
-<p>nginx自带http_image_filter_module，但是加水印的工作需要从githu上面下载模块替换原来自带模块编译安装。<br><a href="https://github.com/intaro/nginx-image-filter-watermark" target="_blank" rel="external">https://github.com/intaro/nginx-image-filter-watermark</a></p>
-</blockquote>
-<ul>
-<li><p>编译: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--with-http_image_filter_module --with-http_stub_status_module --with-http_ssl_module --add-module=/application/nginx-rtmp-module --add-module=/root/Downloads/ngx_devel_kit-0.2.18/ --add-module=/root/Downloads/lua-nginx-module-0.8.6/ --add-module=/root/Downloads/echo-nginx-module-0.59rc1 --with-pcre=../pcre-8.30 --add-module=../set-misc-nginx-module-0.30/</div></pre></td></tr></table></figure>
-</li>
-<li><p>配置</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">    listen 82;</div><div class="line">    server_name  localhost;</div><div class="line">    server_name ah.tunnel.qydev.com;</div><div class="line">     location /mm&#123;</div><div class="line">       proxy_pass http://localhost:7070;</div><div class="line">       	client_max_body_size 1000m;</div><div class="line">     &#125;</div><div class="line">    location /mm/static/f &#123;</div><div class="line">       	root /application/tomcat_mm/webapps;</div><div class="line">    &#125;</div><div class="line">location ~* ^/resize &#123;</div><div class="line">       		##### author : wangjianwu</div><div class="line">       		root /data/site_cache;</div><div class="line">       		set $width 150;</div><div class="line">       		set $height 100;</div><div class="line">       		set $dimens &quot;&quot;;</div><div class="line"></div><div class="line">       		if ($uri ~* &quot;^/resize_(\d+)x(\d+)/(.*)&quot; ) &#123;</div><div class="line">       			set $width $1;</div><div class="line">       			set $height $2;</div><div class="line">       			set $image_path $3;</div><div class="line">       			set $demins &quot;_$1x$2&quot;;</div><div class="line">       		&#125;</div><div class="line"></div><div class="line">       		if ($uri ~* &quot;^/resize/(.*)&quot; ) &#123;</div><div class="line">       			set $image_path $1;</div><div class="line">       		&#125;</div><div class="line"></div><div class="line">       		set $image_uri image_resize/$image_path?width=$width&amp;height=$height;</div><div class="line"></div><div class="line">       		if (!-f $request_filename) &#123;</div><div class="line">       			proxy_pass http://127.0.0.1:82/$image_uri;</div><div class="line">       			break;</div><div class="line">       		&#125;</div><div class="line">       		proxy_store /data/site_cache/resize$demins/$image_path;</div><div class="line">       		proxy_store_access user:rw group:rw all:r;</div><div class="line">       		proxy_set_header Host $host;</div><div class="line">       		expires 30d;</div><div class="line">       		access_log off;</div><div class="line">       	&#125;</div><div class="line"></div><div class="line">       	location /mm/userfiles &#123;</div><div class="line">       		root /data/jsite/data;</div><div class="line">       		error_page  405 =200 @405;</div><div class="line">       	&#125;</div><div class="line">       	location /image_resize &#123;</div><div class="line">       		alias /data/jsite/data;</div><div class="line">       		image_filter watermark;</div><div class="line">       		image_filter_watermark &quot;/data/jsite/1.png&quot;;</div><div class="line">       		image_filter_watermark_position bottom-right;</div><div class="line">       		image_filter resize $arg_width $arg_height;</div><div class="line">       		image_filter_jpeg_quality 95;</div><div class="line">       		image_filter_watermark_width_from 200;</div><div class="line">       		image_filter_watermark_height_from 200;</div><div class="line">image_filter_buffer 20M;</div><div class="line">       		access_log off;</div><div class="line">       	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/09/07/nginx用法记录/">展开全文 >></a>
         </p>
       
 
@@ -985,11 +999,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">服务器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1009,11 +1031,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Solr</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1021,7 +1043,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Solr</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://jianwwpro.github.io">
-  <title>solr中ik分词自定义词库和停止词 | Jianwu</title>
+  <title>Nginx、Tomcat、会话存储Redis配置要点 | Jianwu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、在solr的web中：solr-webapp/webapp/WEB-INF目录下新增一个文件夹：classes2、新增一个文件：IKAnalyzer.cfg.xml。xml内如如下1234567891011&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;  &amp;lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.c">
+  <meta name="description" content="Nginx负载平衡 + Tomcat + 会话存储Redis配置要点##使用Nginx作为Tomcat的负载平衡器，Tomcat的会话Session数据存储在Redis，能够实现0当机的7x24运营效果。因为将会话存储在Redis中，因此Nginx就不必配置成stick粘粘某个Tomcat方式，这样才能真正实现后台多个Tomcat负载平衡，用户请求能够发往任何一个tomcat主机，当我们需要部署新">
 <meta property="og:type" content="article">
-<meta property="og:title" content="solr中ik分词自定义词库和停止词">
-<meta property="og:url" content="http://jianwwpro.github.io/2017/03/27/solr中ik分词自定义词库和停止词/index.html">
+<meta property="og:title" content="Nginx、Tomcat、会话存储Redis配置要点">
+<meta property="og:url" content="http://jianwwpro.github.io/2017/04/01/Nginx、Tomcat、会话存储Redis配置要点/index.html">
 <meta property="og:site_name" content="Jianwu">
-<meta property="og:description" content="1、在solr的web中：solr-webapp/webapp/WEB-INF目录下新增一个文件夹：classes2、新增一个文件：IKAnalyzer.cfg.xml。xml内如如下1234567891011&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;  &amp;lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.c">
-<meta property="og:updated_time" content="2017-03-27T10:07:13.000Z">
+<meta property="og:description" content="Nginx负载平衡 + Tomcat + 会话存储Redis配置要点##使用Nginx作为Tomcat的负载平衡器，Tomcat的会话Session数据存储在Redis，能够实现0当机的7x24运营效果。因为将会话存储在Redis中，因此Nginx就不必配置成stick粘粘某个Tomcat方式，这样才能真正实现后台多个Tomcat负载平衡，用户请求能够发往任何一个tomcat主机，当我们需要部署新">
+<meta property="og:updated_time" content="2017-04-01T08:42:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="solr中ik分词自定义词库和停止词">
-<meta name="twitter:description" content="1、在solr的web中：solr-webapp/webapp/WEB-INF目录下新增一个文件夹：classes2、新增一个文件：IKAnalyzer.cfg.xml。xml内如如下1234567891011&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;  &amp;lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.c">
+<meta name="twitter:title" content="Nginx、Tomcat、会话存储Redis配置要点">
+<meta name="twitter:description" content="Nginx负载平衡 + Tomcat + 会话存储Redis配置要点##使用Nginx作为Tomcat的负载平衡器，Tomcat的会话Session数据存储在Redis，能够实现0当机的7x24运营效果。因为将会话存储在Redis中，因此Nginx就不必配置成stick粘粘某个Tomcat方式，这样才能真正实现后台多个Tomcat负载平衡，用户请求能够发往任何一个tomcat主机，当我们需要部署新">
   
     <link rel="alternative" href="/atom.xml" title="Jianwu" type="application/atom+xml">
   
@@ -149,28 +149,40 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-solr中ik分词自定义词库和停止词" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Nginx、Tomcat、会话存储Redis配置要点" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      solr中ik分词自定义词库和停止词
+      Nginx、Tomcat、会话存储Redis配置要点
     </h1>
   
 
         
-        <a href="/2017/03/27/solr中ik分词自定义词库和停止词/" class="archive-article-date">
-  	<time datetime="2017-03-27T10:04:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-27</time>
+        <a href="/2017/04/01/Nginx、Tomcat、会话存储Redis配置要点/" class="archive-article-date">
+  	<time datetime="2017-04-01T08:37:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1、在solr的web中：solr-webapp-webapp-WEB-INF目录下新增一个文件夹：classes"><a href="#1、在solr的web中：solr-webapp-webapp-WEB-INF目录下新增一个文件夹：classes" class="headerlink" title="1、在solr的web中：solr-webapp/webapp/WEB-INF目录下新增一个文件夹：classes"></a>1、在solr的web中：solr-webapp/webapp/WEB-INF目录下新增一个文件夹：classes</h3><h3 id="2、新增一个文件：IKAnalyzer-cfg-xml。xml内如如下"><a href="#2、新增一个文件：IKAnalyzer-cfg-xml。xml内如如下" class="headerlink" title="2、新增一个文件：IKAnalyzer.cfg.xml。xml内如如下"></a>2、新增一个文件：IKAnalyzer.cfg.xml。xml内如如下</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;  </div><div class="line"><span class="meta">&lt;!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"&gt;</span>    </div><div class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span>    </div><div class="line">    <span class="tag">&lt;<span class="name">comment</span>&gt;</span>IK Analyzer 扩展配置<span class="tag">&lt;/<span class="name">comment</span>&gt;</span>  </div><div class="line">    <span class="comment">&lt;!--用户可以在这里配置自己的扩展字典 my.dic即为扩展分词库，分词库可以为多个，以分号隔开即可。停止词库一样--&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"ext_dict"</span>&gt;</span>my.dic;<span class="tag">&lt;/<span class="name">entry</span>&gt;</span>   </div><div class="line">      </div><div class="line">    <span class="comment">&lt;!--用户可以在这里配置自己的扩展停止词字典--&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"ext_stopwords"</span>&gt;</span>stopword.dic;<span class="tag">&lt;/<span class="name">entry</span>&gt;</span>   </div><div class="line">      </div><div class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="3、classes下新增my-dic文件。文件格式必需是：无BOM的UTF-8格式-输入自己的词。"><a href="#3、classes下新增my-dic文件。文件格式必需是：无BOM的UTF-8格式-输入自己的词。" class="headerlink" title="3、classes下新增my.dic文件。文件格式必需是：无BOM的UTF-8格式,输入自己的词。"></a>3、classes下新增my.dic文件。文件格式必需是：无BOM的UTF-8格式,输入自己的词。</h3><h3 id="4、classes下新增文件stopword-dic。文件格式必需是：无BOM的UTF-8格式。"><a href="#4、classes下新增文件stopword-dic。文件格式必需是：无BOM的UTF-8格式。" class="headerlink" title="4、classes下新增文件stopword.dic。文件格式必需是：无BOM的UTF-8格式。"></a>4、classes下新增文件stopword.dic。文件格式必需是：无BOM的UTF-8格式。</h3>
+        <h1 id="Nginx负载平衡-Tomcat-会话存储Redis配置要点"><a href="#Nginx负载平衡-Tomcat-会话存储Redis配置要点" class="headerlink" title="Nginx负载平衡 + Tomcat + 会话存储Redis配置要点"></a>Nginx负载平衡 + Tomcat + 会话存储Redis配置要点</h1><p>##使用Nginx作为Tomcat的负载平衡器，Tomcat的会话Session数据存储在Redis，能够实现0当机的7x24运营效果。因为将会话存储在Redis中，因此Nginx就不必配置成stick粘粘某个Tomcat方式，这样才能真正实现后台多个Tomcat负载平衡，用户请求能够发往任何一个tomcat主机，当我们需要部署新应用代码时，只要停止任何一台tomcat，所有当前在线用户都会导向到运行中的tomcat实例，因为会话数据被序列化到Redis，在线用户不会受到影响，一旦停掉的tomcat实例上线，另外其他重复部署过程。</p>
+<h3 id="一、Nginx"><a href="#一、Nginx" class="headerlink" title="一、Nginx"></a>一、Nginx</h3><p>首先，我们安装Nginx:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo rpm -ivh nginx-1.4.2-1.el6.ngx.x86_64.rpm</div></pre></td></tr></table></figure></p>
+<p>编辑/etc/nginx/nginx.conf，加入负载平衡配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">http &#123;</div><div class="line">upstream tomcat  &#123;</div><div class="line">        server localhost:8080;</div><div class="line">        server localhost:8081;</div><div class="line">    &#125;</div><div class="line">include       /etc/nginx/mime.types;</div><div class="line">default_type  application/octet-stream;</div></pre></td></tr></table></figure>
+<p>更新/etc/nginx/conf.d/default.conf，用下面location配置替代原来：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">location / &#123;</div><div class="line">    proxy_pass  http://tomcat;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>重新启动Nginx:<br>sudo service nginx restart</p>
+<p>二、Tomcat实例</p>
+<h2 id="下面我们开始安装两个Tomcat实例，改变第二个服务器端口，防止它们冲突，这时如果你在浏览器输入-https-localhost，我们访问到缺省的Tomcat页面，因为我们没有设置会话粘粘sticky-sessions，每个请求分发使用负载平衡round-robin算法，也就是意味着每次请求都会创建一个新的会话，通过tomcat内建案例可以方便看到这种行为，进入http-localhost-examples-servlets-servlet-SessionExample，过一会儿刷新一下这个页面，注意到每次Session-ID都会改变，让我们来解决这个问题。"><a href="#下面我们开始安装两个Tomcat实例，改变第二个服务器端口，防止它们冲突，这时如果你在浏览器输入-https-localhost，我们访问到缺省的Tomcat页面，因为我们没有设置会话粘粘sticky-sessions，每个请求分发使用负载平衡round-robin算法，也就是意味着每次请求都会创建一个新的会话，通过tomcat内建案例可以方便看到这种行为，进入http-localhost-examples-servlets-servlet-SessionExample，过一会儿刷新一下这个页面，注意到每次Session-ID都会改变，让我们来解决这个问题。" class="headerlink" title="下面我们开始安装两个Tomcat实例，改变第二个服务器端口，防止它们冲突，这时如果你在浏览器输入 https://localhost，我们访问到缺省的Tomcat页面，因为我们没有设置会话粘粘sticky sessions，每个请求分发使用负载平衡round robin算法，也就是意味着每次请求都会创建一个新的会话，通过tomcat内建案例可以方便看到这种行为，进入http://localhost/examples/servlets/servlet/SessionExample，过一会儿刷新一下这个页面，注意到每次Session ID都会改变，让我们来解决这个问题。"></a>下面我们开始安装两个Tomcat实例，改变第二个服务器端口，防止它们冲突，这时如果你在浏览器输入 <a href="https://localhost，我们访问到缺省的Tomcat页面，因为我们没有设置会话粘粘sticky" target="_blank" rel="external">https://localhost，我们访问到缺省的Tomcat页面，因为我们没有设置会话粘粘sticky</a> sessions，每个请求分发使用负载平衡round robin算法，也就是意味着每次请求都会创建一个新的会话，通过tomcat内建案例可以方便看到这种行为，进入<a href="http://localhost/examples/servlets/servlet/SessionExample，过一会儿刷新一下这个页面，注意到每次Session" target="_blank" rel="external">http://localhost/examples/servlets/servlet/SessionExample，过一会儿刷新一下这个页面，注意到每次Session</a> ID都会改变，让我们来解决这个问题。</h2><p>下载安装Redis，在<a href="http://redis.io/download" target="_blank" rel="external">http://redis.io/download</a> 有文档说明如何安装和启动，启动服务器以后，使用客户端程序检查是否正在工作。<br>最后，我们需要配置Tomcat存储会话到Redis，我们需要使用 tomcat-redis-session-manager开源库包，具体需要一些调整，下载这个项目的源码项目，重新构建，本文使用版本为commons-pool2-2.2.jar 和 jedis-2.6.1.jar.复制这些Jar到tomcat的lib目录。<br>将你的commons-pool, jedis 更新版本和tomcat版本在tomcat-redis-session-manager的build.gradle中配置一下，然后重新构建项目，将构建结果 tomcat-redis-session-manager-1.2.jar 复制到tomcat lib目录下，两个实例都要复制，在tomcat的context.xml中配置：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;Valve className="com.orangefunction.tomcat.redissessions.RedisSessionHandlerValve" /&gt;</div><div class="line">&lt;Manager className="com.orangefunction.tomcat.redissessions.RedisSessionManager"</div><div class="line">         host="localhost"</div><div class="line">         port="6379"</div><div class="line">         database="0"</div><div class="line">         maxInactiveInterval="60" /&gt;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&lt;ValveclassName="com.radiadesign.catalina.session.RedisSessionHandlerValve"/&gt;</div><div class="line">&lt;ManagerclassName="com.radiadesign.catalina.session.RedisSessionManager"</div><div class="line">         host="localhost"&lt;!-- optional: defaults to "localhost" --&gt;</div><div class="line">         port="6379" &lt;!-- optional: defaults to "6379" --&gt;</div><div class="line">         database="0" &lt;!-- optional: defaults to "0" --&gt;</div><div class="line">         maxInactiveInterval="60" &lt;!-- optional: defaults to "60" (in seconds) --&gt;/&gt;</div></pre></td></tr></table></figure>
+<p>重新启动tomcat一切完成，你现在可以看到tomcat会话存储在redis中，使用先前tomcat内置案例，试验两个tomcat开机和关机不同情况进行测试，会话数据都不会受到影响。</p>
+<p>所需要的jar包：</p>
+<p><a href="http://example.com/" title="Title" target="_blank" rel="external">commons-pool-1.3.jar</a></p>
+
       
 
       
@@ -209,7 +221,19 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Solr</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tomcat</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">服务器</a>
         		</li>
       		
 		</ul>
@@ -265,7 +289,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://jianwwpro.github.io/2017/03/27/solr中ik分词自定义词库和停止词/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://jianwwpro.github.io/2017/04/01/Nginx、Tomcat、会话存储Redis配置要点/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -279,18 +303,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/04/01/Nginx、Tomcat、会话存储Redis配置要点/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Nginx、Tomcat、会话存储Redis配置要点
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/06/Linux日常操作命令/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux日常操作命令</div>
+    <a href="/2017/03/27/solr中ik分词自定义词库和停止词/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">solr中ik分词自定义词库和停止词</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -304,7 +319,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="solr中ik分词自定义词库和停止词" data-title="solr中ik分词自定义词库和停止词" data-url="http://jianwwpro.github.io/2017/03/27/solr中ik分词自定义词库和停止词/"></div>
+	<div class="ds-thread" data-thread-key="Nginx、Tomcat、会话存储Redis配置要点" data-title="Nginx、Tomcat、会话存储Redis配置要点" data-url="http://jianwwpro.github.io/2017/04/01/Nginx、Tomcat、会话存储Redis配置要点/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

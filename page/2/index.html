@@ -147,6 +147,78 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-nginx用法记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/07/nginx用法记录/">nginx用法记录</a>
+    </h1>
+  
+
+        
+        <a href="/2016/09/07/nginx用法记录/" class="archive-article-date">
+  	<time datetime="2016-09-07T01:26:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="uri匹配和if判断"><a href="#uri匹配和if判断" class="headerlink" title="uri匹配和if判断"></a>uri匹配和if判断</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">server&#123;</div><div class="line">        listen 91;</div><div class="line">        location /mm&#123;</div><div class="line">                proxy_pass http://localhost:7070;</div><div class="line">                client_max_body_size 1000m;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        location ~* ^/resize &#123;</div><div class="line">                if ( $uri ~* &quot;^/resize_(\d+)x(\d+)/(.*)&quot; ) &#123;</div><div class="line">                        set $image_path $3;</div><div class="line">                        proxy_pass http://127.0.0.1:91/$image_path;</div><div class="line">                &#125;</div><div class="line">        &#125;</div><div class="line">        location /mm/userfiles &#123;</div><div class="line">                root e:/mm/jsite/data;</div><div class="line">                error_page  405 =200 @405;</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="nginx加水印和切图存储"><a href="#nginx加水印和切图存储" class="headerlink" title="nginx加水印和切图存储"></a>nginx加水印和切图存储</h2><blockquote>
+<p>nginx自带http_image_filter_module，但是加水印的工作需要从githu上面下载模块替换原来自带模块编译安装。<br><a href="https://github.com/intaro/nginx-image-filter-watermark" target="_blank" rel="external">https://github.com/intaro/nginx-image-filter-watermark</a></p>
+</blockquote>
+<ul>
+<li><p>编译: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--with-http_image_filter_module --with-http_stub_status_module --with-http_ssl_module --add-module=/application/nginx-rtmp-module --add-module=/root/Downloads/ngx_devel_kit-0.2.18/ --add-module=/root/Downloads/lua-nginx-module-0.8.6/ --add-module=/root/Downloads/echo-nginx-module-0.59rc1 --with-pcre=../pcre-8.30 --add-module=../set-misc-nginx-module-0.30/</div></pre></td></tr></table></figure>
+</li>
+<li><p>配置</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">    listen 82;</div><div class="line">    server_name  localhost;</div><div class="line">    server_name ah.tunnel.qydev.com;</div><div class="line">     location /mm&#123;</div><div class="line">       proxy_pass http://localhost:7070;</div><div class="line">       	client_max_body_size 1000m;</div><div class="line">     &#125;</div><div class="line">    location /mm/static/f &#123;</div><div class="line">       	root /application/tomcat_mm/webapps;</div><div class="line">    &#125;</div><div class="line">location ~* ^/resize &#123;</div><div class="line">       		##### author : wangjianwu</div><div class="line">       		root /data/site_cache;</div><div class="line">       		set $width 150;</div><div class="line">       		set $height 100;</div><div class="line">       		set $dimens &quot;&quot;;</div><div class="line"></div><div class="line">       		if ($uri ~* &quot;^/resize_(\d+)x(\d+)/(.*)&quot; ) &#123;</div><div class="line">       			set $width $1;</div><div class="line">       			set $height $2;</div><div class="line">       			set $image_path $3;</div><div class="line">       			set $demins &quot;_$1x$2&quot;;</div><div class="line">       		&#125;</div><div class="line"></div><div class="line">       		if ($uri ~* &quot;^/resize/(.*)&quot; ) &#123;</div><div class="line">       			set $image_path $1;</div><div class="line">       		&#125;</div><div class="line"></div><div class="line">       		set $image_uri image_resize/$image_path?width=$width&amp;height=$height;</div><div class="line"></div><div class="line">       		if (!-f $request_filename) &#123;</div><div class="line">       			proxy_pass http://127.0.0.1:82/$image_uri;</div><div class="line">       			break;</div><div class="line">       		&#125;</div><div class="line">       		proxy_store /data/site_cache/resize$demins/$image_path;</div><div class="line">       		proxy_store_access user:rw group:rw all:r;</div><div class="line">       		proxy_set_header Host $host;</div><div class="line">       		expires 30d;</div><div class="line">       		access_log off;</div><div class="line">       	&#125;</div><div class="line"></div><div class="line">       	location /mm/userfiles &#123;</div><div class="line">       		root /data/jsite/data;</div><div class="line">       		error_page  405 =200 @405;</div><div class="line">       	&#125;</div><div class="line">       	location /image_resize &#123;</div><div class="line">       		alias /data/jsite/data;</div><div class="line">       		image_filter watermark;</div><div class="line">       		image_filter_watermark &quot;/data/jsite/1.png&quot;;</div><div class="line">       		image_filter_watermark_position bottom-right;</div><div class="line">       		image_filter resize $arg_width $arg_height;</div><div class="line">       		image_filter_jpeg_quality 95;</div><div class="line">       		image_filter_watermark_width_from 200;</div><div class="line">       		image_filter_watermark_height_from 200;</div><div class="line">image_filter_buffer 20M;</div><div class="line">       		access_log off;</div><div class="line">       	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/09/07/nginx用法记录/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-博客开通" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -314,11 +386,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">服务器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -338,11 +418,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Solr</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -350,7 +430,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Solr</a>
               </li>
              
               <li class="article-tag-list-item">
