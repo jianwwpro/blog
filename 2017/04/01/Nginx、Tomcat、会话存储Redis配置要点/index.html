@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://jianwwpro.github.io/2017/04/01/Nginx、Tomcat、会话存储Redis配置要点/index.html">
 <meta property="og:site_name" content="Jianwu">
 <meta property="og:description" content="Nginx负载平衡 + Tomcat + 会话存储Redis配置要点##使用Nginx作为Tomcat的负载平衡器，Tomcat的会话Session数据存储在Redis，能够实现0当机的7x24运营效果。因为将会话存储在Redis中，因此Nginx就不必配置成stick粘粘某个Tomcat方式，这样才能真正实现后台多个Tomcat负载平衡，用户请求能够发往任何一个tomcat主机，当我们需要部署新">
-<meta property="og:updated_time" content="2017-04-01T08:44:37.000Z">
+<meta property="og:updated_time" content="2017-04-01T08:45:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx、Tomcat、会话存储Redis配置要点">
 <meta name="twitter:description" content="Nginx负载平衡 + Tomcat + 会话存储Redis配置要点##使用Nginx作为Tomcat的负载平衡器，Tomcat的会话Session数据存储在Redis，能够实现0当机的7x24运营效果。因为将会话存储在Redis中，因此Nginx就不必配置成stick粘粘某个Tomcat方式，这样才能真正实现后台多个Tomcat负载平衡，用户请求能够发往任何一个tomcat主机，当我们需要部署新">
@@ -181,7 +181,7 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;Valve className="com.orangefunction.tomcat.redissessions.RedisSessionHandlerValve" /&gt;</div><div class="line">&lt;Manager className="com.orangefunction.tomcat.redissessions.RedisSessionManager"</div><div class="line">         host="localhost"</div><div class="line">         port="6379"</div><div class="line">         database="0"</div><div class="line">         maxInactiveInterval="60" /&gt;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&lt;ValveclassName="com.radiadesign.catalina.session.RedisSessionHandlerValve"/&gt;</div><div class="line">&lt;ManagerclassName="com.radiadesign.catalina.session.RedisSessionManager"</div><div class="line">         host="localhost"&lt;!-- optional: defaults to "localhost" --&gt;</div><div class="line">         port="6379" &lt;!-- optional: defaults to "6379" --&gt;</div><div class="line">         database="0" &lt;!-- optional: defaults to "0" --&gt;</div><div class="line">         maxInactiveInterval="60" &lt;!-- optional: defaults to "60" (in seconds) --&gt;/&gt;</div></pre></td></tr></table></figure>
 <p>重新启动tomcat一切完成，你现在可以看到tomcat会话存储在redis中，使用先前tomcat内置案例，试验两个tomcat开机和关机不同情况进行测试，会话数据都不会受到影响。</p>
 <p>所需要的jar包：</p>
-<p><a href="files/commons-pool-1.3.jar" title="commons-pool-1.3.jar">commons-pool-1.3.jar</a></p>
+<p><a href="files/commons-pool-1.3.jar" title="commons-pool-1.3.jar">commons-pool-1.3.jar</a><br><a href="files/commons-pool2-2.3.jar" title="commons-pool2-2.3.jar">commons-pool2-2.3.jar</a><br><a href="files/jedis-2.7.3.jar" title="jedis-2.7.3.jar">jedis-2.7.3.jar</a><br><a href="files/spring-data-redis-1.6.0.RELEASE.ja" title="spring-data-redis-1.6.0.RELEASE.ja">spring-data-redis-1.6.0.RELEASE.ja</a><br><a href="files/tomcat-redis-session-manager1.2.jar" title="tomcat-redis-session-manager1.2.jar">tomcat-redis-session-manager1.2.jar</a></p>
 
       
 
@@ -427,6 +427,30 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">CMYK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">图片</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ionic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ionic2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
@@ -443,18 +467,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CMYK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">图片</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
@@ -463,23 +475,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ionic</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ionic2</a>
               </li>
              
               <li class="article-tag-list-item">
