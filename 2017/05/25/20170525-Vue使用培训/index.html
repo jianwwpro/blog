@@ -10,20 +10,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="git工具使用1. 下载代码1git clone https://github.com/jianwwpro/BookStore.git
 2. 代码安装运行123456# install dependenciesnpm install# serve with hot reload at localhost:8080npm run dev#运行完，自动代开浏览器
-2.代码更新、提交123456#更新代">
+2.代码更新、提交12345678#代">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20170525-Vue使用培训">
 <meta property="og:url" content="http://jianwwpro.github.io/2017/05/25/20170525-Vue使用培训/index.html">
 <meta property="og:site_name" content="Jianwu">
 <meta property="og:description" content="git工具使用1. 下载代码1git clone https://github.com/jianwwpro/BookStore.git
 2. 代码安装运行123456# install dependenciesnpm install# serve with hot reload at localhost:8080npm run dev#运行完，自动代开浏览器
-2.代码更新、提交123456#更新代">
-<meta property="og:updated_time" content="2017-05-25T05:50:10.000Z">
+2.代码更新、提交12345678#代">
+<meta property="og:updated_time" content="2017-05-25T07:33:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="20170525-Vue使用培训">
 <meta name="twitter:description" content="git工具使用1. 下载代码1git clone https://github.com/jianwwpro/BookStore.git
 2. 代码安装运行123456# install dependenciesnpm install# serve with hot reload at localhost:8080npm run dev#运行完，自动代开浏览器
-2.代码更新、提交123456#更新代">
+2.代码更新、提交12345678#代">
   
     <link rel="alternative" href="/atom.xml" title="Jianwu" type="application/atom+xml">
   
@@ -177,9 +177,45 @@
       
         <h2 id="git工具使用"><a href="#git工具使用" class="headerlink" title="git工具使用"></a>git工具使用</h2><h3 id="1-下载代码"><a href="#1-下载代码" class="headerlink" title="1. 下载代码"></a>1. 下载代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/jianwwpro/BookStore.git</div></pre></td></tr></table></figure>
 <h3 id="2-代码安装运行"><a href="#2-代码安装运行" class="headerlink" title="2. 代码安装运行"></a>2. 代码安装运行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># install dependencies</div><div class="line">npm install</div><div class="line"></div><div class="line"># serve with hot reload at localhost:8080</div><div class="line">npm run dev</div><div class="line">#运行完，自动代开浏览器</div></pre></td></tr></table></figure>
-<h3 id="2-代码更新、提交"><a href="#2-代码更新、提交" class="headerlink" title="2.代码更新、提交"></a>2.代码更新、提交</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#更新代码</div><div class="line">git pull</div><div class="line">#提交代码</div><div class="line">git add -A</div><div class="line">git commit -m &apos;注释&apos;</div><div class="line">git push origim master</div></pre></td></tr></table></figure>
+<h3 id="2-代码更新、提交"><a href="#2-代码更新、提交" class="headerlink" title="2.代码更新、提交"></a>2.代码更新、提交</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#代码状态</div><div class="line">git status</div><div class="line">#更新代码</div><div class="line">git pull</div><div class="line">#提交代码</div><div class="line">git add -A</div><div class="line">git commit -m &apos;注释&apos;</div><div class="line">git push origim master</div></pre></td></tr></table></figure>
 <h3 id="3-git的日志以及恢复版本"><a href="#3-git的日志以及恢复版本" class="headerlink" title="3.git的日志以及恢复版本"></a>3.git的日志以及恢复版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">git log</div><div class="line">#回到上一个版本</div><div class="line">git reset　HEAD^　</div><div class="line">#将本地的状态回退到和远程的一样　　　　　　</div><div class="line">git reset –hard origin/master</div><div class="line">#回退到某个版本  xxxx代表git log中的id</div><div class="line">git reset xxxx</div></pre></td></tr></table></figure>
-<h2 id="vue部分"><a href="#vue部分" class="headerlink" title="vue部分"></a>vue部分</h2>
+<h2 id="vue部分"><a href="#vue部分" class="headerlink" title="vue部分"></a>vue部分</h2><h3 id="1-资料"><a href="#1-资料" class="headerlink" title="1. 资料"></a>1. 资料</h3><p> 官网：<a href="https://cn.vuejs.org/v2/api/" target="_blank" rel="external">https://cn.vuejs.org/v2/api/</a></p>
+<p> vue-router:<a href="https://router.vuejs.org/zh-cn/" target="_blank" rel="external">https://router.vuejs.org/zh-cn/</a></p>
+<p> vuex: <a href="https://vuex.vuejs.org/zh-cn/" target="_blank" rel="external">https://vuex.vuejs.org/zh-cn/</a></p>
+<p> vue-resource: <a href="https://github.com/pagekit/vue-resource" target="_blank" rel="external">https://github.com/pagekit/vue-resource</a></p>
+<p> mint-ui: <a href="http://mint-ui.github.io/docs/#/" target="_blank" rel="external">http://mint-ui.github.io/docs/#/</a></p>
+<h3 id="2-代码包结构"><a href="#2-代码包结构" class="headerlink" title="2. 代码包结构"></a>2. 代码包结构</h3><ul>
+<li>api: 所有调用后台接口的API</li>
+<li>assets: 所有静态文件存放处</li>
+<li>components：组件存放地，也就是所有页面</li>
+<li>filter: 过滤器，相当于EL表达式中的方法。</li>
+<li>router: 页面加载后执行</li>
+<li>store: vuex相关的actions,mutation</li>
+</ul>
+<h3 id="3-es6相关"><a href="#3-es6相关" class="headerlink" title="3. es6相关"></a>3. es6相关</h3><ul>
+<li><p>Promise:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params">msg</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(msg)</div><div class="line">&#125;</div><div class="line"><span class="comment">//老的写法</span></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">d,cb</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(d.success)&#123;</div><div class="line">      cb(<span class="string">'success'</span>)</div><div class="line">    &#125;<span class="keyword">else</span> &#123;</div><div class="line">      cb(<span class="string">'error'</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  a(&#123;success:<span class="literal">true</span>&#125;,b)<span class="comment">//success</span></div><div class="line"><span class="comment">////-------------</span></div><div class="line"><span class="comment">//新的es6写法</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">d</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>((resolve,reject)=&gt;&#123;</div><div class="line">    <span class="keyword">if</span>(d.success)&#123;</div><div class="line">      resolve(<span class="string">'success'</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> </div><div class="line">      reject(<span class="string">'error'</span>)</div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line">a(&#123;success:<span class="literal">true</span>&#125;).then(res=&gt;&#123;</div><div class="line">  <span class="built_in">console</span>.log(res)</div><div class="line">&#125;,err=&gt;&#123;</div><div class="line">  <span class="built_in">console</span>.log(err)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>=&gt;写法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">a(&#123;success:<span class="literal">true</span>&#125;).then(res=&gt;&#123;<span class="comment">//当参数多时，使用括号(res,res2)=&gt;&#123;&#125;</span></div><div class="line">  <span class="built_in">console</span>.log(res)</div><div class="line">&#125;,err=&gt;&#123;</div><div class="line">  <span class="built_in">console</span>.log(err)</div><div class="line">&#125;)</div><div class="line"><span class="comment">//相等于</span></div><div class="line"><span class="keyword">var</span> data = &#123;success:<span class="literal">true</span>&#125;</div><div class="line">a(data).then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(res)</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(res)</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">//对比上下两种写法，除了语法不同，实际还有一个重要的地方。this的域不一样</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>js文件的export 和 import</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</div><div class="line">  a()&#123;</div><div class="line"></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">import</span> xxx <span class="keyword">from</span> <span class="string">'../xx'</span></div><div class="line">xxx.a()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="vue-语法"><a href="#vue-语法" class="headerlink" title="vue 语法"></a>vue 语法</h3><ul>
+<li>vue的结构<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">  &lt;template&gt;</div><div class="line">    &lt;div class='mypage'&gt;</div><div class="line">    &#123;&#123; a.publishDate | formatter &#125;&#125;相当于EL的$&#123;a&#125;</div><div class="line">    &lt;Button who='page1' @click='clickButton'&gt;&lt;/Button&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/template&gt;</div><div class="line">  import Button from './Button'//引入组件</div><div class="line">  import formmter from '../../filter/DateUtils'</div><div class="line">  &lt;script&gt;</div><div class="line">    export default &#123;</div><div class="line">      moounted()&#123;</div><div class="line">        //页面加载完成后</div><div class="line">        &#123;</div><div class="line">          id</div><div class="line">        &#125;</div><div class="line">      &#125;,</div><div class="line">      data () &#123;//数据内容，类似request.setAttrbute('a':'xxx')</div><div class="line">        return &#123;</div><div class="line">          a:'xxx',</div><div class="line">          b:'yyy'</div><div class="line">        &#125;</div><div class="line">      &#125;,route:&#123;</div><div class="line">        data (&#123;to : &#123;params: &#123;id&#125;&#125;&#125;) &#123;</div><div class="line">          console.log(id)</div><div class="line">        &#125;</div><div class="line">      &#125;,</div><div class="line">      components: &#123;//定义组件</div><div class="line">        Button </div><div class="line">      &#125;,</div><div class="line">      methods: &#123;</div><div class="line">        clickButton() &#123;</div><div class="line">          console('dd')</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">  &lt;script&gt;</div><div class="line">//scoped样式的使用范围. lang是样式的预编译语言</div><div class="line">  &lt;style scoped lang='stylus'&gt;</div><div class="line">    .mypage</div><div class="line">      background red</div><div class="line">      Button</div><div class="line">        border 1px solid red</div><div class="line">  &lt;/style&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Mint-ui-UI框架"><a href="#Mint-ui-UI框架" class="headerlink" title="Mint-ui UI框架"></a>Mint-ui UI框架</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;template&gt;</div><div class="line">&lt;div&gt; </div><div class="line">&lt;input v-model='myvalue'&gt;&#123;&#123;myvalue&#125;&#125;</div><div class="line">&lt;mt-datetime-picker</div><div class="line">    ref="picker"</div><div class="line">    type="time"</div><div class="line">    v-model="pickerValue"&gt;</div><div class="line">  &lt;/mt-datetime-picker&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">import &#123;Toast,DatetimePicker&#125; from 'mint-ui'</div><div class="line"></div><div class="line">export default &#123;</div><div class="line">  data()&#123;</div><div class="line">    return &#123;</div><div class="line">      pickerValue:'',</div><div class="line">      myvalue:''</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  mounted()&#123;</div><div class="line">    Toast('页面加载成功');</div><div class="line"></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h3><ul>
+<li>注册github账号</li>
+<li>下载代码。更新代码。提交代码。</li>
+<li>尝试修改页面，按照项目的要求修改</li>
+<li>尝试自己加一个新的页面</li>
+<li>在修改好的页面，加载自己的数据，数据自己在interface项目中写</li>
+</ul>
+
       
 
       
@@ -448,6 +484,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
@@ -464,18 +504,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
@@ -484,7 +512,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color1">Redux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,6 +525,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
             
             <div class="clearfix"></div>
