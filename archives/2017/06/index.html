@@ -6,18 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://jianwwpro.github.io">
-  <title>Linux日常操作命令 | Jianwu</title>
+  <title>Archives: 2017/6 | Jianwu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="挂载共享12mount -t smbfs //wangjianwu:artron@192.168.82.13/anbo/ /Users/jsb/Documents/WorkSpace/data/mount -t smbfs //wangjianwu:jianwu@192.168.82.100/artbase/artbase/artbase-jiami /Users/jsb/Documents/Wo">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Linux日常操作命令">
-<meta property="og:url" content="http://jianwwpro.github.io/2017/03/06/Linux日常操作命令/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Jianwu">
+<meta property="og:url" content="http://jianwwpro.github.io/archives/2017/06/index.html">
 <meta property="og:site_name" content="Jianwu">
-<meta property="og:description" content="挂载共享12mount -t smbfs //wangjianwu:artron@192.168.82.13/anbo/ /Users/jsb/Documents/WorkSpace/data/mount -t smbfs //wangjianwu:jianwu@192.168.82.100/artbase/artbase/artbase-jiami /Users/jsb/Documents/Wo">
-<meta property="og:updated_time" content="2017-03-06T09:41:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux日常操作命令">
-<meta name="twitter:description" content="挂载共享12mount -t smbfs //wangjianwu:artron@192.168.82.13/anbo/ /Users/jsb/Documents/WorkSpace/data/mount -t smbfs //wangjianwu:jianwu@192.168.82.100/artbase/artbase/artbase-jiami /Users/jsb/Documents/Wo">
+<meta name="twitter:title" content="Jianwu">
   
     <link rel="alternative" href="/atom.xml" title="Jianwu" type="application/atom+xml">
   
@@ -149,187 +145,102 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Linux日常操作命令" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Linux日常操作命令
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/06/21/activiti在oracle不生成表/" class="archive-article-date">
+  	<time datetime="2017-06-21T08:22:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-21</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/06/21/activiti在oracle不生成表/">activiti在oracle不生成表</a>
     </h1>
   
 
-        
-        <a href="/2017/03/06/Linux日常操作命令/" class="archive-article-date">
-  	<time datetime="2017-03-06T08:49:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="挂载共享"><a href="#挂载共享" class="headerlink" title="挂载共享"></a>挂载共享</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mount -t smbfs //wangjianwu:artron@192.168.82.13/anbo/ /Users/jsb/Documents/WorkSpace/data/</div><div class="line">mount -t smbfs //wangjianwu:jianwu@192.168.82.100/artbase/artbase/artbase-jiami /Users/jsb/Documents/WorkSpace/projects/artbase/</div></pre></td></tr></table></figure>
-<h2 id="rsync在ssh模式下的断点续传"><a href="#rsync在ssh模式下的断点续传" class="headerlink" title="rsync在ssh模式下的断点续传"></a>rsync在ssh模式下的断点续传</h2><blockquote>
-<p>由于要从服务器拉去mongodb的数据到本地处理，但是mongodb备份文件过大，使用ssh进行传输时，出现stalled后断开。故使用rsync继续断点续传</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rsync -P -e &apos;ssh -p 1056&apos; -r root@cy:/data/backup/marc_book/marc_book .</div></pre></td></tr></table></figure>
-<p>-P 显示进度<br>-r 递归同步文件夹下的文件<br>ssh -p 指定ssh端口 </p>
-<h2 id="备份mongodb数据库"><a href="#备份mongodb数据库" class="headerlink" title="备份mongodb数据库"></a>备份mongodb数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/mongodb/bin/mongodump -d marc_book -o .</div></pre></td></tr></table></figure>
-<h2 id="恢复mongodb数据库"><a href="#恢复mongodb数据库" class="headerlink" title="恢复mongodb数据库"></a>恢复mongodb数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongorestore -d marc_book marc_book/</div></pre></td></tr></table></figure>
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/weixin.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">activiti</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://jianwwpro.github.io/2017/03/06/Linux日常操作命令/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/06/19/ES6常用方法/" class="archive-article-date">
+  	<time datetime="2017-06-19T06:30:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-19</time>
+</a>
+        </div>
+    	 
   
-    <a href="/2017/03/27/solr中ik分词自定义词库和停止词/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          solr中ik分词自定义词库和停止词
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/03/03/maven遇到的坑/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">maven遇到的坑</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Linux日常操作命令" data-title="Linux日常操作命令" data-url="http://jianwwpro.github.io/2017/03/06/Linux日常操作命令/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"650ebeed00d6ff421dc323b5243198c2"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/06/19/ES6常用方法/">ES6常用方法</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
+
+    
 
 
           </div>
@@ -352,8 +263,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

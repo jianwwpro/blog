@@ -147,6 +147,158 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-activiti在oracle不生成表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/21/activiti在oracle不生成表/">activiti在oracle不生成表</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/21/activiti在oracle不生成表/" class="archive-article-date">
+  	<time datetime="2017-06-21T08:22:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>报错如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div></pre></td><td class="code"><pre><div class="line">### Error querying database.  Cause: java.sql.SQLException: ORA-00942: table or view does not exist</div><div class="line"></div><div class="line">### The error may exist in org/activiti/db/mapping/entity/Property.xml</div><div class="line">### The error may involve org.activiti.engine.impl.persistence.entity.PropertyEntity.selectProperty-Inline</div><div class="line">### The error occurred while setting parameters</div><div class="line">### SQL: select * from ACT_GE_PROPERTY where NAME_ = ?</div><div class="line">### Cause: java.sql.SQLException: ORA-00942: table or view does not exist</div><div class="line"></div><div class="line">        at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23)</div><div class="line">        at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:104)</div><div class="line">        at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:95)</div><div class="line">        at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:59)</div><div class="line">        at org.activiti.engine.impl.db.DbSqlSession.selectById(DbSqlSession.java:323)</div><div class="line">        at org.activiti.engine.impl.db.DbSqlSession.dbSchemaUpdate(DbSqlSession.java:808)</div><div class="line">        at org.activiti.engine.impl.db.DbSqlSession.performSchemaOperationsProcessEngineBuild(DbSqlSession.java:1100)</div><div class="line">        at org.activiti.engine.impl.SchemaOperationsProcessEngineBuild.execute(SchemaOperationsProcessEngineBuild.java:25)</div><div class="line">        at org.activiti.engine.impl.interceptor.CommandExecutorImpl.execute(CommandExecutorImpl.java:24)</div><div class="line">        at org.activiti.engine.impl.interceptor.CommandContextInterceptor.execute(CommandContextInterceptor.java:60)</div><div class="line">        at org.activiti.spring.SpringTransactionInterceptor$1.doInTransaction(SpringTransactionInterceptor.java:42)</div><div class="line">        at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:130)</div><div class="line">        at org.activiti.spring.SpringTransactionInterceptor.execute(SpringTransactionInterceptor.java:40)</div><div class="line">        at org.activiti.engine.impl.interceptor.LogInterceptor.execute(LogInterceptor.java:32)</div><div class="line">        at org.activiti.engine.impl.ProcessEngineImpl.&lt;init&gt;(ProcessEngineImpl.java:75)</div><div class="line">        at org.activiti.engine.impl.cfg.ProcessEngineConfigurationImpl.buildProcessEngine(ProcessEngineConfigurationImpl.java:311)</div><div class="line">        at org.activiti.spring.SpringProcessEngineConfiguration.buildProcessEngine(SpringProcessEngineConfiguration.java:60)</div><div class="line">        at org.activiti.spring.ProcessEngineFactoryBean.getObject(ProcessEngineFactoryBean.java:56)</div><div class="line">        at org.activiti.spring.ProcessEngineFactoryBean.getObject(ProcessEngineFactoryBean.java:32)</div><div class="line">        at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:142)</div><div class="line">        at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.getObjectFromFactoryBean(FactoryBeanRegistrySupport.java:102)</div><div class="line">        at org.springframework.beans.factory.support.AbstractBeanFactory.getObjectForBeanInstance(AbstractBeanFactory.java:1442)</div><div class="line">        at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:305)</div><div class="line">        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)</div><div class="line">        at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)</div><div class="line">        at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)</div><div class="line">        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1360)</div><div class="line">        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1118)</div><div class="line">        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)</div><div class="line">        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)</div><div class="line">        at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)</div><div class="line">        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)</div><div class="line">        at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)</div><div class="line">        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)</div><div class="line">        at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:609)</div><div class="line">        at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)</div><div class="line">        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:469)</div><div class="line">        at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:383)</div><div class="line">        at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:283)</div><div class="line">        at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:111)</div><div class="line">        at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4791)</div><div class="line">        at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5285)</div><div class="line">        at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)</div><div class="line">        at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:901)</div><div class="line">        at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:877)</div><div class="line">        at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:633)</div><div class="line">        at org.apache.catalina.startup.HostConfig.deployWAR(HostConfig.java:977)</div><div class="line">        at org.apache.catalina.startup.HostConfig$DeployWar.run(HostConfig.java:1655)</div><div class="line">        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:441)</div><div class="line">        at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)</div><div class="line">        at java.util.concurrent.FutureTask.run(FutureTask.java:138)</div><div class="line">        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)</div><div class="line">        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)</div><div class="line">        at java.lang.Thread.run(Thread.java:662)</div><div class="line">Caused by: java.sql.SQLException: ORA-00942: table or view does not exist</div><div class="line"></div><div class="line">        at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:111)</div><div class="line">        at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:330)</div><div class="line">        at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:287)</div><div class="line">        at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:742)</div><div class="line">        at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:212)</div><div class="line">        at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:795)</div><div class="line">        at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1030)</div><div class="line">        at oracle.jdbc.driver.T4CPreparedStatement.executeMaybeDescribe(T4CPreparedStatement.java:835)</div><div class="line">        at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1123)</div><div class="line">        at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3284)</div><div class="line">        at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3389)</div><div class="line">        at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)</div><div class="line">        at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)</div><div class="line">        at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:56)</div><div class="line">        at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:70)</div><div class="line">        at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:57)</div><div class="line">        at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:267)</div><div class="line">        at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:141)</div><div class="line">        at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:105)</div><div class="line">        at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:81)</div><div class="line">        at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:101)</div><div class="line">        … 52 more</div><div class="line">Dec 13, 2012 11:05:33 AM org.springframework.beans.factory.support.DefaultSingletonBeanRegistry destroySingletons</div></pre></td></tr></table></figure>
+<p>解决办法：加上schema配置，value=数据库用户名</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"processEngineConfiguration"</span> <span class="attr">class</span>=<span class="string">"org.activiti.spring.SpringProcessEngineConfiguration"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"databaseSchema"</span> <span class="attr">value</span>=<span class="string">"activiti_test"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">activiti</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/21/activiti在oracle不生成表/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-ES6常用方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/19/ES6常用方法/">ES6常用方法</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/19/ES6常用方法/" class="archive-article-date">
+  	<time datetime="2017-06-19T06:30:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf"></a>indexOf</h3><hr>
+<blockquote>
+<p>类似字符串的indexOf()</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stringObject.indexOf(value,index)</div></pre></td></tr></table></figure>
+<h3 id="lastIndexOf"><a href="#lastIndexOf" class="headerlink" title="lastIndexOf"></a>lastIndexOf</h3><hr>
+<blockquote>
+<p>类似indexOf()方法，顺序相反</p>
+</blockquote>
+<h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h3><hr>
+<blockquote>
+<p>参数为function，function的参数有三个：遍历的单个内容、对应的索引号、数组本身</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[].forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value,index,array</span>)</span>&#123;</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><hr>
+<blockquote>
+<p>一一映射，通过return可以返回新的数组</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a1 = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>]</div><div class="line"><span class="keyword">var</span> a2 = a1.map(<span class="function"><span class="keyword">function</span>(<span class="params">item,index</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(index)</div><div class="line">    <span class="keyword">return</span> item.toUpperCase()</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>一一映射的内容可以是object,并且将object解开<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> mps = [&#123;id:<span class="number">1</span>,name:<span class="string">'wangjianwu'</span>,age:<span class="number">20</span>&#125;,&#123;id:<span class="number">2</span>,name:<span class="string">'keli'</span>,age:<span class="number">21</span>&#125;]</div><div class="line"></div><div class="line"><span class="keyword">let</span> ids = mps.map((&#123;id,name&#125;)=&gt;&#123;</div><div class="line">    <span class="built_in">console</span>.log(name,id)</div><div class="line">    <span class="keyword">return</span> id</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>### </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/19/ES6常用方法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-20170525-Vue使用培训" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -668,170 +820,6 @@
 
 
   
-    <article id="post-Redux学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/09/Redux学习笔记/">Redux学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2016/09/09/Redux学习笔记/" class="archive-article-date">
-  	<time datetime="2016-09-09T06:21:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="单一数据源"><a href="#单一数据源" class="headerlink" title="单一数据源"></a>单一数据源</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 这是一个 reducer，形式为 (state, action) =&gt; state 的纯函数。</div><div class="line"> * 描述了 action 如何把 state 转变成下一个 state。</div><div class="line"> *</div><div class="line"> * state 的形式取决于你，可以是基本类型、数组、对象、</div><div class="line"> * 甚至是 Immutable.js 生成的数据结构。惟一的要点是</div><div class="line"> * 当 state 变化时需要返回全新的对象，而不是修改传入的参数。</div><div class="line"> *</div><div class="line"> * 下面例子使用 `switch` 语句和字符串来做判断，但你可以写帮助类(helper)</div><div class="line"> * 根据不同的约定（如方法映射）来判断，只要适用你的项目即可。</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">counter</span>(<span class="params">state = 0, action</span>) </span>&#123;</div><div class="line">  <span class="keyword">switch</span> (action.type) &#123;</div><div class="line">  <span class="keyword">case</span> <span class="string">'INCREMENT'</span>:</div><div class="line">    <span class="keyword">return</span> state + <span class="number">1</span>;</div><div class="line">  <span class="keyword">case</span> <span class="string">'DECREMENT'</span>:</div><div class="line">    <span class="keyword">return</span> state - <span class="number">1</span>;</div><div class="line">  <span class="keyword">default</span>:</div><div class="line">    <span class="keyword">return</span> state;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 创建 Redux store 来存放应用的状态。</span></div><div class="line"><span class="comment">// API 是 &#123; subscribe, dispatch, getState &#125;。</span></div><div class="line"><span class="keyword">let</span> store = createStore(counter);</div><div class="line"></div><div class="line"><span class="comment">// 可以手动订阅更新，也可以事件绑定到视图层。</span></div><div class="line">store.subscribe(() =&gt;</div><div class="line">  <span class="built_in">console</span>.log(store.getState())</div><div class="line">);</div><div class="line"></div><div class="line"><span class="comment">// 改变内部 state 惟一方法是 dispatch 一个 action。</span></div><div class="line"><span class="comment">// action 可以被序列化，用日记记录和储存下来，后期还可以以回放的方式执行</span></div><div class="line">store.dispatch(&#123; type: <span class="string">'INCREMENT'</span> &#125;);</div><div class="line"><span class="comment">// 1</span></div><div class="line">store.dispatch(&#123; type: <span class="string">'INCREMENT'</span> &#125;);</div><div class="line"><span class="comment">// 2</span></div><div class="line">store.dispatch(&#123; type: <span class="string">'DECREMENT'</span> &#125;);</div><div class="line"><span class="comment">// 1</span></div></pre></td></tr></table></figure>
-<h3 id="入口"><a href="#入口" class="headerlink" title="入口"></a>入口</h3><h4 id="1-产出store"><a href="#1-产出store" class="headerlink" title="1. 产出store"></a>1. 产出store</h4><p>redux.createStore  进行创建store，参数是reducers</p>
-<h4 id="2-产出-reduce"><a href="#2-产出-reduce" class="headerlink" title="2. 产出 reduce"></a>2. 产出 reduce</h4><p>reducers 输出 redux.combineReducers({各种switch case方法,…})<br>每一次状态改变都会影响reducers的输出</p>
-<h4 id="3-将store-输入到react-redux"><a href="#3-将store-输入到react-redux" class="headerlink" title="3. 将store 输入到react-redux"></a>3. 将store 输入到react-redux</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Provivder &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span></div><div class="line">&lt;Provider sotre=&#123;store&#125;&gt;</div><div class="line">  <span class="xml"><span class="tag">&lt;<span class="name">App</span>/&gt;</span></span></div><div class="line">&lt;<span class="regexp">/Provider&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="4-在app中调用action"><a href="#4-在app中调用action" class="headerlink" title="4. 在app中调用action"></a>4. 在app中调用action</h4><h5 id="1-使用connect，注入props"><a href="#1-使用connect，注入props" class="headerlink" title="1. 使用connect，注入props"></a>1. 使用connect，注入props</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">render()&#123;</div><div class="line">  <span class="keyword">const</span> &#123;dispatch,visibleTodos,visiblibityFilter&#125; = <span class="keyword">this</span>.props<span class="comment">//通过react-redux.connect注入</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">select</span>(<span class="params">state</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123;<span class="comment">//对象里面的数据将注入props里，可直接使用this.props调用</span></div><div class="line">      visibleTodos: selectTodos(state.todos,state.visibilityFilter),<span class="comment">//传入所有列表，筛选出想要的</span></div><div class="line">        visibilityFilter: state.visibilityFIlter</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(select)(App)</div></pre></td></tr></table></figure>
-<h5 id="2-调用dispatch或则使用props"><a href="#2-调用dispatch或则使用props" class="headerlink" title="2. 调用dispatch或则使用props"></a>2. 调用dispatch或则使用props</h5><p>  方式1：注入后的dispatch到action去，aciton返回的状态就回被reduce监控执行<br>    方式2：可从this.props中获取注入的对象</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/09/09/Redux学习笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-React0-14发布拆分react和React-dom" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/09/React0-14发布拆分react和React-dom/">React0.14发布拆分react和React-dom</a>
-    </h1>
-  
-
-        
-        <a href="/2016/09/09/React0-14发布拆分react和React-dom/" class="archive-article-date">
-  	<time datetime="2016-09-09T06:21:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>React 从0.14 开始有一些重要的改进，主要是简化代码编写，提供更好的支持环境，比如 React Native。<br>原本的 API 在 v0.14 版中仍然可以使用，只不过会有 警告，在 v0.15 版的时候完全移除。</p>
-<hr>
-<h3 id="Reactjs-0-14-获取："><a href="#Reactjs-0-14-获取：" class="headerlink" title="Reactjs 0.14 获取："></a>Reactjs 0.14 获取：</h3><ul>
-<li>React<br>Dev build with warnings: <a href="https://fb.me/react-0.14.0.js" target="_blank" rel="external">https://fb.me/react-0.14.0.js</a><br>Minified build for production: <a href="https://fb.me/react-0.14.0.min.js" target="_blank" rel="external">https://fb.me/react-0.14.0.min.js</a></li>
-<li>React with Add-Ons<br>Dev build with warnings: <a href="https://fb.me/react-with-addons-0.14.0.js" target="_blank" rel="external">https://fb.me/react-with-addons-0.14.0.js</a><br>Minified build for production: <a href="https://fb.me/react-with-addons-0.14.0.min.js" target="_blank" rel="external">https://fb.me/react-with-addons-0.14.0.min.js</a></li>
-<li>React DOM (include React in the page before React DOM)<br>Dev build with warnings: <a href="https://fb.me/react-dom-0.14.0.js" target="_blank" rel="external">https://fb.me/react-dom-0.14.0.js</a><br>Minified build for production: <a href="https://fb.me/react-dom-0.14.0.min.js" target="_blank" rel="external">https://fb.me/react-dom-0.14.0.min.js</a></li>
-</ul>
-<h4 id="React-分成两个包"><a href="#React-分成两个包" class="headerlink" title="React  分成两个包"></a>React  分成两个包</h4><p>原本的 <figure class="highlight plain"><figcaption><span>package``` 被拆分为 ```react``` 及 ```react-dom``` 两个 package。 </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### react包</div></pre></td></tr></table></figure></p>
-<p>createElement<br>createClass<br>Component<br>PropTypes<br>Children<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">####  react-dom包 </div><div class="line">```render</div><div class="line">unmountComponentAtNode</div><div class="line">findDOMNode</div><div class="line">server/renderToString</div><div class="line">server/renderToStaticMarkup</div></pre></td></tr></table></figure></p>
-<h3 id="组件写法"><a href="#组件写法" class="headerlink" title="组件写法"></a>组件写法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import React,&#123;Component&#125; from &apos;react&apos;</div><div class="line">import &#123;render&#125; from &apos;react-dom&apos;</div><div class="line">class HelloWorld extends Component&#123;</div><div class="line">	render()&#123;</div><div class="line">    	return (</div><div class="line">			&lt;div&gt;hello world&lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">render(</div><div class="line">	&lt;HelloWorld /&gt;</div><div class="line">)</div></pre></td></tr></table></figure>
-<h3 id="React-addons-下工具也变成独立包"><a href="#React-addons-下工具也变成独立包" class="headerlink" title="React.addons 下工具也变成独立包"></a>React.addons 下工具也变成独立包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">react-addons-clone-with-props</div><div class="line">react-addons-create-fragment</div><div class="line">react-addons-css-transition-group</div><div class="line">react-addons-linked-state-mixin</div><div class="line">react-addons-perf</div><div class="line">react-addons-pure-render-mixin</div><div class="line">react-addons-shallow-compare</div><div class="line">react-addons-test-utils</div><div class="line">react-addons-transition-group</div><div class="line">react-addons-update</div><div class="line">ReactDOM.unstable_batchedUpdates （在 react-dom 中）</div></pre></td></tr></table></figure>
-<p>refs 变成了真正的 DOM 节点</p>
-<p>当我们需要获取 React 组件上某个 DOM 节点时，React 提供了 refs 方法方便我们快速引用。为了方便我们使用，React 还「贴心」地对 refs 做了一层封装，使用 this.refs.xxx.getDOMNode() 或 React.findDOMNode(this.refs.xxx) 可以获取到真正的 DOM 节点。</p>
-<p>结果发现大家真正需要的就是 DOM 节点本身，封装了半天完全是浪费感情。</p>
-<p>于是在 v0.14 版中 refs 指向的就是 DOM 节点，同时也会保留 .getDOMNode() 方法（带 warning），最终在 v0.15 版中去除该方法。</p>
-<p>var Zoo = React.createClass({<br>  render: function() {<br>    return <div>Giraffe name: <input ref="giraffe"></div>;<br>  },<br>  showName: function() {<br>    // 之前：<br>    // var input = this.refs.giraffe.getDOMNode();<br>    //<br>    // v0.14 版：<br>    var input = this.refs.giraffe;<br>    alert(input.value);<br>  }<br>});<br>需要注意的是，如果你给自定义的 React 组件（除了 DOM 自带的标签，如 div、p 等）添加 refs，表现和行为与之前一致。</p>
-<p>无状态的函数式组件</p>
-<p>其实在实际业务系统中使用 React 时，我们会写很多只有 render 方法的 React 组件。为了减少冗余的代码量，React v0.14 中引入了 无状态的函数式组件（Stateless functional components） 的概念。先看看长啥样：</p>
-<p>// 一个 ES6 箭头函数定义的无状态函数式组件var Aquarium = (props) =&gt; {<br>  var fish = getFish(props.species);  return <tank>{fish}</tank>;<br>};// 或者更加简化的版本var Aquarium = ({species}) =&gt; (<br>  <tank><br>    {getFish(species)}<br>  </tank><br>);// 最终使用方式: <aquarium species="rainbowfish"><br>可以看到，没有 React.createClass，也没有显式的 render，写起来更加轻松了。</aquarium></p>
-<p>当然，新语法也有需要注意的地方：</p>
-<p>没有任何生命周期方法，如 componentDidMount 等<br>不能添加 refs<br>可以通过给函数添加属性定义 propTypes 和 defaultProps<br>react-tools 及 JSXTransformer.js 已弃用</p>
-<p>拥抱 Babel 吧同学们！</p>
-<p>编译器优化</p>
-<p>在 Babel 5.8.23 及更新的版本中，新增了两项专门针对 React 的优化配置，仅推荐在生产环境中开启，因为优化后会导致代码的报错更加扑朔迷离（本来报错就已经很难定位了……）。</p>
-<p>optimisation.react.inlineElements 将 JSX 元素转换为对象而非使用 React.createElement<br>optimisation.react.constantElements 针对拥有完全静态子树的组件，将其创建过程提升到顶层（Top level），从而减少对 React.createElement 方法的调用<br>其它变化</p>
-<p>React.initializeTouchEvents 已弃用<br>由于 refs 的相关变化（见上文），TestUtils.findAllInRenderedTree 及相关的方法不再接受 DOM 组件作为参数，只能传入自定义的 React 组件<br>props 一旦创建永远不可修改，因此 .setProps 及 .replaceProps 已废弃<br>children 不可以传对象类型，推荐传入数组，或使用 React.createFragment 方法（其实就是转换为了数组）<br>React.addons.classSet 已经移除，使用 classnames package 替代<br>将要发生的改变</p>
-<p>在 v0.15 版中，下列内容将会发生改变：</p>
-<p>this.getDOMNode() 方法将会废弃，推荐使用 React.findDOMNode()<br>setProps 及 replaceProps 将会废弃<br>React.addons.cloneWithProps 已废弃，推荐使用 React.cloneElements，新方法不会自动 merge className 及 style<br>React.addons.CSSTransitionGroup 将不再监听 transition 事件，因此使用者需要显式指定动画的 timeout，如：transitionEnterTimeout={500}。<br>ES6 组件类必须 extends React.Component（如果使用 React.createClass 语法则不受影响）<br>在多次 render 中重用并改变 style 对象已经被弃用（这一点不是太明白，中心思想貌似是不要 mutate object？）</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/09/09/React0-14发布拆分react和React-dom/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
     <article id="post-Ionic2学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1054,6 +1042,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
@@ -1086,6 +1082,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">activiti</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
@@ -1094,11 +1094,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1167,6 +1167,10 @@
           
             <li class="search-li">
               <a href="http://cms.ahm.cn/hzgj/web/index.html" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>安徽博物馆数字展示平台</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://cms.ahm.cn/hzgj/web/html/old.html" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>安徽博物馆数字展示平台1</a>
             </li>
           
             <li class="search-li">

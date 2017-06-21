@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://jianwwpro.github.io">
-  <title>Linux日常操作命令 | Jianwu</title>
+  <title>activiti在oracle不生成表 | Jianwu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="挂载共享12mount -t smbfs //wangjianwu:artron@192.168.82.13/anbo/ /Users/jsb/Documents/WorkSpace/data/mount -t smbfs //wangjianwu:jianwu@192.168.82.100/artbase/artbase/artbase-jiami /Users/jsb/Documents/Wo">
+  <meta name="description" content="报错如下：
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687### Error querying database.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux日常操作命令">
-<meta property="og:url" content="http://jianwwpro.github.io/2017/03/06/Linux日常操作命令/index.html">
+<meta property="og:title" content="activiti在oracle不生成表">
+<meta property="og:url" content="http://jianwwpro.github.io/2017/06/21/activiti在oracle不生成表/index.html">
 <meta property="og:site_name" content="Jianwu">
-<meta property="og:description" content="挂载共享12mount -t smbfs //wangjianwu:artron@192.168.82.13/anbo/ /Users/jsb/Documents/WorkSpace/data/mount -t smbfs //wangjianwu:jianwu@192.168.82.100/artbase/artbase/artbase-jiami /Users/jsb/Documents/Wo">
-<meta property="og:updated_time" content="2017-03-06T09:41:27.000Z">
+<meta property="og:description" content="报错如下：
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687### Error querying database.">
+<meta property="og:updated_time" content="2017-06-21T08:27:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux日常操作命令">
-<meta name="twitter:description" content="挂载共享12mount -t smbfs //wangjianwu:artron@192.168.82.13/anbo/ /Users/jsb/Documents/WorkSpace/data/mount -t smbfs //wangjianwu:jianwu@192.168.82.100/artbase/artbase/artbase-jiami /Users/jsb/Documents/Wo">
+<meta name="twitter:title" content="activiti在oracle不生成表">
+<meta name="twitter:description" content="报错如下：
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687### Error querying database.">
   
     <link rel="alternative" href="/atom.xml" title="Jianwu" type="application/atom+xml">
   
@@ -149,34 +152,30 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Linux日常操作命令" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-activiti在oracle不生成表" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Linux日常操作命令
+      activiti在oracle不生成表
     </h1>
   
 
         
-        <a href="/2017/03/06/Linux日常操作命令/" class="archive-article-date">
-  	<time datetime="2017-03-06T08:49:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-06</time>
+        <a href="/2017/06/21/activiti在oracle不生成表/" class="archive-article-date">
+  	<time datetime="2017-06-21T08:22:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="挂载共享"><a href="#挂载共享" class="headerlink" title="挂载共享"></a>挂载共享</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mount -t smbfs //wangjianwu:artron@192.168.82.13/anbo/ /Users/jsb/Documents/WorkSpace/data/</div><div class="line">mount -t smbfs //wangjianwu:jianwu@192.168.82.100/artbase/artbase/artbase-jiami /Users/jsb/Documents/WorkSpace/projects/artbase/</div></pre></td></tr></table></figure>
-<h2 id="rsync在ssh模式下的断点续传"><a href="#rsync在ssh模式下的断点续传" class="headerlink" title="rsync在ssh模式下的断点续传"></a>rsync在ssh模式下的断点续传</h2><blockquote>
-<p>由于要从服务器拉去mongodb的数据到本地处理，但是mongodb备份文件过大，使用ssh进行传输时，出现stalled后断开。故使用rsync继续断点续传</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rsync -P -e &apos;ssh -p 1056&apos; -r root@cy:/data/backup/marc_book/marc_book .</div></pre></td></tr></table></figure>
-<p>-P 显示进度<br>-r 递归同步文件夹下的文件<br>ssh -p 指定ssh端口 </p>
-<h2 id="备份mongodb数据库"><a href="#备份mongodb数据库" class="headerlink" title="备份mongodb数据库"></a>备份mongodb数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/mongodb/bin/mongodump -d marc_book -o .</div></pre></td></tr></table></figure>
-<h2 id="恢复mongodb数据库"><a href="#恢复mongodb数据库" class="headerlink" title="恢复mongodb数据库"></a>恢复mongodb数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongorestore -d marc_book marc_book/</div></pre></td></tr></table></figure>
+        <p>报错如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div></pre></td><td class="code"><pre><div class="line">### Error querying database.  Cause: java.sql.SQLException: ORA-00942: table or view does not exist</div><div class="line"></div><div class="line">### The error may exist in org/activiti/db/mapping/entity/Property.xml</div><div class="line">### The error may involve org.activiti.engine.impl.persistence.entity.PropertyEntity.selectProperty-Inline</div><div class="line">### The error occurred while setting parameters</div><div class="line">### SQL: select * from ACT_GE_PROPERTY where NAME_ = ?</div><div class="line">### Cause: java.sql.SQLException: ORA-00942: table or view does not exist</div><div class="line"></div><div class="line">        at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23)</div><div class="line">        at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:104)</div><div class="line">        at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:95)</div><div class="line">        at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:59)</div><div class="line">        at org.activiti.engine.impl.db.DbSqlSession.selectById(DbSqlSession.java:323)</div><div class="line">        at org.activiti.engine.impl.db.DbSqlSession.dbSchemaUpdate(DbSqlSession.java:808)</div><div class="line">        at org.activiti.engine.impl.db.DbSqlSession.performSchemaOperationsProcessEngineBuild(DbSqlSession.java:1100)</div><div class="line">        at org.activiti.engine.impl.SchemaOperationsProcessEngineBuild.execute(SchemaOperationsProcessEngineBuild.java:25)</div><div class="line">        at org.activiti.engine.impl.interceptor.CommandExecutorImpl.execute(CommandExecutorImpl.java:24)</div><div class="line">        at org.activiti.engine.impl.interceptor.CommandContextInterceptor.execute(CommandContextInterceptor.java:60)</div><div class="line">        at org.activiti.spring.SpringTransactionInterceptor$1.doInTransaction(SpringTransactionInterceptor.java:42)</div><div class="line">        at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:130)</div><div class="line">        at org.activiti.spring.SpringTransactionInterceptor.execute(SpringTransactionInterceptor.java:40)</div><div class="line">        at org.activiti.engine.impl.interceptor.LogInterceptor.execute(LogInterceptor.java:32)</div><div class="line">        at org.activiti.engine.impl.ProcessEngineImpl.&lt;init&gt;(ProcessEngineImpl.java:75)</div><div class="line">        at org.activiti.engine.impl.cfg.ProcessEngineConfigurationImpl.buildProcessEngine(ProcessEngineConfigurationImpl.java:311)</div><div class="line">        at org.activiti.spring.SpringProcessEngineConfiguration.buildProcessEngine(SpringProcessEngineConfiguration.java:60)</div><div class="line">        at org.activiti.spring.ProcessEngineFactoryBean.getObject(ProcessEngineFactoryBean.java:56)</div><div class="line">        at org.activiti.spring.ProcessEngineFactoryBean.getObject(ProcessEngineFactoryBean.java:32)</div><div class="line">        at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:142)</div><div class="line">        at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.getObjectFromFactoryBean(FactoryBeanRegistrySupport.java:102)</div><div class="line">        at org.springframework.beans.factory.support.AbstractBeanFactory.getObjectForBeanInstance(AbstractBeanFactory.java:1442)</div><div class="line">        at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:305)</div><div class="line">        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)</div><div class="line">        at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)</div><div class="line">        at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)</div><div class="line">        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1360)</div><div class="line">        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1118)</div><div class="line">        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)</div><div class="line">        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)</div><div class="line">        at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)</div><div class="line">        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)</div><div class="line">        at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)</div><div class="line">        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)</div><div class="line">        at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:609)</div><div class="line">        at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)</div><div class="line">        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:469)</div><div class="line">        at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:383)</div><div class="line">        at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:283)</div><div class="line">        at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:111)</div><div class="line">        at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4791)</div><div class="line">        at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5285)</div><div class="line">        at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)</div><div class="line">        at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:901)</div><div class="line">        at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:877)</div><div class="line">        at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:633)</div><div class="line">        at org.apache.catalina.startup.HostConfig.deployWAR(HostConfig.java:977)</div><div class="line">        at org.apache.catalina.startup.HostConfig$DeployWar.run(HostConfig.java:1655)</div><div class="line">        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:441)</div><div class="line">        at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)</div><div class="line">        at java.util.concurrent.FutureTask.run(FutureTask.java:138)</div><div class="line">        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)</div><div class="line">        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)</div><div class="line">        at java.lang.Thread.run(Thread.java:662)</div><div class="line">Caused by: java.sql.SQLException: ORA-00942: table or view does not exist</div><div class="line"></div><div class="line">        at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:111)</div><div class="line">        at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:330)</div><div class="line">        at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:287)</div><div class="line">        at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:742)</div><div class="line">        at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:212)</div><div class="line">        at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:795)</div><div class="line">        at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1030)</div><div class="line">        at oracle.jdbc.driver.T4CPreparedStatement.executeMaybeDescribe(T4CPreparedStatement.java:835)</div><div class="line">        at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1123)</div><div class="line">        at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3284)</div><div class="line">        at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3389)</div><div class="line">        at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)</div><div class="line">        at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)</div><div class="line">        at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:56)</div><div class="line">        at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:70)</div><div class="line">        at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:57)</div><div class="line">        at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:267)</div><div class="line">        at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:141)</div><div class="line">        at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:105)</div><div class="line">        at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:81)</div><div class="line">        at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:101)</div><div class="line">        … 52 more</div><div class="line">Dec 13, 2012 11:05:33 AM org.springframework.beans.factory.support.DefaultSingletonBeanRegistry destroySingletons</div></pre></td></tr></table></figure>
+<p>解决办法：加上schema配置，value=数据库用户名</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"processEngineConfiguration"</span> <span class="attr">class</span>=<span class="string">"org.activiti.spring.SpringProcessEngineConfiguration"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"databaseSchema"</span> <span class="attr">value</span>=<span class="string">"activiti_test"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div></pre></td></tr></table></figure>
       
 
       
@@ -215,7 +214,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">activiti</a>
         		</li>
       		
 		</ul>
@@ -271,7 +270,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://jianwwpro.github.io/2017/03/06/Linux日常操作命令/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://jianwwpro.github.io/2017/06/21/activiti在oracle不生成表/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -285,18 +284,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/27/solr中ik分词自定义词库和停止词/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          solr中ik分词自定义词库和停止词
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/03/maven遇到的坑/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">maven遇到的坑</div>
+    <a href="/2017/06/19/ES6常用方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ES6常用方法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -310,7 +300,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Linux日常操作命令" data-title="Linux日常操作命令" data-url="http://jianwwpro.github.io/2017/03/06/Linux日常操作命令/"></div>
+	<div class="ds-thread" data-thread-key="activiti在oracle不生成表" data-title="activiti在oracle不生成表" data-url="http://jianwwpro.github.io/2017/06/21/activiti在oracle不生成表/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
