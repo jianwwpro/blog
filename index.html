@@ -147,6 +147,70 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-KVM笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/10/KVM笔记/">KVM笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/10/KVM笔记/" class="archive-article-date">
+  	<time datetime="2018-04-10T08:09:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-安装KVM工具"><a href="#1-安装KVM工具" class="headerlink" title="1.安装KVM工具"></a>1.安装KVM工具</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install qemu-kvm qemu-kvm-tools libvirt</div><div class="line">yum install virt-install</div></pre></td></tr></table></figure>
+<h2 id="2-创建虚拟盘"><a href="#2-创建虚拟盘" class="headerlink" title="2.创建虚拟盘"></a>2.创建虚拟盘</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">qemu-img create -f raw /home/kvm/centos/CentOS-7-x86-64.raw 10G</div></pre></td></tr></table></figure>
+<h2 id="3-创建虚拟机"><a href="#3-创建虚拟机" class="headerlink" title="3.创建虚拟机"></a>3.创建虚拟机</h2><p>virt-install –name CentOS7_2 –ram 2048 –vcpus=2 –os-type=linux –accelerate -c /home/kvm/CentOS-7-x86_64-Minimal-1708.iso –disk path=/home/kvm/centos/CentOS-7-x86-64.raw –network bridge=br0,model=virtio –force –autostart –vnc –vncport=5994 –vnclisten=0.0.0.0</p>
+<h2 id="4-vnc连接安装系统"><a href="#4-vnc连接安装系统" class="headerlink" title="4. vnc连接安装系统"></a>4. vnc连接安装系统</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">linux,kvm,虚拟机</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/10/KVM笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-activiti在oracle不生成表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -820,103 +884,6 @@
 
 
   
-    <article id="post-Ionic2学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/09/Ionic2学习笔记/">Ionic2学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2016/09/09/Ionic2学习笔记/" class="archive-article-date">
-  	<time datetime="2016-09-09T06:21:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-Action-Sheets"><a href="#1-Action-Sheets" class="headerlink" title="1. Action Sheets"></a>1. Action Sheets</h2><p>role: descructive、cancel<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.actionSheetController.create(&#123;</div><div class="line">    title:<span class="string">'xxx'</span>,</div><div class="line">    buttons:[</div><div class="line">        &#123;</div><div class="line">            text:<span class="string">''</span>,</div><div class="line">            role:<span class="string">'descructive'</span></div><div class="line">        &#125;</div><div class="line">        ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<h2 id="2-Alerts"><a href="#2-Alerts" class="headerlink" title="2. Alerts"></a>2. Alerts</h2><h3 id="Basic-Alert"><a href="#Basic-Alert" class="headerlink" title="Basic Alert"></a>Basic Alert</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.alertController.create(&#123;</div><div class="line">    title:<span class="string">'xxx'</span>,</div><div class="line">    subTitle:<span class="string">'xxx'</span>,</div><div class="line">    buttons:[<span class="string">'OK'</span>]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h3 id="Prompt-Alert"><a href="#Prompt-Alert" class="headerlink" title="Prompt Alert"></a>Prompt Alert</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> propmt = <span class="keyword">this</span>.alertController.create(&#123;</div><div class="line">    title: <span class="string">'Login'</span>,</div><div class="line">    message:<span class="string">''</span>,</div><div class="line">    inputs:[</div><div class="line">        &#123;</div><div class="line">            name:<span class="string">'title'</span>,</div><div class="line">            placehodler:<span class="string">'enter title'</span></div><div class="line">        &#125;,</div><div class="line">    ],</div><div class="line">    buttons:[</div><div class="line">        &#123;</div><div class="line">            text:<span class="string">'OK'</span>,</div><div class="line">            handler:data=&gt;&#123;</div><div class="line">                <span class="built_in">console</span>.log(data);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;);</div><div class="line">propmt.present();</div></pre></td></tr></table></figure>
-<h3 id="Confirmation-Alerts"><a href="#Confirmation-Alerts" class="headerlink" title="Confirmation Alerts"></a>Confirmation Alerts</h3><p>类似上面</p>
-<h3 id="Radio"><a href="#Radio" class="headerlink" title="Radio"></a>Radio</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> radioAlert = <span class="keyword">this</span>.alertController.create();</div><div class="line">radioAlert.setTitle(<span class="string">"title"</span>);</div><div class="line">radioAlert.addInput(&#123;</div><div class="line">    type:<span class="string">'radio'</span>,</div><div class="line">    label:<span class="string">'label'</span>,</div><div class="line">    value:<span class="string">'value'</span>,</div><div class="line">    checked:<span class="literal">true</span></div><div class="line">&#125;);</div><div class="line">radioAlert.addButton(<span class="string">'cancel'</span>);</div><div class="line">radioAlert.addButton(&#123;</div><div class="line">    text:<span class="string">'OK'</span>,</div><div class="line">    handler:data=&gt;&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">radioAlert.present();</div></pre></td></tr></table></figure>
-<h3 id="Checkbox"><a href="#Checkbox" class="headerlink" title="Checkbox"></a>Checkbox</h3><p>与radio alert类似，type为checkbox</p>
-<h2 id="4-Badges"><a href="#4-Badges" class="headerlink" title="4.Badges"></a>4.Badges</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ion-item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-icon</span> <span class="attr">name</span>=<span class="string">"logo=twitter"</span> <span class="attr">item-left</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-icon</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-badge</span> <span class="attr">item-right</span>&gt;</span>260k<span class="tag">&lt;/<span class="name">ion-badge</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ion-item</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">ion-badge</span> <span class="attr">secondary</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-badge</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="5-buttons"><a href="#5-buttons" class="headerlink" title="5. buttons"></a>5. buttons</h2><ul>
-<li>default</li>
-<li>outline</li>
-<li>clear</li>
-<li>round</li>
-<li>block</li>
-<li>full</li>
-<li>button size : small large</li>
-<li><p>icon buttons</p>
-  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-icon</span> <span class="attr">name</span>=<span class="string">'home'</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-icon</span>&gt;</span></div><div class="line">    Left Icon</div><div class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>floating button</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;button fab&gt;FAB&lt;/button&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>buttons in components</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ion-header&gt;ion-buttons[start]&gt;button&gt;icon-icon[name=&apos;contact&apos;]</div><div class="line">            ion-buttons[end]&gt;button&gt;icon-icon[name=&apos;search&apos;]</div><div class="line">ion-list&gt;ion-item&gt;button[outline][item-right]&gt;ion-icon[name=&quot;star&quot;]</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="6-Cards"><a href="#6-Cards" class="headerlink" title="6. Cards"></a>6. Cards</h2><h3 id="Basic-Cards"><a href="#Basic-Cards" class="headerlink" title="Basic Cards"></a>Basic Cards</h3><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ion-card&gt;ion-card-header</div><div class="line">        &gt;ion-card-content</div></pre></td></tr></table></figure>
-</code></pre><h3 id="Card-Headers"><a href="#Card-Headers" class="headerlink" title="Card Headers"></a>Card Headers</h3><h3 id="List-In-Cards"><a href="#List-In-Cards" class="headerlink" title="List In Cards"></a>List In Cards</h3><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ion-card&gt;ion-card-header</div><div class="line">        &gt;ion-list&gt;button[ion-item]&gt;ion-icon[name='cart'][item-left]shopping</div></pre></td></tr></table></figure>
-</code></pre><h3 id="Images-In-Cards"><a href="#Images-In-Cards" class="headerlink" title="Images In Cards"></a>Images In Cards</h3><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ion-card&gt;img</div><div class="line">        &gt;ion-card-content&gt;ion-card-title</div><div class="line">                         &gt;p</div></pre></td></tr></table></figure>
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ionic</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ionic2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/09/09/Ionic2学习笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -931,7 +898,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 剑舞
+    		&copy; 2018 剑舞
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1010,6 +977,14 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工作</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -1030,14 +1005,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ionic</a>
               </li>
              
@@ -1047,6 +1014,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">linux,kvm,虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1070,6 +1041,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redux</a>
               </li>
              
@@ -1079,14 +1058,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
