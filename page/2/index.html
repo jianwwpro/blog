@@ -147,6 +147,137 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-JavaEE开发常用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/23/JavaEE开发常用/">JavaEE开发常用</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/23/JavaEE开发常用/" class="archive-article-date">
+  	<time datetime="2017-02-23T03:08:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="关于mybatis-在使用mysql自增长主键，插入后返回ID问题。"><a href="#关于mybatis-在使用mysql自增长主键，插入后返回ID问题。" class="headerlink" title="关于mybatis 在使用mysql自增长主键，插入后返回ID问题。"></a>关于mybatis 在使用mysql自增长主键，插入后返回ID问题。</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;insert id=&quot;insert&quot; parameterType=&quot;com.caiyun.boss.entity.CaiOrder&quot; useGeneratedKeys=&quot;true&quot; keyProperty=&quot;id&quot;&gt;</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/23/JavaEE开发常用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-CMYK转RGB" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/25/CMYK转RGB/">CMYK转RGB</a>
+    </h1>
+  
+
+        
+        <a href="/2016/11/25/CMYK转RGB/" class="archive-article-date">
+  	<time datetime="2016-11-25T08:25:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.lasun.acms.action;</div><div class="line"><span class="keyword">import</span> com.sun.image.codec.jpeg.JPEGCodec;</div><div class="line"><span class="keyword">import</span> com.sun.image.codec.jpeg.JPEGImageEncoder;</div><div class="line"><span class="keyword">import</span> java.awt.Transparency;</div><div class="line"><span class="keyword">import</span> java.awt.color.ColorSpace;</div><div class="line"><span class="keyword">import</span> java.awt.image.BufferedImage;</div><div class="line"><span class="keyword">import</span> java.awt.image.ColorModel;</div><div class="line"><span class="keyword">import</span> java.awt.image.ComponentColorModel;</div><div class="line"><span class="keyword">import</span> java.awt.image.DataBuffer;</div><div class="line"><span class="keyword">import</span> java.awt.image.DataBufferByte;</div><div class="line"><span class="keyword">import</span> java.awt.image.Raster;</div><div class="line"><span class="keyword">import</span> java.awt.image.WritableRaster;</div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.FileOutputStream;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.util.Iterator;</div><div class="line"><span class="keyword">import</span> javax.imageio.IIOException;</div><div class="line"><span class="keyword">import</span> javax.imageio.ImageIO;</div><div class="line"><span class="keyword">import</span> javax.imageio.ImageReader;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.imageio.stream.ImageInputStream;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CMYK</span> </span>&#123;</div><div class="line">	  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">readImage</span><span class="params">(String filename)</span> <span class="keyword">throws</span> IOException </span>&#123;        </div><div class="line">	       File file = <span class="keyword">new</span> File(filename);</div><div class="line">	        ImageInputStream input = ImageIO.createImageInputStream(file);</div><div class="line">	        Iterator readers = ImageIO.getImageReaders(input);</div><div class="line">	        <span class="keyword">if</span>(readers == <span class="keyword">null</span> || !readers.hasNext()) &#123;</div><div class="line">	            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"1 No ImageReaders found"</span>);</div><div class="line">	        &#125;</div><div class="line">	        ImageReader reader = (ImageReader) readers.next();</div><div class="line">	        reader.setInput(input);</div><div class="line">	        String format = reader.getFormatName() ;</div><div class="line">	        BufferedImage image; </div><div class="line">	       </div><div class="line">	      <span class="keyword">if</span> ( <span class="string">"JPEG"</span>.equalsIgnoreCase(format) ||<span class="string">"JPG"</span>.equalsIgnoreCase(format) )   &#123;            </div><div class="line">	        <span class="keyword">try</span> &#123;  </div><div class="line">	            <span class="comment">// 尝试读取图片 (包括颜色的转换).   </span></div><div class="line">	            image = reader.read(<span class="number">0</span>); <span class="comment">//RGB</span></div><div class="line">	        &#125; <span class="keyword">catch</span> (IIOException e) &#123;  </div><div class="line">	            <span class="comment">// 读取Raster (没有颜色的转换).   </span></div><div class="line">	            Raster raster = reader.readRaster(<span class="number">0</span>, <span class="keyword">null</span>);<span class="comment">//CMYK  </span></div><div class="line">	            image = createJPEG4(raster);</div><div class="line">	        &#125; </div><div class="line">	           image.getGraphics().drawImage(image, <span class="number">0</span>, <span class="number">0</span>, <span class="keyword">null</span>);</div><div class="line">	           String newfilename = filename.substring(<span class="number">0</span>,filename.lastIndexOf(<span class="string">"."</span>))+<span class="string">"_rgb"</span>+filename.substring(filename.lastIndexOf(<span class="string">"."</span>));</div><div class="line">	           File newFile = <span class="keyword">new</span> File(newfilename);</div><div class="line">	           FileOutputStream out = <span class="keyword">new</span> FileOutputStream(newFile);</div><div class="line">	           JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);</div><div class="line">	           encoder.encode(image);</div><div class="line">	           out.flush();</div><div class="line">	           out.close();  </div><div class="line">	            </div><div class="line">	        &#125;</div><div class="line">	    &#125;</div><div class="line"></div><div class="line">	    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> BufferedImage <span class="title">createJPEG4</span><span class="params">(Raster raster)</span> </span>&#123;</div><div class="line">	        <span class="keyword">int</span> w = raster.getWidth();</div><div class="line">	        <span class="keyword">int</span> h = raster.getHeight();</div><div class="line">	        <span class="keyword">byte</span>[] rgb = <span class="keyword">new</span> <span class="keyword">byte</span>[w * h * <span class="number">3</span>];</div><div class="line">	      <span class="comment">//彩色空间转换        </span></div><div class="line">	        <span class="keyword">float</span>[] Y = raster.getSamples(<span class="number">0</span>, <span class="number">0</span>, w, h, <span class="number">0</span>, (<span class="keyword">float</span>[]) <span class="keyword">null</span>);</div><div class="line">	        <span class="keyword">float</span>[] Cb = raster.getSamples(<span class="number">0</span>, <span class="number">0</span>, w, h, <span class="number">1</span>, (<span class="keyword">float</span>[]) <span class="keyword">null</span>);</div><div class="line">	        <span class="keyword">float</span>[] Cr = raster.getSamples(<span class="number">0</span>, <span class="number">0</span>, w, h, <span class="number">2</span>, (<span class="keyword">float</span>[]) <span class="keyword">null</span>);</div><div class="line">	        <span class="keyword">float</span>[] K = raster.getSamples(<span class="number">0</span>, <span class="number">0</span>, w, h, <span class="number">3</span>, (<span class="keyword">float</span>[]) <span class="keyword">null</span>);</div><div class="line">	        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, imax = Y.length, base = <span class="number">0</span>; i &lt; imax; i++, base += <span class="number">3</span>) &#123;</div><div class="line">	            <span class="keyword">float</span> k = <span class="number">220</span> - K[i], y = <span class="number">255</span> - Y[i], cb = <span class="number">255</span> - Cb[i],</div><div class="line">	                    cr = <span class="number">255</span> - Cr[i];</div><div class="line"></div><div class="line">	            <span class="keyword">double</span> val = y + <span class="number">1.402</span> * (cr - <span class="number">128</span>) - k;</div><div class="line">	            val = (val - <span class="number">128</span>) * .<span class="number">65f</span> + <span class="number">128</span>;</div><div class="line">	            rgb[base] = val &lt; <span class="number">0.0</span> ? (<span class="keyword">byte</span>) <span class="number">0</span> : val &gt; <span class="number">255.0</span> ? (<span class="keyword">byte</span>) <span class="number">0xff</span></div><div class="line">	                    : (<span class="keyword">byte</span>) (val + <span class="number">0.5</span>);</div><div class="line"></div><div class="line">	            val = y - <span class="number">0.34414</span> * (cb - <span class="number">128</span>) - <span class="number">0.71414</span> * (cr - <span class="number">128</span>) - k;</div><div class="line">	            val = (val - <span class="number">128</span>) * .<span class="number">65f</span> + <span class="number">128</span>;</div><div class="line">	            rgb[base + <span class="number">1</span>] = val &lt; <span class="number">0.0</span> ? (<span class="keyword">byte</span>) <span class="number">0</span> : val &gt; <span class="number">255.0</span> ? (<span class="keyword">byte</span>) <span class="number">0xff</span></div><div class="line">	                    : (<span class="keyword">byte</span>) (val + <span class="number">0.5</span>);</div><div class="line"></div><div class="line">	            val = y + <span class="number">1.772</span> * (cb - <span class="number">128</span>) - k;</div><div class="line">	            val = (val - <span class="number">128</span>) * .<span class="number">65f</span> + <span class="number">128</span>;</div><div class="line">	            rgb[base + <span class="number">2</span>] = val &lt; <span class="number">0.0</span> ? (<span class="keyword">byte</span>) <span class="number">0</span> : val &gt; <span class="number">255.0</span> ? (<span class="keyword">byte</span>) <span class="number">0xff</span></div><div class="line">	                    : (<span class="keyword">byte</span>) (val + <span class="number">0.5</span>);</div><div class="line">	        &#125;</div><div class="line">	        raster = Raster.createInterleavedRaster(<span class="keyword">new</span> DataBufferByte(rgb, rgb.length), w, h, w * <span class="number">3</span>, <span class="number">3</span>, <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>&#125;, <span class="keyword">null</span>);</div><div class="line">	        ColorSpace cs = ColorSpace.getInstance(ColorSpace.CS_sRGB);</div><div class="line">	        ColorModel cm = <span class="keyword">new</span> ComponentColorModel(cs, <span class="keyword">false</span>, <span class="keyword">true</span>, Transparency.OPAQUE, DataBuffer.TYPE_BYTE);</div><div class="line">	        <span class="keyword">return</span> <span class="keyword">new</span> BufferedImage(cm, (WritableRaster) raster, <span class="keyword">true</span>, <span class="keyword">null</span>);</div><div class="line">	    &#125;</div><div class="line">	   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span></div><div class="line">	    &#123; </div><div class="line">	          String filename = <span class="string">"e:/28531383187802097.jpg"</span>;</div><div class="line">	          </div><div class="line">	          CMYK cm = <span class="keyword">new</span> CMYK();</div><div class="line">	          cm.readImage(filename);</div><div class="line">	                   </div><div class="line">	    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CMYK</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">图片</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/11/25/CMYK转RGB/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Redux学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -201,6 +332,99 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/09/09/Redux学习笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-React0-14发布拆分react和React-dom" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/09/React0-14发布拆分react和React-dom/">React0.14发布拆分react和React-dom</a>
+    </h1>
+  
+
+        
+        <a href="/2016/09/09/React0-14发布拆分react和React-dom/" class="archive-article-date">
+  	<time datetime="2016-09-09T06:21:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>React 从0.14 开始有一些重要的改进，主要是简化代码编写，提供更好的支持环境，比如 React Native。<br>原本的 API 在 v0.14 版中仍然可以使用，只不过会有 警告，在 v0.15 版的时候完全移除。</p>
+<hr>
+<h3 id="Reactjs-0-14-获取："><a href="#Reactjs-0-14-获取：" class="headerlink" title="Reactjs 0.14 获取："></a>Reactjs 0.14 获取：</h3><ul>
+<li>React<br>Dev build with warnings: <a href="https://fb.me/react-0.14.0.js" target="_blank" rel="external">https://fb.me/react-0.14.0.js</a><br>Minified build for production: <a href="https://fb.me/react-0.14.0.min.js" target="_blank" rel="external">https://fb.me/react-0.14.0.min.js</a></li>
+<li>React with Add-Ons<br>Dev build with warnings: <a href="https://fb.me/react-with-addons-0.14.0.js" target="_blank" rel="external">https://fb.me/react-with-addons-0.14.0.js</a><br>Minified build for production: <a href="https://fb.me/react-with-addons-0.14.0.min.js" target="_blank" rel="external">https://fb.me/react-with-addons-0.14.0.min.js</a></li>
+<li>React DOM (include React in the page before React DOM)<br>Dev build with warnings: <a href="https://fb.me/react-dom-0.14.0.js" target="_blank" rel="external">https://fb.me/react-dom-0.14.0.js</a><br>Minified build for production: <a href="https://fb.me/react-dom-0.14.0.min.js" target="_blank" rel="external">https://fb.me/react-dom-0.14.0.min.js</a></li>
+</ul>
+<h4 id="React-分成两个包"><a href="#React-分成两个包" class="headerlink" title="React  分成两个包"></a>React  分成两个包</h4><p>原本的 <figure class="highlight plain"><figcaption><span>package``` 被拆分为 ```react``` 及 ```react-dom``` 两个 package。 </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### react包</div></pre></td></tr></table></figure></p>
+<p>createElement<br>createClass<br>Component<br>PropTypes<br>Children<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">####  react-dom包 </div><div class="line">```render</div><div class="line">unmountComponentAtNode</div><div class="line">findDOMNode</div><div class="line">server/renderToString</div><div class="line">server/renderToStaticMarkup</div></pre></td></tr></table></figure></p>
+<h3 id="组件写法"><a href="#组件写法" class="headerlink" title="组件写法"></a>组件写法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import React,&#123;Component&#125; from &apos;react&apos;</div><div class="line">import &#123;render&#125; from &apos;react-dom&apos;</div><div class="line">class HelloWorld extends Component&#123;</div><div class="line">	render()&#123;</div><div class="line">    	return (</div><div class="line">			&lt;div&gt;hello world&lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">render(</div><div class="line">	&lt;HelloWorld /&gt;</div><div class="line">)</div></pre></td></tr></table></figure>
+<h3 id="React-addons-下工具也变成独立包"><a href="#React-addons-下工具也变成独立包" class="headerlink" title="React.addons 下工具也变成独立包"></a>React.addons 下工具也变成独立包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">react-addons-clone-with-props</div><div class="line">react-addons-create-fragment</div><div class="line">react-addons-css-transition-group</div><div class="line">react-addons-linked-state-mixin</div><div class="line">react-addons-perf</div><div class="line">react-addons-pure-render-mixin</div><div class="line">react-addons-shallow-compare</div><div class="line">react-addons-test-utils</div><div class="line">react-addons-transition-group</div><div class="line">react-addons-update</div><div class="line">ReactDOM.unstable_batchedUpdates （在 react-dom 中）</div></pre></td></tr></table></figure>
+<p>refs 变成了真正的 DOM 节点</p>
+<p>当我们需要获取 React 组件上某个 DOM 节点时，React 提供了 refs 方法方便我们快速引用。为了方便我们使用，React 还「贴心」地对 refs 做了一层封装，使用 this.refs.xxx.getDOMNode() 或 React.findDOMNode(this.refs.xxx) 可以获取到真正的 DOM 节点。</p>
+<p>结果发现大家真正需要的就是 DOM 节点本身，封装了半天完全是浪费感情。</p>
+<p>于是在 v0.14 版中 refs 指向的就是 DOM 节点，同时也会保留 .getDOMNode() 方法（带 warning），最终在 v0.15 版中去除该方法。</p>
+<p>var Zoo = React.createClass({<br>  render: function() {<br>    return <div>Giraffe name: <input ref="giraffe"></div>;<br>  },<br>  showName: function() {<br>    // 之前：<br>    // var input = this.refs.giraffe.getDOMNode();<br>    //<br>    // v0.14 版：<br>    var input = this.refs.giraffe;<br>    alert(input.value);<br>  }<br>});<br>需要注意的是，如果你给自定义的 React 组件（除了 DOM 自带的标签，如 div、p 等）添加 refs，表现和行为与之前一致。</p>
+<p>无状态的函数式组件</p>
+<p>其实在实际业务系统中使用 React 时，我们会写很多只有 render 方法的 React 组件。为了减少冗余的代码量，React v0.14 中引入了 无状态的函数式组件（Stateless functional components） 的概念。先看看长啥样：</p>
+<p>// 一个 ES6 箭头函数定义的无状态函数式组件var Aquarium = (props) =&gt; {<br>  var fish = getFish(props.species);  return <tank>{fish}</tank>;<br>};// 或者更加简化的版本var Aquarium = ({species}) =&gt; (<br>  <tank><br>    {getFish(species)}<br>  </tank><br>);// 最终使用方式: <aquarium species="rainbowfish"><br>可以看到，没有 React.createClass，也没有显式的 render，写起来更加轻松了。</aquarium></p>
+<p>当然，新语法也有需要注意的地方：</p>
+<p>没有任何生命周期方法，如 componentDidMount 等<br>不能添加 refs<br>可以通过给函数添加属性定义 propTypes 和 defaultProps<br>react-tools 及 JSXTransformer.js 已弃用</p>
+<p>拥抱 Babel 吧同学们！</p>
+<p>编译器优化</p>
+<p>在 Babel 5.8.23 及更新的版本中，新增了两项专门针对 React 的优化配置，仅推荐在生产环境中开启，因为优化后会导致代码的报错更加扑朔迷离（本来报错就已经很难定位了……）。</p>
+<p>optimisation.react.inlineElements 将 JSX 元素转换为对象而非使用 React.createElement<br>optimisation.react.constantElements 针对拥有完全静态子树的组件，将其创建过程提升到顶层（Top level），从而减少对 React.createElement 方法的调用<br>其它变化</p>
+<p>React.initializeTouchEvents 已弃用<br>由于 refs 的相关变化（见上文），TestUtils.findAllInRenderedTree 及相关的方法不再接受 DOM 组件作为参数，只能传入自定义的 React 组件<br>props 一旦创建永远不可修改，因此 .setProps 及 .replaceProps 已废弃<br>children 不可以传对象类型，推荐传入数组，或使用 React.createFragment 方法（其实就是转换为了数组）<br>React.addons.classSet 已经移除，使用 classnames package 替代<br>将要发生的改变</p>
+<p>在 v0.15 版中，下列内容将会发生改变：</p>
+<p>this.getDOMNode() 方法将会废弃，推荐使用 React.findDOMNode()<br>setProps 及 replaceProps 将会废弃<br>React.addons.cloneWithProps 已废弃，推荐使用 React.cloneElements，新方法不会自动 merge className 及 style<br>React.addons.CSSTransitionGroup 将不再监听 transition 事件，因此使用者需要显式指定动画的 timeout，如：transitionEnterTimeout={500}。<br>ES6 组件类必须 extends React.Component（如果使用 React.createClass 语法则不受影响）<br>在多次 render 中重用并改变 style 对象已经被弃用（这一点不是太明白，中心思想貌似是不要 mutate object？）</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/09/09/React0-14发布拆分react和React-dom/">展开全文 >></a>
         </p>
       
 
@@ -315,99 +539,6 @@
 
 
   
-    <article id="post-React0-14发布拆分react和React-dom" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/09/React0-14发布拆分react和React-dom/">React0.14发布拆分react和React-dom</a>
-    </h1>
-  
-
-        
-        <a href="/2016/09/09/React0-14发布拆分react和React-dom/" class="archive-article-date">
-  	<time datetime="2016-09-09T06:21:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>React 从0.14 开始有一些重要的改进，主要是简化代码编写，提供更好的支持环境，比如 React Native。<br>原本的 API 在 v0.14 版中仍然可以使用，只不过会有 警告，在 v0.15 版的时候完全移除。</p>
-<hr>
-<h3 id="Reactjs-0-14-获取："><a href="#Reactjs-0-14-获取：" class="headerlink" title="Reactjs 0.14 获取："></a>Reactjs 0.14 获取：</h3><ul>
-<li>React<br>Dev build with warnings: <a href="https://fb.me/react-0.14.0.js" target="_blank" rel="external">https://fb.me/react-0.14.0.js</a><br>Minified build for production: <a href="https://fb.me/react-0.14.0.min.js" target="_blank" rel="external">https://fb.me/react-0.14.0.min.js</a></li>
-<li>React with Add-Ons<br>Dev build with warnings: <a href="https://fb.me/react-with-addons-0.14.0.js" target="_blank" rel="external">https://fb.me/react-with-addons-0.14.0.js</a><br>Minified build for production: <a href="https://fb.me/react-with-addons-0.14.0.min.js" target="_blank" rel="external">https://fb.me/react-with-addons-0.14.0.min.js</a></li>
-<li>React DOM (include React in the page before React DOM)<br>Dev build with warnings: <a href="https://fb.me/react-dom-0.14.0.js" target="_blank" rel="external">https://fb.me/react-dom-0.14.0.js</a><br>Minified build for production: <a href="https://fb.me/react-dom-0.14.0.min.js" target="_blank" rel="external">https://fb.me/react-dom-0.14.0.min.js</a></li>
-</ul>
-<h4 id="React-分成两个包"><a href="#React-分成两个包" class="headerlink" title="React  分成两个包"></a>React  分成两个包</h4><p>原本的 <figure class="highlight plain"><figcaption><span>package``` 被拆分为 ```react``` 及 ```react-dom``` 两个 package。 </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### react包</div></pre></td></tr></table></figure></p>
-<p>createElement<br>createClass<br>Component<br>PropTypes<br>Children<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">####  react-dom包 </div><div class="line">```render</div><div class="line">unmountComponentAtNode</div><div class="line">findDOMNode</div><div class="line">server/renderToString</div><div class="line">server/renderToStaticMarkup</div></pre></td></tr></table></figure></p>
-<h3 id="组件写法"><a href="#组件写法" class="headerlink" title="组件写法"></a>组件写法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import React,&#123;Component&#125; from &apos;react&apos;</div><div class="line">import &#123;render&#125; from &apos;react-dom&apos;</div><div class="line">class HelloWorld extends Component&#123;</div><div class="line">	render()&#123;</div><div class="line">    	return (</div><div class="line">			&lt;div&gt;hello world&lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">render(</div><div class="line">	&lt;HelloWorld /&gt;</div><div class="line">)</div></pre></td></tr></table></figure>
-<h3 id="React-addons-下工具也变成独立包"><a href="#React-addons-下工具也变成独立包" class="headerlink" title="React.addons 下工具也变成独立包"></a>React.addons 下工具也变成独立包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">react-addons-clone-with-props</div><div class="line">react-addons-create-fragment</div><div class="line">react-addons-css-transition-group</div><div class="line">react-addons-linked-state-mixin</div><div class="line">react-addons-perf</div><div class="line">react-addons-pure-render-mixin</div><div class="line">react-addons-shallow-compare</div><div class="line">react-addons-test-utils</div><div class="line">react-addons-transition-group</div><div class="line">react-addons-update</div><div class="line">ReactDOM.unstable_batchedUpdates （在 react-dom 中）</div></pre></td></tr></table></figure>
-<p>refs 变成了真正的 DOM 节点</p>
-<p>当我们需要获取 React 组件上某个 DOM 节点时，React 提供了 refs 方法方便我们快速引用。为了方便我们使用，React 还「贴心」地对 refs 做了一层封装，使用 this.refs.xxx.getDOMNode() 或 React.findDOMNode(this.refs.xxx) 可以获取到真正的 DOM 节点。</p>
-<p>结果发现大家真正需要的就是 DOM 节点本身，封装了半天完全是浪费感情。</p>
-<p>于是在 v0.14 版中 refs 指向的就是 DOM 节点，同时也会保留 .getDOMNode() 方法（带 warning），最终在 v0.15 版中去除该方法。</p>
-<p>var Zoo = React.createClass({<br>  render: function() {<br>    return <div>Giraffe name: <input ref="giraffe"></div>;<br>  },<br>  showName: function() {<br>    // 之前：<br>    // var input = this.refs.giraffe.getDOMNode();<br>    //<br>    // v0.14 版：<br>    var input = this.refs.giraffe;<br>    alert(input.value);<br>  }<br>});<br>需要注意的是，如果你给自定义的 React 组件（除了 DOM 自带的标签，如 div、p 等）添加 refs，表现和行为与之前一致。</p>
-<p>无状态的函数式组件</p>
-<p>其实在实际业务系统中使用 React 时，我们会写很多只有 render 方法的 React 组件。为了减少冗余的代码量，React v0.14 中引入了 无状态的函数式组件（Stateless functional components） 的概念。先看看长啥样：</p>
-<p>// 一个 ES6 箭头函数定义的无状态函数式组件var Aquarium = (props) =&gt; {<br>  var fish = getFish(props.species);  return <tank>{fish}</tank>;<br>};// 或者更加简化的版本var Aquarium = ({species}) =&gt; (<br>  <tank><br>    {getFish(species)}<br>  </tank><br>);// 最终使用方式: <aquarium species="rainbowfish"><br>可以看到，没有 React.createClass，也没有显式的 render，写起来更加轻松了。</aquarium></p>
-<p>当然，新语法也有需要注意的地方：</p>
-<p>没有任何生命周期方法，如 componentDidMount 等<br>不能添加 refs<br>可以通过给函数添加属性定义 propTypes 和 defaultProps<br>react-tools 及 JSXTransformer.js 已弃用</p>
-<p>拥抱 Babel 吧同学们！</p>
-<p>编译器优化</p>
-<p>在 Babel 5.8.23 及更新的版本中，新增了两项专门针对 React 的优化配置，仅推荐在生产环境中开启，因为优化后会导致代码的报错更加扑朔迷离（本来报错就已经很难定位了……）。</p>
-<p>optimisation.react.inlineElements 将 JSX 元素转换为对象而非使用 React.createElement<br>optimisation.react.constantElements 针对拥有完全静态子树的组件，将其创建过程提升到顶层（Top level），从而减少对 React.createElement 方法的调用<br>其它变化</p>
-<p>React.initializeTouchEvents 已弃用<br>由于 refs 的相关变化（见上文），TestUtils.findAllInRenderedTree 及相关的方法不再接受 DOM 组件作为参数，只能传入自定义的 React 组件<br>props 一旦创建永远不可修改，因此 .setProps 及 .replaceProps 已废弃<br>children 不可以传对象类型，推荐传入数组，或使用 React.createFragment 方法（其实就是转换为了数组）<br>React.addons.classSet 已经移除，使用 classnames package 替代<br>将要发生的改变</p>
-<p>在 v0.15 版中，下列内容将会发生改变：</p>
-<p>this.getDOMNode() 方法将会废弃，推荐使用 React.findDOMNode()<br>setProps 及 replaceProps 将会废弃<br>React.addons.cloneWithProps 已废弃，推荐使用 React.cloneElements，新方法不会自动 merge className 及 style<br>React.addons.CSSTransitionGroup 将不再监听 transition 事件，因此使用者需要显式指定动画的 timeout，如：transitionEnterTimeout={500}。<br>ES6 组件类必须 extends React.Component（如果使用 React.createClass 语法则不受影响）<br>在多次 render 中重用并改变 style 对象已经被弃用（这一点不是太明白，中心思想貌似是不要 mutate object？）</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/09/09/React0-14发布拆分react和React-dom/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
     <article id="post-灾难悼念整站灰色" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -503,7 +634,7 @@
 </blockquote>
 <ul>
 <li><p>编译: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--with-http_image_filter_module --with-http_stub_status_module --with-http_ssl_module --add-module=/application/nginx-rtmp-module --add-module=/root/Downloads/ngx_devel_kit-0.2.18/ --add-module=/root/Downloads/lua-nginx-module-0.8.6/ --add-module=/root/Downloads/echo-nginx-module-0.59rc1 --with-pcre=../pcre-8.30 --add-module=../set-misc-nginx-module-0.30/</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">yum install gd-devel</div><div class="line"></div><div class="line"></div><div class="line">--with-http_image_filter_module --with-http_stub_status_module --with-http_ssl_module --add-module=/application/nginx-rtmp-module --add-module=/root/Downloads/ngx_devel_kit-0.2.18/ --add-module=/root/Downloads/lua-nginx-module-0.8.6/ --add-module=/root/Downloads/echo-nginx-module-0.59rc1 --with-pcre=../pcre-8.30 --add-module=../set-misc-nginx-module-0.30/</div></pre></td></tr></table></figure>
 </li>
 <li><p>配置</p>
 </li>
@@ -704,14 +835,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ionic</a>
               </li>
              
@@ -724,7 +847,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工作</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">linux,kvm,虚拟机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -740,23 +883,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -788,15 +919,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Solr</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Solr</a>
               </li>
             
             <div class="clearfix"></div>

@@ -147,6 +147,118 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-centos7安装nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/17/centos7安装nginx/">centos7安装nginx</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/17/centos7安装nginx/" class="archive-article-date">
+  	<time datetime="2018-04-17T09:18:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>./configure –prefix=/usr/local/nginx –user=nginx –group=nginx –with-http_image_filter_module –with-http_geoip_module=dynamic –with-http_sub_module –with-http_dav_module –with-http_flv_module –with-http_mp4_module –with-http_gunzip_module –with-http_gzip_static_module –with-http_random_index_module –with-http_secure_link_module –with-http_degradation_module –with-http_slice_module –with-http_stub_status_module –with-http_perl_module=dynamic –with-mail=dynamic –with-mail_ssl_module –with-pcre –with-pcre-jit –with-stream=dynamic –with-stream_ssl_module –with-google_perftools_module –with-debug</p>
+<p>yum install gd-devel</p>
+<p>yum install perl perl-devel perl-ExtUtils-Embed</p>
+<p>yum -y install GeoIP GeoIP-devel GeoIP-data</p>
+<p>yum install google-perftools-devel</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/17/centos7安装nginx/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-centos7安装SVN1-9-6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/17/centos7安装SVN1-9-6/">centos7安装SVN1.9.6</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/17/centos7安装SVN1-9-6/" class="archive-article-date">
+  	<time datetime="2018-04-17T09:17:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>  wget <a href="http://opensource.wandisco.com/centos/7/svn-1.9/RPMS/x86_64/subversion-1.9.6-1.x86_64.rpm" target="_blank" rel="external">http://opensource.wandisco.com/centos/7/svn-1.9/RPMS/x86_64/subversion-1.9.6-1.x86_64.rpm</a><br>  wget <a href="http://opensource.wandisco.com/centos/7/svn-1.9/RPMS/x86_64/serf-1.3.8-1.x86_64.rpm" target="_blank" rel="external">http://opensource.wandisco.com/centos/7/svn-1.9/RPMS/x86_64/serf-1.3.8-1.x86_64.rpm</a><br>  wget <a href="http://opensource.wandisco.com/centos/7/svn-1.9/RPMS/x86_64/serf-devel-1.3.8-1.x86_64.rpm" target="_blank" rel="external">http://opensource.wandisco.com/centos/7/svn-1.9/RPMS/x86_64/serf-devel-1.3.8-1.x86_64.rpm</a><br>  wget <a href="http://opensource.wandisco.com/centos/7/svn-1.9/RPMS/x86_64/libserf-devel-1.3.8-1.el7.x86_64.rpm" target="_blank" rel="external">http://opensource.wandisco.com/centos/7/svn-1.9/RPMS/x86_64/libserf-devel-1.3.8-1.el7.x86_64.rpm</a><br>  wget <a href="http://opensource.wandisco.com/centos/7/svn-1.9/RPMS/x86_64/libserf-1.3.8-1.el7.x86_64.rpm" target="_blank" rel="external">http://opensource.wandisco.com/centos/7/svn-1.9/RPMS/x86_64/libserf-1.3.8-1.el7.x86_64.rpm</a><br>  wget <a href="http://opensource.wandisco.com/centos/7/svn-1.9/RPMS/x86_64/subversion-devel-1.9.6-1.x86_64.rpm" target="_blank" rel="external">http://opensource.wandisco.com/centos/7/svn-1.9/RPMS/x86_64/subversion-devel-1.9.6-1.x86_64.rpm</a></p>
+<p>  wget <a href="http://opensource.wandisco.com/centos/7/svn-1.9/RPMS/x86_64/mod_dav_svn-1.9.6-1.x86_64.rpm" target="_blank" rel="external">http://opensource.wandisco.com/centos/7/svn-1.9/RPMS/x86_64/mod_dav_svn-1.9.6-1.x86_64.rpm</a></p>
+<pre><code>wget http://opensource.wandisco.com/centos/7/svn-1.9/RPMS/x86_64/subversion-python-1.9.6-1.x86_64.rpm
+
+
+
+yum install *.rpm
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/17/centos7安装SVN1-9-6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-KVM笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -246,6 +358,7 @@
 <p>NWFILTER commands<br><em>nwfilter-define （file）根据文件生成一个网络过滤器 
 </em>nwfilter-undefine（name） 删除网络过滤<br><em>nwfilter-list 列出来网络过滤 
 </em>nwfilter-dumpxml（file）生成一个网络过滤的文件<br>*nwfilter-edit（name） 编辑一个网络过滤器</p>
+<h2 id="10-WebVirtMgr管理连接"><a href="#10-WebVirtMgr管理连接" class="headerlink" title="10. WebVirtMgr管理连接"></a>10. WebVirtMgr管理连接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-copy-id root@192.168.1.201</div></pre></td></tr></table></figure>
 
       
 
@@ -491,7 +604,7 @@
 <li>vue的结构<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">  &lt;template&gt;</div><div class="line">    &lt;div class='mypage'&gt;</div><div class="line">    &#123;&#123; a.publishDate | formatter &#125;&#125;相当于EL的$&#123;a&#125;</div><div class="line">    &lt;Button who='page1' @click='clickButton'&gt;&lt;/Button&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/template&gt;</div><div class="line">  import Button from './Button'//引入组件</div><div class="line">  import formmter from '../../filter/DateUtils'</div><div class="line">  &lt;script&gt;</div><div class="line">    export default &#123;</div><div class="line">      moounted()&#123;</div><div class="line">        //页面加载完成后</div><div class="line">        &#123;</div><div class="line">          id</div><div class="line">        &#125;</div><div class="line">      &#125;,</div><div class="line">      data () &#123;//数据内容，类似request.setAttrbute('a':'xxx')</div><div class="line">        return &#123;</div><div class="line">          a:'xxx',</div><div class="line">          b:'yyy'</div><div class="line">        &#125;</div><div class="line">      &#125;,route:&#123;</div><div class="line">        data (&#123;to : &#123;params: &#123;id&#125;&#125;&#125;) &#123;</div><div class="line">          console.log(id)</div><div class="line">        &#125;</div><div class="line">      &#125;,</div><div class="line">      components: &#123;//定义组件</div><div class="line">        Button </div><div class="line">      &#125;,</div><div class="line">      methods: &#123;</div><div class="line">        clickButton() &#123;</div><div class="line">          console('dd')</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">  &lt;script&gt;</div><div class="line">//scoped样式的使用范围. lang是样式的预编译语言</div><div class="line">  &lt;style scoped lang='stylus'&gt;</div><div class="line">    .mypage</div><div class="line">      background red</div><div class="line">      Button</div><div class="line">        border 1px solid red</div><div class="line">  &lt;/style&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="Mint-ui-UI框架"><a href="#Mint-ui-UI框架" class="headerlink" title="Mint-ui UI框架"></a>Mint-ui UI框架</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;template&gt;</div><div class="line">&lt;div&gt; </div><div class="line">&lt;input v-model='myvalue'&gt;&#123;&#123;myvalue&#125;&#125;</div><div class="line">&lt;mt-datetime-picker</div><div class="line">    ref="picker"</div><div class="line">    type="time"</div><div class="line">    v-model="pickerValue"&gt;</div><div class="line">  &lt;/mt-datetime-picker&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">import &#123;Toast,DatetimePicker&#125; from 'mint-ui'</div><div class="line"></div><div class="line">export default &#123;</div><div class="line">  data()&#123;</div><div class="line">    return &#123;</div><div class="line">      pickerValue:'',</div><div class="line">      myvalue:''</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  mounted()&#123;</div><div class="line">    Toast('页面加载成功');</div><div class="line"></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Mint-ui-UI框架"><a href="#Mint-ui-UI框架" class="headerlink" title="Mint-ui UI框架"></a>Mint-ui UI框架</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;template&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span> </span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">'myvalue'</span>&gt;</span>&#123;&#123;myvalue&#125;&#125;</div><div class="line"><span class="tag">&lt;<span class="name">mt-datetime-picker</span></span></div><div class="line">    <span class="attr">ref</span>=<span class="string">"picker"</span></div><div class="line">    <span class="attr">type</span>=<span class="string">"time"</span></div><div class="line">    <span class="attr">v-model</span>=<span class="string">"pickerValue"</span>&gt;</div><div class="line">  <span class="tag">&lt;/<span class="name">mt-datetime-picker</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line">import &#123;Toast,DatetimePicker&#125; from 'mint-ui'</div><div class="line"></div><div class="line">export default &#123;</div><div class="line">  data()&#123;</div><div class="line">    return &#123;</div><div class="line">      pickerValue:'',</div><div class="line">      myvalue:''</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  mounted()&#123;</div><div class="line">    Toast('页面加载成功');</div><div class="line"></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h3><ul>
 <li>注册github账号</li>
 <li>下载代码。更新代码。提交代码。</li>
@@ -829,137 +942,6 @@
 
 
   
-    <article id="post-JavaEE开发常用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/23/JavaEE开发常用/">JavaEE开发常用</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/23/JavaEE开发常用/" class="archive-article-date">
-  	<time datetime="2017-02-23T03:08:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="关于mybatis-在使用mysql自增长主键，插入后返回ID问题。"><a href="#关于mybatis-在使用mysql自增长主键，插入后返回ID问题。" class="headerlink" title="关于mybatis 在使用mysql自增长主键，插入后返回ID问题。"></a>关于mybatis 在使用mysql自增长主键，插入后返回ID问题。</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;insert id=&quot;insert&quot; parameterType=&quot;com.caiyun.boss.entity.CaiOrder&quot; useGeneratedKeys=&quot;true&quot; keyProperty=&quot;id&quot;&gt;</div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/23/JavaEE开发常用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-CMYK转RGB" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/25/CMYK转RGB/">CMYK转RGB</a>
-    </h1>
-  
-
-        
-        <a href="/2016/11/25/CMYK转RGB/" class="archive-article-date">
-  	<time datetime="2016-11-25T08:25:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.lasun.acms.action;</div><div class="line"><span class="keyword">import</span> com.sun.image.codec.jpeg.JPEGCodec;</div><div class="line"><span class="keyword">import</span> com.sun.image.codec.jpeg.JPEGImageEncoder;</div><div class="line"><span class="keyword">import</span> java.awt.Transparency;</div><div class="line"><span class="keyword">import</span> java.awt.color.ColorSpace;</div><div class="line"><span class="keyword">import</span> java.awt.image.BufferedImage;</div><div class="line"><span class="keyword">import</span> java.awt.image.ColorModel;</div><div class="line"><span class="keyword">import</span> java.awt.image.ComponentColorModel;</div><div class="line"><span class="keyword">import</span> java.awt.image.DataBuffer;</div><div class="line"><span class="keyword">import</span> java.awt.image.DataBufferByte;</div><div class="line"><span class="keyword">import</span> java.awt.image.Raster;</div><div class="line"><span class="keyword">import</span> java.awt.image.WritableRaster;</div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.FileOutputStream;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.util.Iterator;</div><div class="line"><span class="keyword">import</span> javax.imageio.IIOException;</div><div class="line"><span class="keyword">import</span> javax.imageio.ImageIO;</div><div class="line"><span class="keyword">import</span> javax.imageio.ImageReader;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.imageio.stream.ImageInputStream;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CMYK</span> </span>&#123;</div><div class="line">	  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">readImage</span><span class="params">(String filename)</span> <span class="keyword">throws</span> IOException </span>&#123;        </div><div class="line">	       File file = <span class="keyword">new</span> File(filename);</div><div class="line">	        ImageInputStream input = ImageIO.createImageInputStream(file);</div><div class="line">	        Iterator readers = ImageIO.getImageReaders(input);</div><div class="line">	        <span class="keyword">if</span>(readers == <span class="keyword">null</span> || !readers.hasNext()) &#123;</div><div class="line">	            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"1 No ImageReaders found"</span>);</div><div class="line">	        &#125;</div><div class="line">	        ImageReader reader = (ImageReader) readers.next();</div><div class="line">	        reader.setInput(input);</div><div class="line">	        String format = reader.getFormatName() ;</div><div class="line">	        BufferedImage image; </div><div class="line">	       </div><div class="line">	      <span class="keyword">if</span> ( <span class="string">"JPEG"</span>.equalsIgnoreCase(format) ||<span class="string">"JPG"</span>.equalsIgnoreCase(format) )   &#123;            </div><div class="line">	        <span class="keyword">try</span> &#123;  </div><div class="line">	            <span class="comment">// 尝试读取图片 (包括颜色的转换).   </span></div><div class="line">	            image = reader.read(<span class="number">0</span>); <span class="comment">//RGB</span></div><div class="line">	        &#125; <span class="keyword">catch</span> (IIOException e) &#123;  </div><div class="line">	            <span class="comment">// 读取Raster (没有颜色的转换).   </span></div><div class="line">	            Raster raster = reader.readRaster(<span class="number">0</span>, <span class="keyword">null</span>);<span class="comment">//CMYK  </span></div><div class="line">	            image = createJPEG4(raster);</div><div class="line">	        &#125; </div><div class="line">	           image.getGraphics().drawImage(image, <span class="number">0</span>, <span class="number">0</span>, <span class="keyword">null</span>);</div><div class="line">	           String newfilename = filename.substring(<span class="number">0</span>,filename.lastIndexOf(<span class="string">"."</span>))+<span class="string">"_rgb"</span>+filename.substring(filename.lastIndexOf(<span class="string">"."</span>));</div><div class="line">	           File newFile = <span class="keyword">new</span> File(newfilename);</div><div class="line">	           FileOutputStream out = <span class="keyword">new</span> FileOutputStream(newFile);</div><div class="line">	           JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);</div><div class="line">	           encoder.encode(image);</div><div class="line">	           out.flush();</div><div class="line">	           out.close();  </div><div class="line">	            </div><div class="line">	        &#125;</div><div class="line">	    &#125;</div><div class="line"></div><div class="line">	    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> BufferedImage <span class="title">createJPEG4</span><span class="params">(Raster raster)</span> </span>&#123;</div><div class="line">	        <span class="keyword">int</span> w = raster.getWidth();</div><div class="line">	        <span class="keyword">int</span> h = raster.getHeight();</div><div class="line">	        <span class="keyword">byte</span>[] rgb = <span class="keyword">new</span> <span class="keyword">byte</span>[w * h * <span class="number">3</span>];</div><div class="line">	      <span class="comment">//彩色空间转换        </span></div><div class="line">	        <span class="keyword">float</span>[] Y = raster.getSamples(<span class="number">0</span>, <span class="number">0</span>, w, h, <span class="number">0</span>, (<span class="keyword">float</span>[]) <span class="keyword">null</span>);</div><div class="line">	        <span class="keyword">float</span>[] Cb = raster.getSamples(<span class="number">0</span>, <span class="number">0</span>, w, h, <span class="number">1</span>, (<span class="keyword">float</span>[]) <span class="keyword">null</span>);</div><div class="line">	        <span class="keyword">float</span>[] Cr = raster.getSamples(<span class="number">0</span>, <span class="number">0</span>, w, h, <span class="number">2</span>, (<span class="keyword">float</span>[]) <span class="keyword">null</span>);</div><div class="line">	        <span class="keyword">float</span>[] K = raster.getSamples(<span class="number">0</span>, <span class="number">0</span>, w, h, <span class="number">3</span>, (<span class="keyword">float</span>[]) <span class="keyword">null</span>);</div><div class="line">	        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, imax = Y.length, base = <span class="number">0</span>; i &lt; imax; i++, base += <span class="number">3</span>) &#123;</div><div class="line">	            <span class="keyword">float</span> k = <span class="number">220</span> - K[i], y = <span class="number">255</span> - Y[i], cb = <span class="number">255</span> - Cb[i],</div><div class="line">	                    cr = <span class="number">255</span> - Cr[i];</div><div class="line"></div><div class="line">	            <span class="keyword">double</span> val = y + <span class="number">1.402</span> * (cr - <span class="number">128</span>) - k;</div><div class="line">	            val = (val - <span class="number">128</span>) * .<span class="number">65f</span> + <span class="number">128</span>;</div><div class="line">	            rgb[base] = val &lt; <span class="number">0.0</span> ? (<span class="keyword">byte</span>) <span class="number">0</span> : val &gt; <span class="number">255.0</span> ? (<span class="keyword">byte</span>) <span class="number">0xff</span></div><div class="line">	                    : (<span class="keyword">byte</span>) (val + <span class="number">0.5</span>);</div><div class="line"></div><div class="line">	            val = y - <span class="number">0.34414</span> * (cb - <span class="number">128</span>) - <span class="number">0.71414</span> * (cr - <span class="number">128</span>) - k;</div><div class="line">	            val = (val - <span class="number">128</span>) * .<span class="number">65f</span> + <span class="number">128</span>;</div><div class="line">	            rgb[base + <span class="number">1</span>] = val &lt; <span class="number">0.0</span> ? (<span class="keyword">byte</span>) <span class="number">0</span> : val &gt; <span class="number">255.0</span> ? (<span class="keyword">byte</span>) <span class="number">0xff</span></div><div class="line">	                    : (<span class="keyword">byte</span>) (val + <span class="number">0.5</span>);</div><div class="line"></div><div class="line">	            val = y + <span class="number">1.772</span> * (cb - <span class="number">128</span>) - k;</div><div class="line">	            val = (val - <span class="number">128</span>) * .<span class="number">65f</span> + <span class="number">128</span>;</div><div class="line">	            rgb[base + <span class="number">2</span>] = val &lt; <span class="number">0.0</span> ? (<span class="keyword">byte</span>) <span class="number">0</span> : val &gt; <span class="number">255.0</span> ? (<span class="keyword">byte</span>) <span class="number">0xff</span></div><div class="line">	                    : (<span class="keyword">byte</span>) (val + <span class="number">0.5</span>);</div><div class="line">	        &#125;</div><div class="line">	        raster = Raster.createInterleavedRaster(<span class="keyword">new</span> DataBufferByte(rgb, rgb.length), w, h, w * <span class="number">3</span>, <span class="number">3</span>, <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>&#125;, <span class="keyword">null</span>);</div><div class="line">	        ColorSpace cs = ColorSpace.getInstance(ColorSpace.CS_sRGB);</div><div class="line">	        ColorModel cm = <span class="keyword">new</span> ComponentColorModel(cs, <span class="keyword">false</span>, <span class="keyword">true</span>, Transparency.OPAQUE, DataBuffer.TYPE_BYTE);</div><div class="line">	        <span class="keyword">return</span> <span class="keyword">new</span> BufferedImage(cm, (WritableRaster) raster, <span class="keyword">true</span>, <span class="keyword">null</span>);</div><div class="line">	    &#125;</div><div class="line">	   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span></div><div class="line">	    &#123; </div><div class="line">	          String filename = <span class="string">"e:/28531383187802097.jpg"</span>;</div><div class="line">	          </div><div class="line">	          CMYK cm = <span class="keyword">new</span> CMYK();</div><div class="line">	          cm.readImage(filename);</div><div class="line">	                   </div><div class="line">	    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CMYK</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">图片</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/25/CMYK转RGB/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1053,14 +1035,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ionic</a>
               </li>
              
@@ -1073,7 +1047,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工作</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">linux,kvm,虚拟机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1089,23 +1083,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1137,15 +1119,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Solr</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Solr</a>
               </li>
             
             <div class="clearfix"></div>
