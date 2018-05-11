@@ -207,7 +207,7 @@
 <li>vue的结构<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">  &lt;template&gt;</div><div class="line">    &lt;div class='mypage'&gt;</div><div class="line">    &#123;&#123; a.publishDate | formatter &#125;&#125;相当于EL的$&#123;a&#125;</div><div class="line">    &lt;Button who='page1' @click='clickButton'&gt;&lt;/Button&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/template&gt;</div><div class="line">  import Button from './Button'//引入组件</div><div class="line">  import formmter from '../../filter/DateUtils'</div><div class="line">  &lt;script&gt;</div><div class="line">    export default &#123;</div><div class="line">      moounted()&#123;</div><div class="line">        //页面加载完成后</div><div class="line">        &#123;</div><div class="line">          id</div><div class="line">        &#125;</div><div class="line">      &#125;,</div><div class="line">      data () &#123;//数据内容，类似request.setAttrbute('a':'xxx')</div><div class="line">        return &#123;</div><div class="line">          a:'xxx',</div><div class="line">          b:'yyy'</div><div class="line">        &#125;</div><div class="line">      &#125;,route:&#123;</div><div class="line">        data (&#123;to : &#123;params: &#123;id&#125;&#125;&#125;) &#123;</div><div class="line">          console.log(id)</div><div class="line">        &#125;</div><div class="line">      &#125;,</div><div class="line">      components: &#123;//定义组件</div><div class="line">        Button </div><div class="line">      &#125;,</div><div class="line">      methods: &#123;</div><div class="line">        clickButton() &#123;</div><div class="line">          console('dd')</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">  &lt;script&gt;</div><div class="line">//scoped样式的使用范围. lang是样式的预编译语言</div><div class="line">  &lt;style scoped lang='stylus'&gt;</div><div class="line">    .mypage</div><div class="line">      background red</div><div class="line">      Button</div><div class="line">        border 1px solid red</div><div class="line">  &lt;/style&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="Mint-ui-UI框架"><a href="#Mint-ui-UI框架" class="headerlink" title="Mint-ui UI框架"></a>Mint-ui UI框架</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;template&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span> </span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">'myvalue'</span>&gt;</span>&#123;&#123;myvalue&#125;&#125;</div><div class="line"><span class="tag">&lt;<span class="name">mt-datetime-picker</span></span></div><div class="line">    <span class="attr">ref</span>=<span class="string">"picker"</span></div><div class="line">    <span class="attr">type</span>=<span class="string">"time"</span></div><div class="line">    <span class="attr">v-model</span>=<span class="string">"pickerValue"</span>&gt;</div><div class="line">  <span class="tag">&lt;/<span class="name">mt-datetime-picker</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line">import &#123;Toast,DatetimePicker&#125; from 'mint-ui'</div><div class="line"></div><div class="line">export default &#123;</div><div class="line">  data()&#123;</div><div class="line">    return &#123;</div><div class="line">      pickerValue:'',</div><div class="line">      myvalue:''</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  mounted()&#123;</div><div class="line">    Toast('页面加载成功');</div><div class="line"></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Mint-ui-UI框架"><a href="#Mint-ui-UI框架" class="headerlink" title="Mint-ui UI框架"></a>Mint-ui UI框架</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;template&gt;</div><div class="line">&lt;div&gt; </div><div class="line">&lt;input v-model='myvalue'&gt;&#123;&#123;myvalue&#125;&#125;</div><div class="line">&lt;mt-datetime-picker</div><div class="line">    ref="picker"</div><div class="line">    type="time"</div><div class="line">    v-model="pickerValue"&gt;</div><div class="line">  &lt;/mt-datetime-picker&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">import &#123;Toast,DatetimePicker&#125; from 'mint-ui'</div><div class="line"></div><div class="line">export default &#123;</div><div class="line">  data()&#123;</div><div class="line">    return &#123;</div><div class="line">      pickerValue:'',</div><div class="line">      myvalue:''</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  mounted()&#123;</div><div class="line">    Toast('页面加载成功');</div><div class="line"></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h3><ul>
 <li>注册github账号</li>
 <li>下载代码。更新代码。提交代码。</li>
@@ -461,18 +461,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ionic</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ionic2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
@@ -493,10 +481,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">linux,kvm,虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
@@ -505,19 +489,31 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ionic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ionic2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">linux,kvm,虚拟机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -541,6 +537,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
@@ -549,11 +549,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">Solr</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Solr</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
             
             <div class="clearfix"></div>

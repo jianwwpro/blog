@@ -147,6 +147,76 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-maven遇到的坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/03/maven遇到的坑/">maven遇到的坑</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/03/maven遇到的坑/" class="archive-article-date">
+  	<time datetime="2017-03-03T08:31:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-创建项目模板"><a href="#1-创建项目模板" class="headerlink" title="1. 创建项目模板"></a>1. 创建项目模板</h1><p>mvn archetype:create -DgroupId=com.mavenweb.test -DartifactId=mavenweb -DarchetypeArtifactId=maven-archetype-webapp</p>
+<p>maven clean compile</p>
+<p>mvn eclipse:eclipse</p>
+<h1 id="2-lib输出问题"><a href="#2-lib输出问题" class="headerlink" title="2. lib输出问题"></a>2. lib输出问题</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">classpathentry</span> <span class="attr">kind</span>=<span class="string">"con"</span> <span class="attr">path</span>=<span class="string">"org.maven.ide.eclipse.MAVEN2_CLASSPATH_CONTAINER"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">attributes</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">attribute</span> <span class="attr">name</span>=<span class="string">"org.eclipse.jst.component.dependency"</span> <span class="attr">value</span>=<span class="string">"/WEB-INF/lib"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">attributes</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">classpathentry</span>&gt;</span></div></pre></td></tr></table></figure>
+<h1 id="3-查包的冲突"><a href="#3-查包的冲突" class="headerlink" title="3. 查包的冲突"></a>3. 查包的冲突</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mvn dependency:tree -Dverbose -Dmaven.test.skip=true</div></pre></td></tr></table></figure>
+<p>排除冲突的包<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </div><div class="line">       <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.unitils<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </div><div class="line">       <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>unitils-dbmaintainer<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </div><div class="line">       <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;unitils.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </div><div class="line">       <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span>  </div><div class="line">           <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span>  </div><div class="line">               <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>dbunit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </div><div class="line">               <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.dbunit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </div><div class="line">           <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span>  </div><div class="line">           <span class="comment">&lt;!-- 这个就是我们要加的片断 --&gt;</span>  </div><div class="line">           <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span>  </div><div class="line">               <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>asm<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </div><div class="line">               <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>asm<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </div><div class="line">           <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span>  </div><div class="line">       <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span>  </div><div class="line">   <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h1 id="4-手动安装包"><a href="#4-手动安装包" class="headerlink" title="4. 手动安装包"></a>4. 手动安装包</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">install:install-file -DgroupId=com.google.code.kaptcha -DartifactId=kaptcha -Dversion=2.3.2 -Dfile=/Users/wangjianwu/Documents/WorkSpace/JavaWorkspace/project-caiyun/caiyunboss-platform/bin/kaptcha-2.3.2.jar -Dpackaging=jar -DgeneratePom=true</div></pre></td></tr></table></figure>
+<h1 id="5-打包指定配置"><a href="#5-打包指定配置" class="headerlink" title="5. 打包指定配置"></a>5. 打包指定配置</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mvn package -Dmaven.test.skip=true -P production</div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">profile</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- 生产环境 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>production<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">properties</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">profiles.active</span>&gt;</span>production<span class="tag">&lt;/<span class="name">profiles.active</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">finalName</span>&gt;</span>caiyunboss-webapp<span class="tag">&lt;/<span class="name">finalName</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">resource</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 资源根目录排除各环境的配置，使用单独的资源目录来指定 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">excludes</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">exclude</span>&gt;</span>test/*<span class="tag">&lt;/<span class="name">exclude</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">exclude</span>&gt;</span>production/*<span class="tag">&lt;/<span class="name">exclude</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">exclude</span>&gt;</span>development/*<span class="tag">&lt;/<span class="name">exclude</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">excludes</span>&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">resource</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources/$&#123;profiles.active&#125;<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">build</span>&gt;</span></div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">maven</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/03/maven遇到的坑/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-JavaEE开发常用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -261,6 +331,103 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/11/25/CMYK转RGB/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Ionic2学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/09/Ionic2学习笔记/">Ionic2学习笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2016/09/09/Ionic2学习笔记/" class="archive-article-date">
+  	<time datetime="2016-09-09T06:21:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-Action-Sheets"><a href="#1-Action-Sheets" class="headerlink" title="1. Action Sheets"></a>1. Action Sheets</h2><p>role: descructive、cancel<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.actionSheetController.create(&#123;</div><div class="line">    title:<span class="string">'xxx'</span>,</div><div class="line">    buttons:[</div><div class="line">        &#123;</div><div class="line">            text:<span class="string">''</span>,</div><div class="line">            role:<span class="string">'descructive'</span></div><div class="line">        &#125;</div><div class="line">        ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h2 id="2-Alerts"><a href="#2-Alerts" class="headerlink" title="2. Alerts"></a>2. Alerts</h2><h3 id="Basic-Alert"><a href="#Basic-Alert" class="headerlink" title="Basic Alert"></a>Basic Alert</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.alertController.create(&#123;</div><div class="line">    title:<span class="string">'xxx'</span>,</div><div class="line">    subTitle:<span class="string">'xxx'</span>,</div><div class="line">    buttons:[<span class="string">'OK'</span>]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="Prompt-Alert"><a href="#Prompt-Alert" class="headerlink" title="Prompt Alert"></a>Prompt Alert</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> propmt = <span class="keyword">this</span>.alertController.create(&#123;</div><div class="line">    title: <span class="string">'Login'</span>,</div><div class="line">    message:<span class="string">''</span>,</div><div class="line">    inputs:[</div><div class="line">        &#123;</div><div class="line">            name:<span class="string">'title'</span>,</div><div class="line">            placehodler:<span class="string">'enter title'</span></div><div class="line">        &#125;,</div><div class="line">    ],</div><div class="line">    buttons:[</div><div class="line">        &#123;</div><div class="line">            text:<span class="string">'OK'</span>,</div><div class="line">            handler:data=&gt;&#123;</div><div class="line">                <span class="built_in">console</span>.log(data);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;);</div><div class="line">propmt.present();</div></pre></td></tr></table></figure>
+<h3 id="Confirmation-Alerts"><a href="#Confirmation-Alerts" class="headerlink" title="Confirmation Alerts"></a>Confirmation Alerts</h3><p>类似上面</p>
+<h3 id="Radio"><a href="#Radio" class="headerlink" title="Radio"></a>Radio</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> radioAlert = <span class="keyword">this</span>.alertController.create();</div><div class="line">radioAlert.setTitle(<span class="string">"title"</span>);</div><div class="line">radioAlert.addInput(&#123;</div><div class="line">    type:<span class="string">'radio'</span>,</div><div class="line">    label:<span class="string">'label'</span>,</div><div class="line">    value:<span class="string">'value'</span>,</div><div class="line">    checked:<span class="literal">true</span></div><div class="line">&#125;);</div><div class="line">radioAlert.addButton(<span class="string">'cancel'</span>);</div><div class="line">radioAlert.addButton(&#123;</div><div class="line">    text:<span class="string">'OK'</span>,</div><div class="line">    handler:data=&gt;&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">radioAlert.present();</div></pre></td></tr></table></figure>
+<h3 id="Checkbox"><a href="#Checkbox" class="headerlink" title="Checkbox"></a>Checkbox</h3><p>与radio alert类似，type为checkbox</p>
+<h2 id="4-Badges"><a href="#4-Badges" class="headerlink" title="4.Badges"></a>4.Badges</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ion-item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-icon</span> <span class="attr">name</span>=<span class="string">"logo=twitter"</span> <span class="attr">item-left</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-icon</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-badge</span> <span class="attr">item-right</span>&gt;</span>260k<span class="tag">&lt;/<span class="name">ion-badge</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ion-item</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">ion-badge</span> <span class="attr">secondary</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-badge</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="5-buttons"><a href="#5-buttons" class="headerlink" title="5. buttons"></a>5. buttons</h2><ul>
+<li>default</li>
+<li>outline</li>
+<li>clear</li>
+<li>round</li>
+<li>block</li>
+<li>full</li>
+<li>button size : small large</li>
+<li><p>icon buttons</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-icon</span> <span class="attr">name</span>=<span class="string">'home'</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-icon</span>&gt;</span></div><div class="line">    Left Icon</div><div class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>floating button</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;button fab&gt;FAB&lt;/button&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>buttons in components</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ion-header&gt;ion-buttons[start]&gt;button&gt;icon-icon[name=&apos;contact&apos;]</div><div class="line">            ion-buttons[end]&gt;button&gt;icon-icon[name=&apos;search&apos;]</div><div class="line">ion-list&gt;ion-item&gt;button[outline][item-right]&gt;ion-icon[name=&quot;star&quot;]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="6-Cards"><a href="#6-Cards" class="headerlink" title="6. Cards"></a>6. Cards</h2><h3 id="Basic-Cards"><a href="#Basic-Cards" class="headerlink" title="Basic Cards"></a>Basic Cards</h3><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ion-card&gt;ion-card-header</div><div class="line">        &gt;ion-card-content</div></pre></td></tr></table></figure>
+</code></pre><h3 id="Card-Headers"><a href="#Card-Headers" class="headerlink" title="Card Headers"></a>Card Headers</h3><h3 id="List-In-Cards"><a href="#List-In-Cards" class="headerlink" title="List In Cards"></a>List In Cards</h3><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ion-card&gt;ion-card-header</div><div class="line">        &gt;ion-list&gt;button[ion-item]&gt;ion-icon[name='cart'][item-left]shopping</div></pre></td></tr></table></figure>
+</code></pre><h3 id="Images-In-Cards"><a href="#Images-In-Cards" class="headerlink" title="Images In Cards"></a>Images In Cards</h3><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ion-card&gt;img</div><div class="line">        &gt;ion-card-content&gt;ion-card-title</div><div class="line">                         &gt;p</div></pre></td></tr></table></figure>
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ionic</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ionic2</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/09/09/Ionic2学习笔记/">展开全文 >></a>
         </p>
       
 
@@ -425,103 +592,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/09/09/React0-14发布拆分react和React-dom/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Ionic2学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/09/Ionic2学习笔记/">Ionic2学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2016/09/09/Ionic2学习笔记/" class="archive-article-date">
-  	<time datetime="2016-09-09T06:21:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-Action-Sheets"><a href="#1-Action-Sheets" class="headerlink" title="1. Action Sheets"></a>1. Action Sheets</h2><p>role: descructive、cancel<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.actionSheetController.create(&#123;</div><div class="line">    title:<span class="string">'xxx'</span>,</div><div class="line">    buttons:[</div><div class="line">        &#123;</div><div class="line">            text:<span class="string">''</span>,</div><div class="line">            role:<span class="string">'descructive'</span></div><div class="line">        &#125;</div><div class="line">        ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<h2 id="2-Alerts"><a href="#2-Alerts" class="headerlink" title="2. Alerts"></a>2. Alerts</h2><h3 id="Basic-Alert"><a href="#Basic-Alert" class="headerlink" title="Basic Alert"></a>Basic Alert</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.alertController.create(&#123;</div><div class="line">    title:<span class="string">'xxx'</span>,</div><div class="line">    subTitle:<span class="string">'xxx'</span>,</div><div class="line">    buttons:[<span class="string">'OK'</span>]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h3 id="Prompt-Alert"><a href="#Prompt-Alert" class="headerlink" title="Prompt Alert"></a>Prompt Alert</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> propmt = <span class="keyword">this</span>.alertController.create(&#123;</div><div class="line">    title: <span class="string">'Login'</span>,</div><div class="line">    message:<span class="string">''</span>,</div><div class="line">    inputs:[</div><div class="line">        &#123;</div><div class="line">            name:<span class="string">'title'</span>,</div><div class="line">            placehodler:<span class="string">'enter title'</span></div><div class="line">        &#125;,</div><div class="line">    ],</div><div class="line">    buttons:[</div><div class="line">        &#123;</div><div class="line">            text:<span class="string">'OK'</span>,</div><div class="line">            handler:data=&gt;&#123;</div><div class="line">                <span class="built_in">console</span>.log(data);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;);</div><div class="line">propmt.present();</div></pre></td></tr></table></figure>
-<h3 id="Confirmation-Alerts"><a href="#Confirmation-Alerts" class="headerlink" title="Confirmation Alerts"></a>Confirmation Alerts</h3><p>类似上面</p>
-<h3 id="Radio"><a href="#Radio" class="headerlink" title="Radio"></a>Radio</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> radioAlert = <span class="keyword">this</span>.alertController.create();</div><div class="line">radioAlert.setTitle(<span class="string">"title"</span>);</div><div class="line">radioAlert.addInput(&#123;</div><div class="line">    type:<span class="string">'radio'</span>,</div><div class="line">    label:<span class="string">'label'</span>,</div><div class="line">    value:<span class="string">'value'</span>,</div><div class="line">    checked:<span class="literal">true</span></div><div class="line">&#125;);</div><div class="line">radioAlert.addButton(<span class="string">'cancel'</span>);</div><div class="line">radioAlert.addButton(&#123;</div><div class="line">    text:<span class="string">'OK'</span>,</div><div class="line">    handler:data=&gt;&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">radioAlert.present();</div></pre></td></tr></table></figure>
-<h3 id="Checkbox"><a href="#Checkbox" class="headerlink" title="Checkbox"></a>Checkbox</h3><p>与radio alert类似，type为checkbox</p>
-<h2 id="4-Badges"><a href="#4-Badges" class="headerlink" title="4.Badges"></a>4.Badges</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ion-item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-icon</span> <span class="attr">name</span>=<span class="string">"logo=twitter"</span> <span class="attr">item-left</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-icon</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-badge</span> <span class="attr">item-right</span>&gt;</span>260k<span class="tag">&lt;/<span class="name">ion-badge</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ion-item</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">ion-badge</span> <span class="attr">secondary</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-badge</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="5-buttons"><a href="#5-buttons" class="headerlink" title="5. buttons"></a>5. buttons</h2><ul>
-<li>default</li>
-<li>outline</li>
-<li>clear</li>
-<li>round</li>
-<li>block</li>
-<li>full</li>
-<li>button size : small large</li>
-<li><p>icon buttons</p>
-  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-icon</span> <span class="attr">name</span>=<span class="string">'home'</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-icon</span>&gt;</span></div><div class="line">    Left Icon</div><div class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>floating button</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;button fab&gt;FAB&lt;/button&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>buttons in components</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ion-header&gt;ion-buttons[start]&gt;button&gt;icon-icon[name=&apos;contact&apos;]</div><div class="line">            ion-buttons[end]&gt;button&gt;icon-icon[name=&apos;search&apos;]</div><div class="line">ion-list&gt;ion-item&gt;button[outline][item-right]&gt;ion-icon[name=&quot;star&quot;]</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="6-Cards"><a href="#6-Cards" class="headerlink" title="6. Cards"></a>6. Cards</h2><h3 id="Basic-Cards"><a href="#Basic-Cards" class="headerlink" title="Basic Cards"></a>Basic Cards</h3><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ion-card&gt;ion-card-header</div><div class="line">        &gt;ion-card-content</div></pre></td></tr></table></figure>
-</code></pre><h3 id="Card-Headers"><a href="#Card-Headers" class="headerlink" title="Card Headers"></a>Card Headers</h3><h3 id="List-In-Cards"><a href="#List-In-Cards" class="headerlink" title="List In Cards"></a>List In Cards</h3><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ion-card&gt;ion-card-header</div><div class="line">        &gt;ion-list&gt;button[ion-item]&gt;ion-icon[name='cart'][item-left]shopping</div></pre></td></tr></table></figure>
-</code></pre><h3 id="Images-In-Cards"><a href="#Images-In-Cards" class="headerlink" title="Images In Cards"></a>Images In Cards</h3><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ion-card&gt;img</div><div class="line">        &gt;ion-card-content&gt;ion-card-title</div><div class="line">                         &gt;p</div></pre></td></tr></table></figure>
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ionic</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ionic2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/09/09/Ionic2学习笔记/">展开全文 >></a>
         </p>
       
 
@@ -835,18 +905,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ionic</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ionic2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
@@ -867,10 +925,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">linux,kvm,虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
@@ -879,19 +933,31 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ionic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ionic2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">linux,kvm,虚拟机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -915,6 +981,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
@@ -923,11 +993,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">Solr</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Solr</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
             
             <div class="clearfix"></div>
