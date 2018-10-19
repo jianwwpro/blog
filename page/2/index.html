@@ -147,6 +147,136 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-solr中ik分词自定义词库和停止词" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/27/solr中ik分词自定义词库和停止词/">solr中ik分词自定义词库和停止词</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/27/solr中ik分词自定义词库和停止词/" class="archive-article-date">
+  	<time datetime="2017-03-27T10:04:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1、在solr的web中：solr-webapp-webapp-WEB-INF目录下新增一个文件夹：classes"><a href="#1、在solr的web中：solr-webapp-webapp-WEB-INF目录下新增一个文件夹：classes" class="headerlink" title="1、在solr的web中：solr-webapp/webapp/WEB-INF目录下新增一个文件夹：classes"></a>1、在solr的web中：solr-webapp/webapp/WEB-INF目录下新增一个文件夹：classes</h3><h3 id="2、新增一个文件：IKAnalyzer-cfg-xml。xml内如如下"><a href="#2、新增一个文件：IKAnalyzer-cfg-xml。xml内如如下" class="headerlink" title="2、新增一个文件：IKAnalyzer.cfg.xml。xml内如如下"></a>2、新增一个文件：IKAnalyzer.cfg.xml。xml内如如下</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;  </div><div class="line"><span class="meta">&lt;!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"&gt;</span>    </div><div class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span>    </div><div class="line">    <span class="tag">&lt;<span class="name">comment</span>&gt;</span>IK Analyzer 扩展配置<span class="tag">&lt;/<span class="name">comment</span>&gt;</span>  </div><div class="line">    <span class="comment">&lt;!--用户可以在这里配置自己的扩展字典 my.dic即为扩展分词库，分词库可以为多个，以分号隔开即可。停止词库一样--&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"ext_dict"</span>&gt;</span>my.dic;<span class="tag">&lt;/<span class="name">entry</span>&gt;</span>   </div><div class="line">      </div><div class="line">    <span class="comment">&lt;!--用户可以在这里配置自己的扩展停止词字典--&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"ext_stopwords"</span>&gt;</span>stopword.dic;<span class="tag">&lt;/<span class="name">entry</span>&gt;</span>   </div><div class="line">      </div><div class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="3、classes下新增my-dic文件。文件格式必需是：无BOM的UTF-8格式-输入自己的词。"><a href="#3、classes下新增my-dic文件。文件格式必需是：无BOM的UTF-8格式-输入自己的词。" class="headerlink" title="3、classes下新增my.dic文件。文件格式必需是：无BOM的UTF-8格式,输入自己的词。"></a>3、classes下新增my.dic文件。文件格式必需是：无BOM的UTF-8格式,输入自己的词。</h3><h3 id="4、classes下新增文件stopword-dic。文件格式必需是：无BOM的UTF-8格式。"><a href="#4、classes下新增文件stopword-dic。文件格式必需是：无BOM的UTF-8格式。" class="headerlink" title="4、classes下新增文件stopword.dic。文件格式必需是：无BOM的UTF-8格式。"></a>4、classes下新增文件stopword.dic。文件格式必需是：无BOM的UTF-8格式。</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Solr</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/27/solr中ik分词自定义词库和停止词/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Linux日常操作命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/06/Linux日常操作命令/">Linux日常操作命令</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/06/Linux日常操作命令/" class="archive-article-date">
+  	<time datetime="2017-03-06T08:49:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="挂载共享"><a href="#挂载共享" class="headerlink" title="挂载共享"></a>挂载共享</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mount -t smbfs //wangjianwu:artron@192.168.82.13/anbo/ /Users/jsb/Documents/WorkSpace/data/</div><div class="line">mount -t smbfs //wangjianwu:jianwu@192.168.82.100/artbase/artbase/artbase-jiami /Users/jsb/Documents/WorkSpace/projects/artbase/</div></pre></td></tr></table></figure>
+<h2 id="rsync在ssh模式下的断点续传"><a href="#rsync在ssh模式下的断点续传" class="headerlink" title="rsync在ssh模式下的断点续传"></a>rsync在ssh模式下的断点续传</h2><blockquote>
+<p>由于要从服务器拉去mongodb的数据到本地处理，但是mongodb备份文件过大，使用ssh进行传输时，出现stalled后断开。故使用rsync继续断点续传</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rsync -P -e &apos;ssh -p 1056&apos; -r root@cy:/data/backup/marc_book/marc_book .</div></pre></td></tr></table></figure>
+<p>-P 显示进度<br>-r 递归同步文件夹下的文件<br>ssh -p 指定ssh端口 </p>
+<h2 id="备份mongodb数据库"><a href="#备份mongodb数据库" class="headerlink" title="备份mongodb数据库"></a>备份mongodb数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/mongodb/bin/mongodump -d marc_book -o .</div></pre></td></tr></table></figure>
+<h2 id="恢复mongodb数据库"><a href="#恢复mongodb数据库" class="headerlink" title="恢复mongodb数据库"></a>恢复mongodb数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongorestore -d marc_book marc_book/</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/06/Linux日常操作命令/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-maven遇到的坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -348,19 +478,19 @@
 
 
   
-    <article id="post-Ionic2学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-React0-14发布拆分react和React-dom" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/09/Ionic2学习笔记/">Ionic2学习笔记</a>
+      <a class="article-title" href="/2016/09/09/React0-14发布拆分react和React-dom/">React0.14发布拆分react和React-dom</a>
     </h1>
   
 
         
-        <a href="/2016/09/09/Ionic2学习笔记/" class="archive-article-date">
+        <a href="/2016/09/09/React0-14发布拆分react和React-dom/" class="archive-article-date">
   	<time datetime="2016-09-09T06:21:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-09</time>
 </a>
         
@@ -368,35 +498,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-Action-Sheets"><a href="#1-Action-Sheets" class="headerlink" title="1. Action Sheets"></a>1. Action Sheets</h2><p>role: descructive、cancel<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.actionSheetController.create(&#123;</div><div class="line">    title:<span class="string">'xxx'</span>,</div><div class="line">    buttons:[</div><div class="line">        &#123;</div><div class="line">            text:<span class="string">''</span>,</div><div class="line">            role:<span class="string">'descructive'</span></div><div class="line">        &#125;</div><div class="line">        ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<h2 id="2-Alerts"><a href="#2-Alerts" class="headerlink" title="2. Alerts"></a>2. Alerts</h2><h3 id="Basic-Alert"><a href="#Basic-Alert" class="headerlink" title="Basic Alert"></a>Basic Alert</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.alertController.create(&#123;</div><div class="line">    title:<span class="string">'xxx'</span>,</div><div class="line">    subTitle:<span class="string">'xxx'</span>,</div><div class="line">    buttons:[<span class="string">'OK'</span>]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h3 id="Prompt-Alert"><a href="#Prompt-Alert" class="headerlink" title="Prompt Alert"></a>Prompt Alert</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> propmt = <span class="keyword">this</span>.alertController.create(&#123;</div><div class="line">    title: <span class="string">'Login'</span>,</div><div class="line">    message:<span class="string">''</span>,</div><div class="line">    inputs:[</div><div class="line">        &#123;</div><div class="line">            name:<span class="string">'title'</span>,</div><div class="line">            placehodler:<span class="string">'enter title'</span></div><div class="line">        &#125;,</div><div class="line">    ],</div><div class="line">    buttons:[</div><div class="line">        &#123;</div><div class="line">            text:<span class="string">'OK'</span>,</div><div class="line">            handler:data=&gt;&#123;</div><div class="line">                <span class="built_in">console</span>.log(data);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;);</div><div class="line">propmt.present();</div></pre></td></tr></table></figure>
-<h3 id="Confirmation-Alerts"><a href="#Confirmation-Alerts" class="headerlink" title="Confirmation Alerts"></a>Confirmation Alerts</h3><p>类似上面</p>
-<h3 id="Radio"><a href="#Radio" class="headerlink" title="Radio"></a>Radio</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> radioAlert = <span class="keyword">this</span>.alertController.create();</div><div class="line">radioAlert.setTitle(<span class="string">"title"</span>);</div><div class="line">radioAlert.addInput(&#123;</div><div class="line">    type:<span class="string">'radio'</span>,</div><div class="line">    label:<span class="string">'label'</span>,</div><div class="line">    value:<span class="string">'value'</span>,</div><div class="line">    checked:<span class="literal">true</span></div><div class="line">&#125;);</div><div class="line">radioAlert.addButton(<span class="string">'cancel'</span>);</div><div class="line">radioAlert.addButton(&#123;</div><div class="line">    text:<span class="string">'OK'</span>,</div><div class="line">    handler:data=&gt;&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">radioAlert.present();</div></pre></td></tr></table></figure>
-<h3 id="Checkbox"><a href="#Checkbox" class="headerlink" title="Checkbox"></a>Checkbox</h3><p>与radio alert类似，type为checkbox</p>
-<h2 id="4-Badges"><a href="#4-Badges" class="headerlink" title="4.Badges"></a>4.Badges</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ion-item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-icon</span> <span class="attr">name</span>=<span class="string">"logo=twitter"</span> <span class="attr">item-left</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-icon</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-badge</span> <span class="attr">item-right</span>&gt;</span>260k<span class="tag">&lt;/<span class="name">ion-badge</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ion-item</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">ion-badge</span> <span class="attr">secondary</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-badge</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="5-buttons"><a href="#5-buttons" class="headerlink" title="5. buttons"></a>5. buttons</h2><ul>
-<li>default</li>
-<li>outline</li>
-<li>clear</li>
-<li>round</li>
-<li>block</li>
-<li>full</li>
-<li>button size : small large</li>
-<li><p>icon buttons</p>
-  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-icon</span> <span class="attr">name</span>=<span class="string">'home'</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-icon</span>&gt;</span></div><div class="line">    Left Icon</div><div class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>floating button</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;button fab&gt;FAB&lt;/button&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>buttons in components</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ion-header&gt;ion-buttons[start]&gt;button&gt;icon-icon[name=&apos;contact&apos;]</div><div class="line">            ion-buttons[end]&gt;button&gt;icon-icon[name=&apos;search&apos;]</div><div class="line">ion-list&gt;ion-item&gt;button[outline][item-right]&gt;ion-icon[name=&quot;star&quot;]</div></pre></td></tr></table></figure>
-</li>
+        <p>React 从0.14 开始有一些重要的改进，主要是简化代码编写，提供更好的支持环境，比如 React Native。<br>原本的 API 在 v0.14 版中仍然可以使用，只不过会有 警告，在 v0.15 版的时候完全移除。</p>
+<hr>
+<h3 id="Reactjs-0-14-获取："><a href="#Reactjs-0-14-获取：" class="headerlink" title="Reactjs 0.14 获取："></a>Reactjs 0.14 获取：</h3><ul>
+<li>React<br>Dev build with warnings: <a href="https://fb.me/react-0.14.0.js" target="_blank" rel="external">https://fb.me/react-0.14.0.js</a><br>Minified build for production: <a href="https://fb.me/react-0.14.0.min.js" target="_blank" rel="external">https://fb.me/react-0.14.0.min.js</a></li>
+<li>React with Add-Ons<br>Dev build with warnings: <a href="https://fb.me/react-with-addons-0.14.0.js" target="_blank" rel="external">https://fb.me/react-with-addons-0.14.0.js</a><br>Minified build for production: <a href="https://fb.me/react-with-addons-0.14.0.min.js" target="_blank" rel="external">https://fb.me/react-with-addons-0.14.0.min.js</a></li>
+<li>React DOM (include React in the page before React DOM)<br>Dev build with warnings: <a href="https://fb.me/react-dom-0.14.0.js" target="_blank" rel="external">https://fb.me/react-dom-0.14.0.js</a><br>Minified build for production: <a href="https://fb.me/react-dom-0.14.0.min.js" target="_blank" rel="external">https://fb.me/react-dom-0.14.0.min.js</a></li>
 </ul>
-<h2 id="6-Cards"><a href="#6-Cards" class="headerlink" title="6. Cards"></a>6. Cards</h2><h3 id="Basic-Cards"><a href="#Basic-Cards" class="headerlink" title="Basic Cards"></a>Basic Cards</h3><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ion-card&gt;ion-card-header</div><div class="line">        &gt;ion-card-content</div></pre></td></tr></table></figure>
-</code></pre><h3 id="Card-Headers"><a href="#Card-Headers" class="headerlink" title="Card Headers"></a>Card Headers</h3><h3 id="List-In-Cards"><a href="#List-In-Cards" class="headerlink" title="List In Cards"></a>List In Cards</h3><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ion-card&gt;ion-card-header</div><div class="line">        &gt;ion-list&gt;button[ion-item]&gt;ion-icon[name='cart'][item-left]shopping</div></pre></td></tr></table></figure>
-</code></pre><h3 id="Images-In-Cards"><a href="#Images-In-Cards" class="headerlink" title="Images In Cards"></a>Images In Cards</h3><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ion-card&gt;img</div><div class="line">        &gt;ion-card-content&gt;ion-card-title</div><div class="line">                         &gt;p</div></pre></td></tr></table></figure>
-</code></pre>
+<h4 id="React-分成两个包"><a href="#React-分成两个包" class="headerlink" title="React  分成两个包"></a>React  分成两个包</h4><p>原本的 <figure class="highlight plain"><figcaption><span>package``` 被拆分为 ```react``` 及 ```react-dom``` 两个 package。 </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### react包</div></pre></td></tr></table></figure></p>
+<p>createElement<br>createClass<br>Component<br>PropTypes<br>Children<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">####  react-dom包 </div><div class="line">```render</div><div class="line">unmountComponentAtNode</div><div class="line">findDOMNode</div><div class="line">server/renderToString</div><div class="line">server/renderToStaticMarkup</div></pre></td></tr></table></figure></p>
+<h3 id="组件写法"><a href="#组件写法" class="headerlink" title="组件写法"></a>组件写法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import React,&#123;Component&#125; from &apos;react&apos;</div><div class="line">import &#123;render&#125; from &apos;react-dom&apos;</div><div class="line">class HelloWorld extends Component&#123;</div><div class="line">	render()&#123;</div><div class="line">    	return (</div><div class="line">			&lt;div&gt;hello world&lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">render(</div><div class="line">	&lt;HelloWorld /&gt;</div><div class="line">)</div></pre></td></tr></table></figure>
+<h3 id="React-addons-下工具也变成独立包"><a href="#React-addons-下工具也变成独立包" class="headerlink" title="React.addons 下工具也变成独立包"></a>React.addons 下工具也变成独立包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">react-addons-clone-with-props</div><div class="line">react-addons-create-fragment</div><div class="line">react-addons-css-transition-group</div><div class="line">react-addons-linked-state-mixin</div><div class="line">react-addons-perf</div><div class="line">react-addons-pure-render-mixin</div><div class="line">react-addons-shallow-compare</div><div class="line">react-addons-test-utils</div><div class="line">react-addons-transition-group</div><div class="line">react-addons-update</div><div class="line">ReactDOM.unstable_batchedUpdates （在 react-dom 中）</div></pre></td></tr></table></figure>
+<p>refs 变成了真正的 DOM 节点</p>
+<p>当我们需要获取 React 组件上某个 DOM 节点时，React 提供了 refs 方法方便我们快速引用。为了方便我们使用，React 还「贴心」地对 refs 做了一层封装，使用 this.refs.xxx.getDOMNode() 或 React.findDOMNode(this.refs.xxx) 可以获取到真正的 DOM 节点。</p>
+<p>结果发现大家真正需要的就是 DOM 节点本身，封装了半天完全是浪费感情。</p>
+<p>于是在 v0.14 版中 refs 指向的就是 DOM 节点，同时也会保留 .getDOMNode() 方法（带 warning），最终在 v0.15 版中去除该方法。</p>
+<p>var Zoo = React.createClass({<br>  render: function() {<br>    return <div>Giraffe name: <input ref="giraffe"></div>;<br>  },<br>  showName: function() {<br>    // 之前：<br>    // var input = this.refs.giraffe.getDOMNode();<br>    //<br>    // v0.14 版：<br>    var input = this.refs.giraffe;<br>    alert(input.value);<br>  }<br>});<br>需要注意的是，如果你给自定义的 React 组件（除了 DOM 自带的标签，如 div、p 等）添加 refs，表现和行为与之前一致。</p>
+<p>无状态的函数式组件</p>
+<p>其实在实际业务系统中使用 React 时，我们会写很多只有 render 方法的 React 组件。为了减少冗余的代码量，React v0.14 中引入了 无状态的函数式组件（Stateless functional components） 的概念。先看看长啥样：</p>
+<p>// 一个 ES6 箭头函数定义的无状态函数式组件var Aquarium = (props) =&gt; {<br>  var fish = getFish(props.species);  return <tank>{fish}</tank>;<br>};// 或者更加简化的版本var Aquarium = ({species}) =&gt; (<br>  <tank><br>    {getFish(species)}<br>  </tank><br>);// 最终使用方式: <aquarium species="rainbowfish"><br>可以看到，没有 React.createClass，也没有显式的 render，写起来更加轻松了。</aquarium></p>
+<p>当然，新语法也有需要注意的地方：</p>
+<p>没有任何生命周期方法，如 componentDidMount 等<br>不能添加 refs<br>可以通过给函数添加属性定义 propTypes 和 defaultProps<br>react-tools 及 JSXTransformer.js 已弃用</p>
+<p>拥抱 Babel 吧同学们！</p>
+<p>编译器优化</p>
+<p>在 Babel 5.8.23 及更新的版本中，新增了两项专门针对 React 的优化配置，仅推荐在生产环境中开启，因为优化后会导致代码的报错更加扑朔迷离（本来报错就已经很难定位了……）。</p>
+<p>optimisation.react.inlineElements 将 JSX 元素转换为对象而非使用 React.createElement<br>optimisation.react.constantElements 针对拥有完全静态子树的组件，将其创建过程提升到顶层（Top level），从而减少对 React.createElement 方法的调用<br>其它变化</p>
+<p>React.initializeTouchEvents 已弃用<br>由于 refs 的相关变化（见上文），TestUtils.findAllInRenderedTree 及相关的方法不再接受 DOM 组件作为参数，只能传入自定义的 React 组件<br>props 一旦创建永远不可修改，因此 .setProps 及 .replaceProps 已废弃<br>children 不可以传对象类型，推荐传入数组，或使用 React.createFragment 方法（其实就是转换为了数组）<br>React.addons.classSet 已经移除，使用 classnames package 替代<br>将要发生的改变</p>
+<p>在 v0.15 版中，下列内容将会发生改变：</p>
+<p>this.getDOMNode() 方法将会废弃，推荐使用 React.findDOMNode()<br>setProps 及 replaceProps 将会废弃<br>React.addons.cloneWithProps 已废弃，推荐使用 React.cloneElements，新方法不会自动 merge className 及 style<br>React.addons.CSSTransitionGroup 将不再监听 transition 事件，因此使用者需要显式指定动画的 timeout，如：transitionEnterTimeout={500}。<br>ES6 组件类必须 extends React.Component（如果使用 React.createClass 语法则不受影响）<br>在多次 render 中重用并改变 style 对象已经被弃用（这一点不是太明白，中心思想貌似是不要 mutate object？）</p>
+
       
 
       
@@ -409,15 +539,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ionic</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ionic2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		
 		</ul>
@@ -427,7 +553,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/09/09/Ionic2学习笔记/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/09/09/React0-14发布拆分react和React-dom/">展开全文 >></a>
         </p>
       
 
@@ -516,19 +642,19 @@
 
 
   
-    <article id="post-React0-14发布拆分react和React-dom" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Ionic2学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/09/React0-14发布拆分react和React-dom/">React0.14发布拆分react和React-dom</a>
+      <a class="article-title" href="/2016/09/09/Ionic2学习笔记/">Ionic2学习笔记</a>
     </h1>
   
 
         
-        <a href="/2016/09/09/React0-14发布拆分react和React-dom/" class="archive-article-date">
+        <a href="/2016/09/09/Ionic2学习笔记/" class="archive-article-date">
   	<time datetime="2016-09-09T06:21:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-09</time>
 </a>
         
@@ -536,35 +662,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>React 从0.14 开始有一些重要的改进，主要是简化代码编写，提供更好的支持环境，比如 React Native。<br>原本的 API 在 v0.14 版中仍然可以使用，只不过会有 警告，在 v0.15 版的时候完全移除。</p>
-<hr>
-<h3 id="Reactjs-0-14-获取："><a href="#Reactjs-0-14-获取：" class="headerlink" title="Reactjs 0.14 获取："></a>Reactjs 0.14 获取：</h3><ul>
-<li>React<br>Dev build with warnings: <a href="https://fb.me/react-0.14.0.js" target="_blank" rel="external">https://fb.me/react-0.14.0.js</a><br>Minified build for production: <a href="https://fb.me/react-0.14.0.min.js" target="_blank" rel="external">https://fb.me/react-0.14.0.min.js</a></li>
-<li>React with Add-Ons<br>Dev build with warnings: <a href="https://fb.me/react-with-addons-0.14.0.js" target="_blank" rel="external">https://fb.me/react-with-addons-0.14.0.js</a><br>Minified build for production: <a href="https://fb.me/react-with-addons-0.14.0.min.js" target="_blank" rel="external">https://fb.me/react-with-addons-0.14.0.min.js</a></li>
-<li>React DOM (include React in the page before React DOM)<br>Dev build with warnings: <a href="https://fb.me/react-dom-0.14.0.js" target="_blank" rel="external">https://fb.me/react-dom-0.14.0.js</a><br>Minified build for production: <a href="https://fb.me/react-dom-0.14.0.min.js" target="_blank" rel="external">https://fb.me/react-dom-0.14.0.min.js</a></li>
+        <h2 id="1-Action-Sheets"><a href="#1-Action-Sheets" class="headerlink" title="1. Action Sheets"></a>1. Action Sheets</h2><p>role: descructive、cancel<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.actionSheetController.create(&#123;</div><div class="line">    title:<span class="string">'xxx'</span>,</div><div class="line">    buttons:[</div><div class="line">        &#123;</div><div class="line">            text:<span class="string">''</span>,</div><div class="line">            role:<span class="string">'descructive'</span></div><div class="line">        &#125;</div><div class="line">        ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h2 id="2-Alerts"><a href="#2-Alerts" class="headerlink" title="2. Alerts"></a>2. Alerts</h2><h3 id="Basic-Alert"><a href="#Basic-Alert" class="headerlink" title="Basic Alert"></a>Basic Alert</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.alertController.create(&#123;</div><div class="line">    title:<span class="string">'xxx'</span>,</div><div class="line">    subTitle:<span class="string">'xxx'</span>,</div><div class="line">    buttons:[<span class="string">'OK'</span>]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="Prompt-Alert"><a href="#Prompt-Alert" class="headerlink" title="Prompt Alert"></a>Prompt Alert</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> propmt = <span class="keyword">this</span>.alertController.create(&#123;</div><div class="line">    title: <span class="string">'Login'</span>,</div><div class="line">    message:<span class="string">''</span>,</div><div class="line">    inputs:[</div><div class="line">        &#123;</div><div class="line">            name:<span class="string">'title'</span>,</div><div class="line">            placehodler:<span class="string">'enter title'</span></div><div class="line">        &#125;,</div><div class="line">    ],</div><div class="line">    buttons:[</div><div class="line">        &#123;</div><div class="line">            text:<span class="string">'OK'</span>,</div><div class="line">            handler:data=&gt;&#123;</div><div class="line">                <span class="built_in">console</span>.log(data);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;);</div><div class="line">propmt.present();</div></pre></td></tr></table></figure>
+<h3 id="Confirmation-Alerts"><a href="#Confirmation-Alerts" class="headerlink" title="Confirmation Alerts"></a>Confirmation Alerts</h3><p>类似上面</p>
+<h3 id="Radio"><a href="#Radio" class="headerlink" title="Radio"></a>Radio</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> radioAlert = <span class="keyword">this</span>.alertController.create();</div><div class="line">radioAlert.setTitle(<span class="string">"title"</span>);</div><div class="line">radioAlert.addInput(&#123;</div><div class="line">    type:<span class="string">'radio'</span>,</div><div class="line">    label:<span class="string">'label'</span>,</div><div class="line">    value:<span class="string">'value'</span>,</div><div class="line">    checked:<span class="literal">true</span></div><div class="line">&#125;);</div><div class="line">radioAlert.addButton(<span class="string">'cancel'</span>);</div><div class="line">radioAlert.addButton(&#123;</div><div class="line">    text:<span class="string">'OK'</span>,</div><div class="line">    handler:data=&gt;&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">radioAlert.present();</div></pre></td></tr></table></figure>
+<h3 id="Checkbox"><a href="#Checkbox" class="headerlink" title="Checkbox"></a>Checkbox</h3><p>与radio alert类似，type为checkbox</p>
+<h2 id="4-Badges"><a href="#4-Badges" class="headerlink" title="4.Badges"></a>4.Badges</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ion-item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-icon</span> <span class="attr">name</span>=<span class="string">"logo=twitter"</span> <span class="attr">item-left</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-icon</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-badge</span> <span class="attr">item-right</span>&gt;</span>260k<span class="tag">&lt;/<span class="name">ion-badge</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ion-item</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">ion-badge</span> <span class="attr">secondary</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-badge</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="5-buttons"><a href="#5-buttons" class="headerlink" title="5. buttons"></a>5. buttons</h2><ul>
+<li>default</li>
+<li>outline</li>
+<li>clear</li>
+<li>round</li>
+<li>block</li>
+<li>full</li>
+<li>button size : small large</li>
+<li><p>icon buttons</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-icon</span> <span class="attr">name</span>=<span class="string">'home'</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-icon</span>&gt;</span></div><div class="line">    Left Icon</div><div class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>floating button</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;button fab&gt;FAB&lt;/button&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>buttons in components</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ion-header&gt;ion-buttons[start]&gt;button&gt;icon-icon[name=&apos;contact&apos;]</div><div class="line">            ion-buttons[end]&gt;button&gt;icon-icon[name=&apos;search&apos;]</div><div class="line">ion-list&gt;ion-item&gt;button[outline][item-right]&gt;ion-icon[name=&quot;star&quot;]</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<h4 id="React-分成两个包"><a href="#React-分成两个包" class="headerlink" title="React  分成两个包"></a>React  分成两个包</h4><p>原本的 <figure class="highlight plain"><figcaption><span>package``` 被拆分为 ```react``` 及 ```react-dom``` 两个 package。 </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### react包</div></pre></td></tr></table></figure></p>
-<p>createElement<br>createClass<br>Component<br>PropTypes<br>Children<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">####  react-dom包 </div><div class="line">```render</div><div class="line">unmountComponentAtNode</div><div class="line">findDOMNode</div><div class="line">server/renderToString</div><div class="line">server/renderToStaticMarkup</div></pre></td></tr></table></figure></p>
-<h3 id="组件写法"><a href="#组件写法" class="headerlink" title="组件写法"></a>组件写法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import React,&#123;Component&#125; from &apos;react&apos;</div><div class="line">import &#123;render&#125; from &apos;react-dom&apos;</div><div class="line">class HelloWorld extends Component&#123;</div><div class="line">	render()&#123;</div><div class="line">    	return (</div><div class="line">			&lt;div&gt;hello world&lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">render(</div><div class="line">	&lt;HelloWorld /&gt;</div><div class="line">)</div></pre></td></tr></table></figure>
-<h3 id="React-addons-下工具也变成独立包"><a href="#React-addons-下工具也变成独立包" class="headerlink" title="React.addons 下工具也变成独立包"></a>React.addons 下工具也变成独立包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">react-addons-clone-with-props</div><div class="line">react-addons-create-fragment</div><div class="line">react-addons-css-transition-group</div><div class="line">react-addons-linked-state-mixin</div><div class="line">react-addons-perf</div><div class="line">react-addons-pure-render-mixin</div><div class="line">react-addons-shallow-compare</div><div class="line">react-addons-test-utils</div><div class="line">react-addons-transition-group</div><div class="line">react-addons-update</div><div class="line">ReactDOM.unstable_batchedUpdates （在 react-dom 中）</div></pre></td></tr></table></figure>
-<p>refs 变成了真正的 DOM 节点</p>
-<p>当我们需要获取 React 组件上某个 DOM 节点时，React 提供了 refs 方法方便我们快速引用。为了方便我们使用，React 还「贴心」地对 refs 做了一层封装，使用 this.refs.xxx.getDOMNode() 或 React.findDOMNode(this.refs.xxx) 可以获取到真正的 DOM 节点。</p>
-<p>结果发现大家真正需要的就是 DOM 节点本身，封装了半天完全是浪费感情。</p>
-<p>于是在 v0.14 版中 refs 指向的就是 DOM 节点，同时也会保留 .getDOMNode() 方法（带 warning），最终在 v0.15 版中去除该方法。</p>
-<p>var Zoo = React.createClass({<br>  render: function() {<br>    return <div>Giraffe name: <input ref="giraffe"></div>;<br>  },<br>  showName: function() {<br>    // 之前：<br>    // var input = this.refs.giraffe.getDOMNode();<br>    //<br>    // v0.14 版：<br>    var input = this.refs.giraffe;<br>    alert(input.value);<br>  }<br>});<br>需要注意的是，如果你给自定义的 React 组件（除了 DOM 自带的标签，如 div、p 等）添加 refs，表现和行为与之前一致。</p>
-<p>无状态的函数式组件</p>
-<p>其实在实际业务系统中使用 React 时，我们会写很多只有 render 方法的 React 组件。为了减少冗余的代码量，React v0.14 中引入了 无状态的函数式组件（Stateless functional components） 的概念。先看看长啥样：</p>
-<p>// 一个 ES6 箭头函数定义的无状态函数式组件var Aquarium = (props) =&gt; {<br>  var fish = getFish(props.species);  return <tank>{fish}</tank>;<br>};// 或者更加简化的版本var Aquarium = ({species}) =&gt; (<br>  <tank><br>    {getFish(species)}<br>  </tank><br>);// 最终使用方式: <aquarium species="rainbowfish"><br>可以看到，没有 React.createClass，也没有显式的 render，写起来更加轻松了。</aquarium></p>
-<p>当然，新语法也有需要注意的地方：</p>
-<p>没有任何生命周期方法，如 componentDidMount 等<br>不能添加 refs<br>可以通过给函数添加属性定义 propTypes 和 defaultProps<br>react-tools 及 JSXTransformer.js 已弃用</p>
-<p>拥抱 Babel 吧同学们！</p>
-<p>编译器优化</p>
-<p>在 Babel 5.8.23 及更新的版本中，新增了两项专门针对 React 的优化配置，仅推荐在生产环境中开启，因为优化后会导致代码的报错更加扑朔迷离（本来报错就已经很难定位了……）。</p>
-<p>optimisation.react.inlineElements 将 JSX 元素转换为对象而非使用 React.createElement<br>optimisation.react.constantElements 针对拥有完全静态子树的组件，将其创建过程提升到顶层（Top level），从而减少对 React.createElement 方法的调用<br>其它变化</p>
-<p>React.initializeTouchEvents 已弃用<br>由于 refs 的相关变化（见上文），TestUtils.findAllInRenderedTree 及相关的方法不再接受 DOM 组件作为参数，只能传入自定义的 React 组件<br>props 一旦创建永远不可修改，因此 .setProps 及 .replaceProps 已废弃<br>children 不可以传对象类型，推荐传入数组，或使用 React.createFragment 方法（其实就是转换为了数组）<br>React.addons.classSet 已经移除，使用 classnames package 替代<br>将要发生的改变</p>
-<p>在 v0.15 版中，下列内容将会发生改变：</p>
-<p>this.getDOMNode() 方法将会废弃，推荐使用 React.findDOMNode()<br>setProps 及 replaceProps 将会废弃<br>React.addons.cloneWithProps 已废弃，推荐使用 React.cloneElements，新方法不会自动 merge className 及 style<br>React.addons.CSSTransitionGroup 将不再监听 transition 事件，因此使用者需要显式指定动画的 timeout，如：transitionEnterTimeout={500}。<br>ES6 组件类必须 extends React.Component（如果使用 React.createClass 语法则不受影响）<br>在多次 render 中重用并改变 style 对象已经被弃用（这一点不是太明白，中心思想貌似是不要 mutate object？）</p>
-
+<h2 id="6-Cards"><a href="#6-Cards" class="headerlink" title="6. Cards"></a>6. Cards</h2><h3 id="Basic-Cards"><a href="#Basic-Cards" class="headerlink" title="Basic Cards"></a>Basic Cards</h3><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ion-card&gt;ion-card-header</div><div class="line">        &gt;ion-card-content</div></pre></td></tr></table></figure>
+</code></pre><h3 id="Card-Headers"><a href="#Card-Headers" class="headerlink" title="Card Headers"></a>Card Headers</h3><h3 id="List-In-Cards"><a href="#List-In-Cards" class="headerlink" title="List In Cards"></a>List In Cards</h3><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ion-card&gt;ion-card-header</div><div class="line">        &gt;ion-list&gt;button[ion-item]&gt;ion-icon[name='cart'][item-left]shopping</div></pre></td></tr></table></figure>
+</code></pre><h3 id="Images-In-Cards"><a href="#Images-In-Cards" class="headerlink" title="Images In Cards"></a>Images In Cards</h3><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ion-card&gt;img</div><div class="line">        &gt;ion-card-content&gt;ion-card-title</div><div class="line">                         &gt;p</div></pre></td></tr></table></figure>
+</code></pre>
       
 
       
@@ -577,11 +703,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ionic</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ionic2</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
         		</li>
       		
 		</ul>
@@ -591,7 +721,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/09/09/React0-14发布拆分react和React-dom/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/09/09/Ionic2学习笔记/">展开全文 >></a>
         </p>
       
 
@@ -750,71 +880,9 @@
 
 
   
-    <article id="post-博客开通" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/04/博客开通/">博客开通</a>
-    </h1>
-  
-
-        
-        <a href="/2016/08/04/博客开通/" class="archive-article-date">
-  	<time datetime="2016-08-04T00:30:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>成长需要记录，需要沉淀。我的云笔记里已经放了各种分类的学习笔记、生活记录，但是我想将我自己能分享出来的记录都分享出来，为我们大家的搜索引擎贡献一点点的力量。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/04/博客开通/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -913,26 +981,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CMYK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">图片</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ionic</a>
               </li>
              
@@ -945,11 +993,35 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">CMYK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">图片</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">linux,kvm,虚拟机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -977,15 +1049,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">activiti</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redux</a>
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+                <a href="javascript:void(0)" class="js-tag color4">以太坊</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gas</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -993,11 +1073,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Solr</a>
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Solr</a>
               </li>
             
             <div class="clearfix"></div>
